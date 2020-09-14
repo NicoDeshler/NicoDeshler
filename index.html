@@ -24,7 +24,7 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-  background-image: url('/Assets/Images/Sailing-portrait.jpg');
+  background-image: url('w3images/parallax1.jpg');
   min-height: 100%;
 }
 
@@ -147,40 +147,37 @@ body, html {
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h3 class="w3-center">Projects</h3>
-  <p class="w3-center"><em>Here is some of my latest work.<br> Click on the image headings to access content</em></p><br>
+  <p class="w3-center"><em>Here is some of my latest work.<br> Click on the image headings to access content or click on the images themselves for a snippet!</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+
+  <!-- ShaderToy Boids Algorithm -->
   <div class="w3-row-padding w3-center">
     <div class="w3-col m3">
       <A HREF="https://www.shadertoy.com/view/3dBfRh"> Shadertoy: Boids Alorithm</A>
-          <video width="200" controls>
-          <source src="Assets/Videos/Boidified.mp4" style="width:100%" type="video/mp4">
-          <!--<source src="mov_bbb.ogg" type="video/ogg">-->
-          Your browser does not support HTML video.
-        </video>
+      <img src="Assets/Videos/Boidified.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Flocking Boids">
+    </div>
+    <!-- ShaderToy 2D Gravity -->
+    <div class="w3-col m3">
+          <A HREF="https://www.shadertoy.com/view/ttsBRj"> ShaderToy: 2D Gravity</A>
+          <img src="Assets/Videos/2DGravity.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="2D N-Body Gravitational Dynamics ">
+
+    </div>
+    <!-- Computational Imaging and DiffuserCam -->
+    <div class="w3-col m3">
+        <A HREF ="Assets/PDFs/Multi-Sensor DiffuserCam - COSI_OSA_2020.pdf">Multi-Sensor DiffuserCam</A>
+        <img src="Assets/Images/MSDiffuserCam_cosi2020.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Multi-Sensor DiffuserCam Reconstruction Survey">
     </div>
 
     <div class="w3-col m3">
-          <A HREF="https://www.shadertoy.com/view/ttsBRj"> Shadertoy: 2D Gravity Simulator</A>
-          <video width="200" controls>
-          <source src="Assets/Videos/2DGravity.mp4" style="width:100%" type="video/mp4">
-          <!--<source src="mov_bbb.ogg" type="video/ogg">-->
-          Your browser does not support HTML video.
-        </video>
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
+      <A HREF ="https://dangeng.github.io/184-final-project/?fbclid=IwAR3vLInLS8HQrFwdMUgAOKZfvI3dOxV57l-XYLD0xmRMZYuc90GGzIRaKsc">Bubble Simulator</A>
+      <img src="Assets/Videos/BubbleSimulator.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fluid Flow and Thin Film Interference">
     </div>
   </div>
 
   <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="/w3images/p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
+      <A HREF ="Assets/PDFs/Physics_111A_Final_Project_2019.pdf">Cymatics and Waves</A>
+      <img src="Assets/Images/Phys111AData.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Wave Propagation in Soap Bubble Membranes">
     </div>
 
     <div class="w3-col m3">
