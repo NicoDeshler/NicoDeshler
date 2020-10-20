@@ -107,7 +107,7 @@ body, html {
   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
   <!-- RESEARCH  -->
   <h3 class="w3-center">RESEARCH</h3>
-  <p class="w3-center">Here are some of my research involvements.<br> Click on the image headings to access publications on this content or click on the images themselves for a project summary!<br></p>
+  <p class="w3-center">Here are some of my research involvements.<br> Click on the image headings to access publications on this content!<br></p>
 
   <!-- Responsive Grid  -->
   <div class="w3-row-padding w3-center">
@@ -115,8 +115,7 @@ body, html {
     <!-- Computational Imaging and DiffuserCam -->
     <div class="w3-col l4">
         <A HREF ="Assets/PDFs/COSI-2020-Multi-sensor lensless imaging synthetic large-format sensing with disjoint sensor array.pdf">Multi-Sensor DiffuserCam</A>
-        <img src="Assets/Videos/DiffuserCamRecon.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Multi-Sensor DiffuserCam Reconstruction Survey">
-        <p>A description of the work goes here</p>
+        <img src="Assets/Videos/DiffuserCamRecon.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Mask-based computational cameras are uniquely capable of recovering 3D information from a single multiplexed 2D sensor measurement. This research seeks to augment the 3D reconstruction volumes of mask-based cameras by employing multi-sensor arrays to synthesize an enlarged sensing area. Under this objective, my work has primarily addressed theory, simulation, and prototyping. I derived a guiding mathematical model motivating our exploration of large-sensor platforms within a ray-optics framework. Improvements predicted by our model include enhanced voxel resolution and extended depth-of-field for 3D reconstruction volumes. I also wrote data pipelines that interface Matlab and Python with Zemax OpticStudio to explore the design space for sensor arrays. These pipelines characterized design performance by comparing simulated 3D scenes and measurements with the corresponding reconstructions. Informed by these simulated heuristics, we developed a prototype camera featuring a 2x2 sensor array which successfully recovers wide-field images with merely 8.6% of the data required for a conventional lensed system. To achieve this, I adapted existing DiffuserCam reconstruction algorithms and calibration methods to address structured erasures inherent in multi-sensor measurements.">
     </div>
 
     <div class="w3-col l4">
@@ -126,12 +125,39 @@ body, html {
     </div>
 
     <div class="w3-col l4">
-      <A HREF ="Assets/PDFs/ASME - Aeromechanics of Long Jumps in Spider Crickets-Insights from Experiments and Modeling.pdf">Jumping Aeromechanics</A>
-      <img src="Assets/Videos/CricketJump.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Aeromechanics of Spider Cricket Jumps">
+      <A HREF ="Assets/PDFs/ASME - Aeromechanics of Long Jumps in Spider Crickets-Insights from Experiments and Modeling.pdf">Aeromechanics of Jumping Crickets</A>
+      <img src="Assets/Videos/CricketJump.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="  Jumping is a distinct form of locomotion that spans both the aerial and terrestrial domains. In this research, we investigated the aeromechanics governing stable insect jump trajectories, specifically for spider crickets. These insects jump impressively long distances in proportion to their size yet consistently land upright. Using 3-dimensional videogrammetry methods, we tracked and plotted the cricket’s center of mass (CoM) and limb positions over the course of its jump trajectory. We then developed Matlab programs to compute drag force vectors acting on each component of the insect as well as the net torque acting about its Center of Mass from the jump data. These analyses indicated that the cricket’s aerial posture generates restoring torques when perturbed. The stabilizing posture prominent in the descent period of the jump trajectory could be vital to successfully replicating this form of locomotion in robotic systems.">
+    </div>
+  </div>
+
+  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+  <!-- COURSEWORK -->
+  <h3 class="w3-center">COURSEWORK</h3>
+  <p class="w3-center">Here is some of my coursework.<br> Click on the image headings to access content or click on the images themselves for a snippet!<br></p>
+
+  <!-- Responsive Grid  -->
+  <div class="w3-row-padding w3-center w3-section">
+
+    <div class="w3-col l4">
+      <A HREF ="https://dangeng.github.io/184-final-project/?fbclid=IwAR3vLInLS8HQrFwdMUgAOKZfvI3dOxV57l-XYLD0xmRMZYuc90GGzIRaKsc">Bubble Simulator</A>
+      <img src="Assets/Videos/BubbleSimulator.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fluid Flow and Thin Film Interference">
+      <p>A description of the work goes here</p>
+    </div>
+
+    <div class="w3-col l4">
+      <A HREF ="Assets/PDFs/Physics_111A_Final_Project_2019.pdf">Cymatics and Waves</A>
+      <img src="Assets/Images/Phys111AData.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Wave Propagation in Soap Bubble Membranes">
       <p>A description of the work goes here</p>
     </div>
 
 
+    <div class="w3-col l4">
+      <A HREF ="https://nicodeshler.github.io/CS184-sp20-p4-clothsim/">Cloth Simulator</A>
+      <img src="Assets/Videos/ClothSim.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Cloth Simulator">
+      <p>A description of the work goes here</p>
+    </div>
+
+    <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
   </div>
 
   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
@@ -139,7 +165,7 @@ body, html {
   <h3 class="w3-center">PERSONAL PROJECTS</h3>
   <p class="w3-center">Here are some of my personal projects.<br> Click on the image headings to access content or click on the images themselves for a snippet!<br></p>
 
-  <!-- Responsive Grid  -->
+  <!-- ROW1 Responsive Grid  -->
   <div class="w3-row-padding w3-center">
 
     <div class="w3-col l4">
@@ -165,37 +191,28 @@ body, html {
 
   </div>
 
-  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-  <h3 class="w3-center">COURSEWORK</h3>
-  <p class="w3-center">Here is some of my coursework.<br> Click on the image headings to access content or click on the images themselves for a snippet!<br></p>
-
-  <!-- Responsive Grid  -->
+  <!-- ROW2 Responsive Grid  -->
   <div class="w3-row-padding w3-center w3-section">
 
-
     <div class="w3-col l4">
-      <A HREF ="Assets/PDFs/Physics_111A_Final_Project_2019.pdf">Cymatics and Waves</A>
-      <img src="Assets/Images/Phys111AData.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Wave Propagation in Soap Bubble Membranes">
+      <A HREF ="">VTOL Aircraft</A>
+      <img src="Assets/Videos/PAVFlowSim.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Boeing Personal Air Vehicle Competition">
       <p>A description of the work goes here</p>
     </div>
 
-
     <div class="w3-col l4">
-      <A HREF ="https://dangeng.github.io/184-final-project/?fbclid=IwAR3vLInLS8HQrFwdMUgAOKZfvI3dOxV57l-XYLD0xmRMZYuc90GGzIRaKsc">Bubble Simulator</A>
-      <img src="Assets/Videos/BubbleSimulator.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fluid Flow and Thin Film Interference">
-      <p>A description of the work goes here</p>
-    </div>
-
-
-    <div class="w3-col l4">
-      <A HREF ="https://dangeng.github.io/184-final-project/?fbclid=IwAR3vLInLS8HQrFwdMUgAOKZfvI3dOxV57l-XYLD0xmRMZYuc90GGzIRaKsc">Bubble Simulator</A>
-      <img src="Assets/Videos/BubbleSimulator.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fluid Flow and Thin Film Interference">
+      <A HREF ="Assets/PDFs/Physics Extended Essay Final - Investigating the Effects of Wingtip Feathers on Induced Drag Reduction and Wing Efficiency.pdf">Bio-Inspired Wing Design</A>
+      <img src="Assets/Images/EEDiagram.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The Effects of Wingtip Feathers on Induced Drag Reductionand Wing Efficiency">
       <p>A description of the work goes here</p>
     </div>
 
 
     <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
   </div>
+
+
+
+
 </div>
 
 <!-- Modal for full size images on click-->
