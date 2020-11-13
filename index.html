@@ -243,13 +243,13 @@ body, html {
     <div class="w3-col m8 w3-panel">
       <div class="w3-large w3-margin-bottom">
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Berkeley, US<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: nico.deshler@berkeley.edu<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="mailto:email@address.com">Email: nico.deshler@berkeley.edu</a> <br>
         <div itemscope itemtype="https://schema.org/Person">
           <a itemprop="sameAs" content="https://orcid.org/0000-0001-8657-3237" href="https://orcid.org/0000-0001-8657-3237" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0001-8657-3237</a>
         </div>
       </div>
       <p>Feel free to leave me a note!</p>
-      <form action="/action_page.php" target="_blank">
+      <form action="mailto:nico.deshler@berkeley.edu" method="post" enctype="text/plain">
         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
           <div class="w3-half">
             <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
@@ -259,7 +259,7 @@ body, html {
           </div>
         </div>
         <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-black w3-right w3-section" type="submit">
+        <button class="w3-button w3-black w3-right w3-section" type="submit" onclick>
           <i class="fa fa-paper-plane"></i> SEND MESSAGE
         </button>
       </form>
