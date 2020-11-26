@@ -171,24 +171,29 @@ body, html {
     <div class="w3-col l4">
       <A HREF="https://www.shadertoy.com/view/3dBfRh"> Shadertoy: Boids Alorithm</A>
       <img src="Assets/Videos/Boidified.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Flocking Boids">
-      <p>A description of the work goes here</p>
+      <p> The boids algorithm is a simple model for flocking behavior found naturally in schools of fish and certain bird populations. The algorithm considers interactions between a boid (bird-oid) object and its neighbors as well as the dominant flight direction of the entire flock in order to update trajectories. In each time step, the algorithm calls for the following updates:
+        1) flock cohesion (Uses the separation from neighboring boids to determine which direction a boid should move to join the flock)
+        2) flock alignment (which uses the velocities of the neighboring boids to determine the net direction of the flock)
+        3) collision avoidance (Uses the separation from neighboring boids to determine how a boid should move to avoid collisions with other members of the flock)
+
+        Each of these updates has an associated weight that can be tuned to modify certain characteristics of the flocking behavior. For instance, granting more weight to the flock alignment update weight will result a more uniform set of trajectories within the flock.
+</p>
     </div>
 
 
     <div class="w3-col l4">
           <A HREF="https://www.shadertoy.com/view/ttsBRj"> ShaderToy: 2D Gravity</A>
           <img src="Assets/Videos/2DGravity.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="2D N-Body Gravitational Dynamics">
-          <p>A description of the work goes here</p>
+          <p> This 2D gravity simulator uses a simple Forward-Euler method for the underlying propoagator of the planet positions. The update step for each planet is determined by modelling all gravitating objects within the simulaiton as point-like and applying Newton's Law of Gravity. Interestingly, this familiar law takes a new form when we work in two dimensions instead of the familar three. It no longer follows the inverse square law but rather adopts a proportionality to 1/r. Even more interesting is the fact that escape velocities are impossible under this new graviation regime.
+           </p>
     </div>
 
 
     <div class="w3-col l4">
           <A HREF="https://www.shadertoy.com/view/tsdcDB"> ShaderToy: Voronoi Tesselation</A>
           <img src="Assets/Videos/Voronoi.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A Dynamic Voronoi Tesselation">
-          <p>A description of the work goes here</p>
+          <p> Voronoi tesselation is often used as a model for cellular structures found in nature. And its just beautiful! The process of generating these patterns is as follows. We begin by randomly populating a plane with seeds of different colors. Seeds are special points that will tell us how to partition the surrounding space into fitted polygonal cells. We then color every point on the plane that is not a seed the same color as the seed which that point is closest to - the seed from which its Euclidean distance is a minimum.</p>
     </div>
-
-
   </div>
 
   <!-- ROW2 Responsive Grid  -->
