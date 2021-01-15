@@ -129,7 +129,7 @@ body, html {
   <img src="Assets/Images/Sailing-portrait.jpg" hspace="50px" width=200px style="float:left"/>
   <p>
     <!--<img src="Assets/Images/Climbing.jpg" hspace="50px" width=200px style="float:left"/> -->
-    Hello! I am a UC Berkeley undergraduate studying physics and computer science. I am most excited by projects that connect these disciplines in creative ways to produce new functionalities, modalities, and theories! Specifically, I am fascinated by optics, computational imaging, and computer graphics. These fields often attract projects of an interdisciplinary flavor and have historically produced powerful scientific tools and insights. Generally, I love learning about topics that are highly visual, geometric, and mathematical. Thanks for visiting my webpage! I hope you find some of the featured work interesting!
+    Hello! I am a UC Berkeley undergraduate studying physics and computer science. I am most excited by projects that connect these disciplines in creative ways to produce new functionalities, modalities, and theories! Specifically, I am fascinated by optics, computational imaging, and computer graphics. These fields often attract questions of an interdisciplinary flavor and have historically produced powerful scientific tools and insights. More generally, I love learning about topics that are highly visual, geometric, and mathematical. Thanks for visiting my webpage! I hope you find some of the featured work interesting!
   </p>
 </div>
 
@@ -149,7 +149,7 @@ body, html {
   <!-- Responsive Grid for research images  -->
   <div class="w3-row-padding w3-center w3-section">
     <h3 class="w3-center">RESEARCH</h3>
-    <p class="w3-center"> Here are some of my research involvements.<br> Click on the image headings to access publications on this content!<br></p>
+    <p class="w3-center"> My past research experiences are situated in a range fields including computational imaging, magnetic levitation, and fluid dynamics. The project descriptions provide a general overview of the research motivation and central results from the study. If you find your interest piqued after reading these overviews, click on the image headings to access the associated publication!</p>
 
     <!-- Computational Imaging and DiffuserCam -->
     <div class="w3-col l4">
@@ -187,9 +187,24 @@ body, html {
         <!-- Maglev Density Measurement -->
         <div class="w3-third">
           <div class="description" data-description="MagLev">
-          <p> A description is coming soon!
-            <span class="dots">...</span>
-            <span class="more" style="display: none;">
+          <p> Magnetic Levitation (MagLev) of biological
+             <span class="dots">...</span>
+             <span class="more" style="display: none;">
+            samples in a paramagnetic solution has been used to perform density-based characterizations of
+            living cells and to conduct medical diagnostics. In this work, we developed a cost-effective MagLev instrument for measuring densities across a
+            broad collection of assay types in a high-throughput fashion. Two neodinium permanent magnets oriented in an anti-helmholtz format produce a strong quasi-uniform magnetic field in which a sample is placed.
+            Consequently, buoyant, magnetic, and graviational forces stratify the sample along the direction of this magnetic field based on density. By tuning the paramagnetic solution, the range of measurable densities
+            or the precision of the measurement can be adjusted. The video above shows this phenomenon in action. Here, a collection of microbeads appear stratified vertically; vertical displacement encodes their density.
+            We can refine the density uniformity of the microbead population by extracting only those within a certain height range, as shown.
+
+            The high-throughput instrument we present in this study is compatible with standardized assay equipment (a 96-well plate) and consumer-level flatbed scanners.
+            Using CAD modelling in Solidworks and rapid
+            prototyping technology (i.e. 3D printers and laser cutters) I designed the optical hardware for our device. Specifically, I created the optical
+            assembly as a grid of collinear relay lenses and planar mirrors. This component transmits an orthogonal in-focus view of levitated samples to
+            the surface of a flatbed scanner, enabling data acquisition. In addition, I supported writing image processing programs in MATLAB for analyzing
+            levitation data to discern sample densities. In practice, this affordable and simple platform could bring point-of-care medical diagnostics to
+            regions facing serious endemics
+
             </span>
           </p>
           <button onclick="readMore('MagLev')" class="readMoreButton">Read more</button>
@@ -244,9 +259,15 @@ body, html {
 
     <div class="w3-third">
       <div class="description" data-description="BubbleSimulator">
-      <p> A description is coming soon!
+      <p> Its hard not to love bubbles.
         <span class="dots">...</span>
         <span class="more" style="display: none;">
+          In this work we adapt a light transport pipeline to render the chromatic dynamics of bubbles. Those mesmerizing swirls of color sometimes visible on the surface of soapy films?
+          Those are created by small differences in the thickness of the film that evolve over time. Thin film interference explains why certain colors appear more than others for different thicknesses. When light interacts with the top surface of the thin film, part of it is reflect and part is transmitted to the bottom surface.
+          Upon striking the bottom surface, the light is again partially reflected and partially transmitted. However, the two reflected components each pick up a different phase related to the thickness of the film. Consequently, they interfere constructively or destructively for different wavelengths which is why we see some
+          colors and not others. In this work, we pair the physics of thin film interference with the physics of fluids. We numerically integrate the 2D Navier-stokes equations defined over the surface of a sphere to propogate a flow field. Interpreting the density
+          term as a thickness, we update the radiance of each ray intersecting a thin-film surface based on its wavelength and the thickness of the film at the intersection point.
+
         </span>
       </p>
       <button onclick="readMore('BubbleSimulator')" class="readMoreButton">Read more</button>
@@ -255,9 +276,14 @@ body, html {
 
     <div class="w3-third">
       <div class="description" data-description="Cymatics">
-      <p> A description is coming soon!
+      <p> Ahh more bubbles.
         <span class="dots">...</span>
         <span class="more" style="display: none;">
+          This work presents a novel method for determining the speed of wave propagation in soapy membranes (i.e. bubbles) using only a speaker, an LED, and a photodiode.
+          The experimental configuration is as follows: The speaker supplies a tranverse acoustic drive to a circular soap membrane. Simultaneously, a LED strobes the membrane at the same frequency as the acoustic drive while a photodiode collects the light reflected off the membrane.
+          In situations where the membrane is in a resonant mode, it will be oscillating at the same frequency as the drive. Under strobed illumination, the profile of the membrane will appear stationary. Hence, the photodiode should register a constant signal.
+          The resonant frequencies of the membrane can be related directly to the propagation speed of waves in the media. So this method is designed specifically to find the resonant drive frequencies of the membrane.
+
         </span>
       </p>
       <button onclick="readMore('Cymatics')" class="readMoreButton">Read more</button>
