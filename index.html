@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Nico Deshler Webpage</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body style="background-color:grey;">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif; color: black;}
 body, html {
   height: 100%;
-  color: #777;
+  color: black;
   line-height: 1.8;
+}
+
+hr {
+  display: block;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
 }
 
 /* Create a Parallax Effect */
@@ -75,6 +86,8 @@ body, html {
   </div>
 </div>
 
+
+
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
@@ -82,20 +95,30 @@ body, html {
   </div>
 </div>
 
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">ABOUT ME</h3>
-  <p>
-    <img src="Assets/Images/Sailing-portrait.jpg" hspace="50px" width=200px style="float:left"/>
-    <img src="Assets/Images/Climbing.jpg" hspace="50px" width=200px style="float:right"/>
-    Hello! I am a UC Berkeley undergraduate studying physics and computer science. I am most excited by projects that connect these disciplines in creative ways to produce new functionalities, modalities, and theories! As such, I am fascinated by optics, computational imaging, and computer graphics -- fields where interdisciplinary projects of this flavor are ubiquitous. More generally, I adore learning -- particularly if the topic is highly visual, geometric, or mathematical. Thanks for visiting my webpage! I hope you find some of the featured work interesting!
 
+<!-- Container (About Section) -->
+<div class="w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <p><br></p>
+    <p><br></p>
+    <span class="w3-xxlarge w3-text-white w3-wide">ABOUT ME</span>
+  </div>
+</div>
+
+
+<!-- Second Parallax Image with About Me Text-->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <hr>
+  <img src="Assets/Images/Sailing-portrait.jpg" hspace="50px" width=200px style="float:left"/>
+  <p>
+    <!--<img src="Assets/Images/Climbing.jpg" hspace="50px" width=200px style="float:left"/> -->
+    Hello! I am a UC Berkeley undergraduate studying physics and computer science. I am most excited by projects that connect these disciplines in creative ways to produce new functionalities, modalities, and theories! Specifically, I am fascinated by optics, computational imaging, and computer graphics. These fields often attract projects of an interdisciplinary flavor and have historically produced powerful scientific tools and insights. Generally, I love learning about topics that are highly visual, geometric, and mathematical. Thanks for visiting my webpage! I hope you find some of the featured work interesting!
   </p>
 </div>
 
 
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
+<!-- Second Parallax Image with Portfolio Text-->
+<div class="w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
     <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
   </div>
@@ -103,120 +126,265 @@ body, html {
 
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
-
+  <hr>
   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
   <!-- RESEARCH  -->
-  <h3 class="w3-center">RESEARCH</h3>
-  <p class="w3-center">Here are some of my research involvements.<br> Click on the image headings to access publications on this content!<br></p>
-
-  <!-- Responsive Grid  -->
-  <div class="w3-row-padding w3-center">
+  <!-- Responsive Grid for research images  -->
+  <div class="w3-row-padding w3-center w3-section">
+    <h3 class="w3-center">RESEARCH</h3>
+    <p class="w3-center"> Here are some of my research involvements.<br> Click on the image headings to access publications on this content!<br></p>
 
     <!-- Computational Imaging and DiffuserCam -->
     <div class="w3-col l4">
-        <A HREF ="Assets/PDFs/COSI-2020-Multi-sensor lensless imaging synthetic large-format sensing with disjoint sensor array.pdf">Multi-Sensor DiffuserCam</A>
-        <img src="Assets/Videos/DiffuserCamRecon.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Mask-based computational cameras are uniquely capable of recovering 3D information from a single multiplexed 2D sensor measurement. This research seeks to augment the 3D reconstruction volumes of mask-based cameras by employing multi-sensor arrays to synthesize an enlarged sensing area. Under this objective, my work has primarily addressed theory, simulation, and prototyping. I derived a guiding mathematical model motivating our exploration of large-sensor platforms within a ray-optics framework. Improvements predicted by our model include enhanced voxel resolution and extended depth-of-field for 3D reconstruction volumes. I also wrote data pipelines that interface Matlab and Python with Zemax OpticStudio to explore the design space for sensor arrays. These pipelines characterized design performance by comparing simulated 3D scenes and measurements with the corresponding reconstructions. Informed by these simulated heuristics, we developed a prototype camera featuring a 2x2 sensor array which successfully recovers wide-field images with merely 8.6% of the data required for a conventional lensed system. To achieve this, I adapted existing DiffuserCam reconstruction algorithms and calibration methods to address structured erasures inherent in multi-sensor measurements.">
+        <A HREF ="Assets/PDFs/COSI-2020-Multi-sensor lensless imaging synthetic large-format sensing with disjoint sensor array.pdf"> <p style="color:blue"> Multi-Sensor DiffuserCam </p> </A>
+        <img src="Assets/Videos/DiffuserCamRecon.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Image reconstruction with FISTA.">
+    </div>
+    <!-- Maglev Density Measurement -->
+    <div class="w3-col l4">
+      <A HREF ="Assets/PDFs/JACS-High-throughput density measurement using magnetic levitation.pdf"> <p style="color:blue"> MagLev Density Measurement </p> </A>
+      <img src="Assets/Videos/MagLev.gif" style="width:70%" onclick="onClick(this)" class="w3-hover-opacity" alt="MagLev Density Measurement">
+    </div>
+    <!-- Aeromechancis of Spider Crickets -->
+    <div class="w3-col l4">
+      <A HREF ="Assets/PDFs/ASME - Aeromechanics of Long Jumps in Spider Crickets-Insights from Experiments and Modeling.pdf"> <p style="color:blue"> Aeromechanics of Jumping Crickets </p> </A>
+      <img src="Assets/Videos/CricketJump.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Cricket in flight.">
     </div>
 
-    <div class="w3-col l4">
-      <A HREF ="Assets/PDFs/JACS-High-throughput density measurement using magnetic levitation.pdf">MagLev Density Measurement</A>
-      <img src="Assets/Videos/MagLev.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="MagLev Density Measurement">
-      <p>A description of the work goes here</p>
-    </div>
-
-    <div class="w3-col l4">
-      <A HREF ="Assets/PDFs/ASME - Aeromechanics of Long Jumps in Spider Crickets-Insights from Experiments and Modeling.pdf">Aeromechanics of Jumping Crickets</A>
-      <img src="Assets/Videos/CricketJump.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="  Jumping is a distinct form of locomotion that spans both the aerial and terrestrial domains. In this research, we investigated the aeromechanics governing stable insect jump trajectories, specifically for spider crickets. These insects jump impressively long distances in proportion to their size yet consistently land upright. Using 3-dimensional videogrammetry methods, we tracked and plotted the cricket’s center of mass (CoM) and limb positions over the course of its jump trajectory. We then developed Matlab programs to compute drag force vectors acting on each component of the insect as well as the net torque acting about its Center of Mass from the jump data. These analyses indicated that the cricket’s aerial posture generates restoring torques when perturbed. The stabilizing posture prominent in the descent period of the jump trajectory could be vital to successfully replicating this form of locomotion in robotic systems.">
-    </div>
   </div>
+  <!-- Responsive Grid for research descriptions  -->
+  <div class="w3-row-padding w3-center">
+
+       <!-- Computational Imaging and DiffuserCam -->
+        <div class="w3-third">
+          <div class="description" data-description="DiffuserCam">
+          <p>  Mask-based computational cameras are
+            <span class="dots">...</span>
+            <span class="more" style="display: none;">
+               uniquely capable of recovering 3D information from a single multiplexed 2D sensor measurement. This research seeks to augment the 3D reconstruction volumes of mask-based cameras by employing multi-sensor arrays to synthesize an enlarged sensing area. Under this objective, my work has primarily addressed theory, simulation, and prototyping. I derived a guiding mathematical model motivating our exploration of large-sensor platforms within a ray-optics framework. Improvements predicted by our model include enhanced voxel resolution and extended depth-of-field for 3D reconstruction volumes. I also wrote data pipelines that interface Matlab and Python with Zemax OpticStudio to explore the design space for sensor arrays. These pipelines characterized design performance by comparing simulated 3D scenes and measurements with the corresponding reconstructions. Informed by these simulated heuristics, we developed a prototype camera featuring a 2x2 sensor array which successfully recovers wide-field images with merely 8.6% of the data required for a conventional lensed system. To achieve this, I adapted existing DiffuserCam reconstruction algorithms and calibration methods to address structured erasures inherent in multi-sensor measurements.
+            </span>
+          </p>
+          <button onclick="readMore('DiffuserCam')" class="myBtn">Read more</button>
+          </div>
+        </div>
+
+        <!-- Maglev Density Measurement -->
+        <div class="w3-third">
+          <div class="description" data-description="MagLev">
+          <p> A description is coming soon!
+            <span class="dots">...</span>
+            <span class="more" style="display: none;">
+            </span>
+          </p>
+          <button onclick="readMore('MagLev')" class="myBtn">Read more</button>
+          </div>
+        </div>
+
+        <!-- Aeromechancis of Spider Crickets -->
+        <div class="w3-third">
+          <div class="description" data-description="CricketAero">
+          <p>
+             Jumping is a distinct form of locomotion
+            <span class="dots">...</span>
+            <span class="more" style="display: none;">
+               that spans both the aerial and terrestrial domains. In this research, we investigated the aeromechanics governing stable insect jump trajectories, specifically for spider crickets. These insects jump impressively long distances in proportion to their size yet consistently land upright. Using 3-dimensional videogrammetry methods, we tracked and plotted the cricket’s center of mass (CoM) and limb positions over the course of its jump trajectory. We then developed Matlab programs to compute drag force vectors acting on each component of the insect as well as the net torque acting about its Center of Mass from the jump data. These analyses indicated that the cricket’s aerial posture generates restoring torques when perturbed. The stabilizing posture prominent in the descent period of the jump trajectory could be vital to successfully replicating this form of locomotion in robotic systems.
+            </span>
+          </p>
+          <button onclick="readMore('CricketAero')" class="myBtn">Read more</button>
+          </div>
+        </div>
+
+    </div>
+
 
   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
   <!-- COURSEWORK -->
-  <h3 class="w3-center">COURSEWORK</h3>
-  <p class="w3-center">Here is some of my coursework.<br> Click on the image headings to access content or click on the images themselves for a snippet!<br></p>
-
-  <!-- Responsive Grid  -->
+  <!-- Responsive Grid for coursework images -->
   <div class="w3-row-padding w3-center w3-section">
 
+    <h3 class="w3-center">COURSEWORK</h3>
+    <p class="w3-center">Here is some of my coursework.<br> Click on the image headings to access content or click on the images themselves for a snippet!<br></p>
+
+
     <div class="w3-col l4">
-      <A HREF ="https://dangeng.github.io/184-final-project/?fbclid=IwAR3vLInLS8HQrFwdMUgAOKZfvI3dOxV57l-XYLD0xmRMZYuc90GGzIRaKsc">Bubble Simulator</A>
-      <img src="Assets/Videos/BubbleSimulator.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fluid Flow and Thin Film Interference">
-      <p>A description of the work goes here</p>
+      <A HREF ="https://dangeng.github.io/184-final-project/?fbclid=IwAR3vLInLS8HQrFwdMUgAOKZfvI3dOxV57l-XYLD0xmRMZYuc90GGzIRaKsc"> <p style="color:blue"> Bubble Simulator </p> </A>
+      <img src="Assets/Videos/BubbleSimulator.gif" style="width:80%" onclick="onClick(this)" class="w3-hover-opacity" alt="Fluid Flow and Thin Film Interference">
     </div>
 
     <div class="w3-col l4">
-      <A HREF ="Assets/PDFs/Physics_111A_Final_Project_2019.pdf">Cymatics and Waves</A>
+      <A HREF ="Assets/PDFs/Physics_111A_Final_Project_2019.pdf"><p style="color:blue"> Cymatics and Waves </p> </A>
       <img src="Assets/Images/CymaticsFig.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Wave Propagation in Soap Bubble Membranes">
-      <p>A description of the work goes here</p>
     </div>
 
 
     <div class="w3-col l4">
-      <A HREF ="https://nicodeshler.github.io/CS184-sp20-p4-clothsim/">Cloth Simulator</A>
+      <A HREF ="https://nicodeshler.github.io/CS184-sp20-p4-clothsim/"><p style="color:blue">Cloth Simulator</p></A>
       <img src="Assets/Videos/ClothSimulator.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Cloth Simulator">
-      <p>A description of the work goes here</p>
     </div>
 
-    <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
   </div>
+  <!-- Responsive Grid for coursework descriptions -->
+  <div class="w3-row-padding w3-center">
+
+    <div class="w3-third">
+      <div class="description" data-description="BubbleSimulator">
+      <p> A description is coming soon!
+        <span class="dots">...</span>
+        <span class="more" style="display: none;">
+        </span>
+      </p>
+      <button onclick="readMore('BubbleSimulator')" class="myBtn">Read more</button>
+      </div>
+    </div>
+
+    <div class="w3-third">
+      <div class="description" data-description="Cymatics">
+      <p> A description is coming soon!
+        <span class="dots">...</span>
+        <span class="more" style="display: none;">
+        </span>
+      </p>
+      <button onclick="readMore('Cymatics')" class="myBtn">Read more</button>
+      </div>
+    </div>
+
+    <div class="w3-third">
+      <div class="description" data-description="ClothSim">
+      <p> A description is coming soon!
+        <span class="dots">...</span>
+        <span class="more" style="display: none;">
+        </span>
+      </p>
+      <button onclick="readMore('ClothSim')" class="myBtn">Read more</button>
+      </div>
+    </div>
+
+  </div>
+
 
   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
   <!-- PERSONAL PROJECTS -->
-  <h3 class="w3-center">PERSONAL PROJECTS</h3>
-  <p class="w3-center">Here are some of my personal projects.<br> Click on the image headings to access content or click on the images themselves for a snippet!<br></p>
-
-  <!-- ROW1 Responsive Grid  -->
-  <div class="w3-row-padding w3-center">
+  <!-- ROW1: Responsive Grid for personal project images  -->
+  <div class="w3-row-padding w3-center w3-section">
+    <h3 class="w3-center">PERSONAL PROJECTS</h3>
+    <p class="w3-center">Here are some of my personal projects.<br> Click on the image headings to access content or click on the images themselves for a snippet!<br></p>
 
     <div class="w3-col l4">
       <A HREF="https://www.shadertoy.com/view/3dBfRh"> Shadertoy: Boids Alorithm</A>
       <img src="Assets/Videos/Boidified.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Flocking Boids">
-      <p> The boids algorithm is a simple model for flocking behavior found naturally in schools of fish and certain bird populations. The algorithm considers interactions between a boid (bird-oid) object and its neighbors as well as the dominant flight direction of the entire flock in order to update trajectories. In each time step, the algorithm calls for the following updates:
-        1) flock cohesion (Uses the separation from neighboring boids to determine which direction a boid should move to join the flock)
-        2) flock alignment (which uses the velocities of the neighboring boids to determine the net direction of the flock)
-        3) collision avoidance (Uses the separation from neighboring boids to determine how a boid should move to avoid collisions with other members of the flock)
-
-        Each of these updates has an associated weight that can be tuned to modify certain characteristics of the flocking behavior. For instance, granting more weight to the flock alignment update weight will result a more uniform set of trajectories within the flock.
-</p>
     </div>
 
 
     <div class="w3-col l4">
           <A HREF="https://www.shadertoy.com/view/ttsBRj"> ShaderToy: 2D Gravity</A>
           <img src="Assets/Videos/2DGravity.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="2D N-Body Gravitational Dynamics">
-          <p> This 2D gravity simulator uses a simple Forward-Euler method for the underlying propagator of the planet positions. The update step for each planet is determined by modelling all gravitating objects within the simulation as point-like and applying Newton's Law of Gravity. Interestingly, this familiar law takes a new form when we work in two dimensions instead of three dimensions. It no longer follows the inverse square law but rather adopts a proportionality to 1/r. Even more interesting is the fact that escape velocities are impossible under this new gravitation regime!
-           </p>
     </div>
 
 
     <div class="w3-col l4">
           <A HREF="https://www.shadertoy.com/view/tsdcDB"> ShaderToy: Voronoi Tesselation</A>
           <img src="Assets/Videos/Voronoi.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A Dynamic Voronoi Tesselation">
-          <p> Voronoi tesselation is often used as a model for cellular structures found in nature. Its also really beautiful! The process of generating these patterns is as follows: We begin by randomly populating a plane with seeds of different colors. Seeds are special points that will tell us how to partition the surrounding space into fitted polygonal cells. We then color every non-seed point on the plane the same color as the seed it is closest to - the seed from which its Euclidean distance is a minimum.</p>
     </div>
   </div>
+  <!-- ROW1: Responsive Grid for personal project descriptions  -->
+  <div class="w3-row-padding w3-center">
+      <div class="w3-third">
+        <div class="description" data-description="BoidsAlgorithm">
+              <p> The boids algorithm is a simple model for flocking behavior found naturally in
+                <span class="dots">...</span>
+                <span class="more" style="display: none;">
+            schools of fish and certain bird populations. The algorithm considers interactions between a boid (bird-oid) object and its neighbors as well as the dominant flight direction of the entire flock in order to update trajectories. In each time step, the algorithm calls for the following updates:
+          1) flock cohesion (Uses the separation from neighboring boids to determine which direction a boid should move to join the flock)
+          2) flock alignment (which uses the velocities of the neighboring boids to determine the net direction of the flock)
+          3) collision avoidance (Uses the separation from neighboring boids to determine how a boid should move to avoid collisions with other members of the flock)
 
-  <!-- ROW2 Responsive Grid  -->
+          Each of these updates has an associated weight that can be tuned to modify certain characteristics of the flocking behavior. For instance, granting more weight to the flock alignment update weight will result a more uniform set of trajectories within the flock.
+                </span>
+              </p>
+        <button onclick="readMore('BoidsAlgorithm')" class="myBtn">Read more</button>
+      </div>
+    </div>
+
+      <div class="w3-third">
+        <div class="description" data-description="2DGrav">
+        <p> This 2D gravity simulator uses a simple Forward-Euler method for the underlying
+          <span class="dots">...</span>
+          <span class="more" style="display: none;">
+             propagator of the planet positions. The update step for each planet is determined by modelling all gravitating objects within the simulation as point-like and applying Newton's Law of Gravity. Interestingly, this familiar law takes a new form when we work in two dimensions instead of three dimensions. It no longer follows the inverse square law but rather adopts a proportionality to 1/r. Even more interesting is the fact that escape velocities are impossible under this new gravitation regime!
+          </span>
+        </p>
+        <button onclick="readMore('2DGrav')" class="myBtn">Read more</button>
+        </div>
+      </div>
+
+      <div class="w3-third">
+        <div class="description" data-description="Voronoi">
+        <p> Voronoi tesselation is often used as a model for cellular structures found in nature. It is
+          <span class="dots">...</span>
+          <span class="more" style="display: none;">
+            also really beautiful! The process of generating these patterns is as follows: We begin by randomly populating a plane with seeds of different colors. Seeds are special points that will tell us how to partition the surrounding space into fitted polygonal cells. We then color every non-seed point on the plane the same color as the seed it is closest to - the seed from which its Euclidean distance is a minimum.
+          </span>
+        </p>
+        <button onclick="readMore('Voronoi')" class="myBtn">Read more</button>
+        </div>
+      </div>
+
+  </div>
+  <!-- ROW2: Responsive Grid for personal project images-->
   <div class="w3-row-padding w3-center w3-section">
 
     <div class="w3-col l4">
-      <A HREF ="">VTOL Aircraft</A>
+      <A>Phase Retrieval</A>
+      <img src="Assets/Videos/HIOPhaseRetrieval.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The Hybrid Input-Output (HIO) Phase Retrieval algorithm in action">
+    </div>
+
+    <div class="w3-col l4">
+      <A>VTOL Aircraft</A>
       <img src="Assets/Videos/PAVFlowSim.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Boeing Personal Air Vehicle Competition">
-      <p>A description of the work goes here</p>
     </div>
 
     <div class="w3-col l4">
       <A HREF ="Assets/PDFs/Physics Extended Essay Final - Investigating the Effects of Wingtip Feathers on Induced Drag Reduction and Wing Efficiency.pdf">Bio-Inspired Wing Design</A>
       <img src="Assets/Images/EEFig.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The Effects of Wingtip Feathers on Induced Drag Reductionand Wing Efficiency">
-      <p>A description of the work goes here</p>
     </div>
 
-
-    <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
   </div>
+  <!-- ROW2: Responsive Grid for personal project descriptions-->
+  <div class="w3-row-padding w3-center">
 
+    <div class="w3-third">
+      <div class="description" data-description="PhaseRetrieval">
+      <p> A description is coming soon!
+        <span class="dots">...</span>
+        <span class="more" style="display: none;">
+        </span>
+      </p>
+      <button onclick="readMore('PhaseRetrieval')" class="myBtn">Read more</button>
+      </div>
+    </div>
 
+    <div class="w3-third">
+      <div class="description" data-description="VTOL">
+      <p> A description is coming soon!
+        <span class="dots">...</span>
+        <span class="more" style="display: none;">
+        </span>
+      </p>
+      <button onclick="readMore('VTOL')" class="myBtn">Read more</button>
+      </div>
+    </div>
 
+    <div class="w3-third">
+      <div class="description" data-description="ExtendedEssay">
+      <p> A description is coming soon!
+        <span class="dots">...</span>
+        <span class="more" style="display: none;">
+        </span>
+      </p>
+      <button onclick="readMore('ExtendedEssay')" class="myBtn">Read more</button>
+      </div>
+    </div>
+
+  </div>
 
 </div>
 
@@ -229,18 +397,18 @@ body, html {
   </div>
 </div>
 
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
+<!-- Third Parallax Image with Contact Text-->
+<div class="w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
      <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
   </div>
 </div>
 
+
+
 <!-- Container (Contact Section) -->
 <div class="w3-content w3-container w3-padding-64" id="contact">
-  <h3 class="w3-center">CONTACT</h3>
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
-
+  <hr>
   <div class="w3-row w3-padding-32 w3-section">
     <div class="w3-col m4 w3-container">
       <img src="/w3images/map.jpg" class="w3-image w3-round" style="width:100%">
@@ -250,7 +418,7 @@ body, html {
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Berkeley, US<br>
         <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="mailto:email@address.com">Email: nico.deshler@berkeley.edu</a> <br>
         <div itemscope itemtype="https://schema.org/Person">
-          <a itemprop="sameAs" content="https://orcid.org/0000-0001-8657-3237" href="https://orcid.org/0000-0001-8657-3237" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">https://orcid.org/0000-0001-8657-3237</a>
+          <a itemprop="sameAs" content="https://orcid.org/0000-0001-8657-3237" href="https://orcid.org/0000-0001-8657-3237" target="orcid.widget" rel="me noopener noreferrer" style="vertical-align:top;"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon">ORCID</a>
         </div>
       </div>
       <p>Feel free to leave me a note!</p>
@@ -288,8 +456,8 @@ function onClick(element) {
 }
 
 // Change style of navbar on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
+window.onscroll = function() {readMore()};
+function readMore() {
     var navbar = document.getElementById("myNavbar");
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
@@ -307,7 +475,25 @@ function toggleFunction() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
+
+// Used for read more button
+function readMore(description) {
+  var dots = document.querySelector(`.description[data-description="${description}"] .dots`);
+  var moreText = document.querySelector(`.description[data-description="${description}"] .more`);
+  var btnText = document.querySelector(`.description[data-description="${description}"] .myBtn`);
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
 </script>
+
 
 </body>
 </html>
