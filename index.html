@@ -148,7 +148,7 @@ body, html {
   <!-- Responsive Grid for research images  -->
   <div class="w3-row-padding w3-center w3-section">
     <h3 class="w3-center">RESEARCH</h3>
-    <p class="w3-center"> My past research experiences are situated in a range fields including computational imaging, magnetic levitation, and fluid dynamics. The project descriptions provide a general overview of the motivations and central results of each study. If you find your interest piqued, click on the image headings to access a publication on the project!</p>
+    <p align=justify> My past research experiences are situated in a range fields including computational imaging, magnetic levitation, and fluid dynamics. The project descriptions provide a general overview of the motivations and central results of each study. If you find your interest piqued, click on the image headings to access a publication on the project!</p>
 
     <!-- Computational Imaging and DiffuserCam -->
     <div class="w3-col l4">
@@ -173,7 +173,7 @@ body, html {
        <!-- Computational Imaging and DiffuserCam -->
         <div class="w3-third">
           <div class="description" data-description="DiffuserCam">
-          <p>  Mask-based computational cameras are
+          <p align=justify>  Mask-based computational cameras are
             <span class="dots">...</span>
             <span class="more" style="display: none;">
                uniquely capable of recovering 3D information from a single multiplexed 2D sensor measurement. This research seeks to augment the 3D reconstruction volumes of mask-based cameras by employing multi-sensor arrays to synthesize an enlarged sensing area. Under this objective, my work has primarily addressed theory, simulation, and prototyping. I derived a guiding mathematical model motivating our exploration of large-sensor platforms within a ray-optics framework. Improvements predicted by our model include enhanced voxel resolution and extended depth-of-field for 3D reconstruction volumes. I also wrote data pipelines that interface Matlab and Python with Zemax OpticStudio to explore the design space for sensor arrays. These pipelines characterized design performance by comparing simulated 3D scenes and measurements with the corresponding reconstructions. Informed by these simulated heuristics, we developed a prototype camera featuring a 2x2 sensor array which successfully recovers wide-field images with merely 8.6% of the data required for a conventional lensed system. To achieve this, I adapted existing DiffuserCam reconstruction algorithms and calibration methods to address structured erasures inherent in multi-sensor measurements.
@@ -233,8 +233,8 @@ body, html {
   <div class="w3-row-padding w3-center w3-section">
 
     <h3 class="w3-center">COURSEWORK</h3>
-    <p class="w3-center"> A TA for an upperdivision math class I was taking once proclaimed that the greatest hack mathematicians ever discovered was practice.
-        This fact has not been overlooked in my coursework as it mostly consists of problem sets; a fascinating and effective (though often frusturatingly challenging) approach to learning technical material.
+    <p align=justify> A teaching assistant for an upperdivision math class I was taking once proclaimed that the greatest hack mathematicians ever discovered was practice.
+        This fact has not been overlooked in my coursework which consists predominantly of problem sets; a fascinating and effective (though often frusturatingly challenging) approach to learning technical material.
         Unfortunately, problem sets do not ordinarily make for good featurable material. Instead I have decided to showcase coursework relating to the occasional final project opportunity.
         These opportunities have appeared predominantly in computer graphics and physics labs. </p>
 
@@ -370,7 +370,7 @@ body, html {
   <!-- ROW1: Responsive Grid for personal project images  -->
   <div class="w3-row-padding w3-center w3-section">
     <h3 class="w3-center">PERSONAL PROJECTS</h3>
-    <p class="w3-center">Here are some of my personal projects. Most are fun little programs I have written in my free time. </p>
+    <p align=justify>Here are some of my personal projects. Most are fun little programs I have written in my free time. </p>
 
     <div class="w3-col l4">
       <a href="https://www.shadertoy.com/view/3dBfRh"> <p style="color:blue">Shadertoy: Boids Alorithm</p></a>
@@ -497,7 +497,7 @@ body, html {
 
     <div class="w3-col l4">
       <a>Background Observational Schlieren</a>
-      <img src="Assets/Videos/" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="T38 Supersonic Mach Cones Identified with BOS">
+      <img src="Assets/Videos/BOS1.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="T38 Supersonic Mach Cones Identified with BOS">
     </div>
  <!--
     <div class="w3-col l4">
@@ -574,14 +574,18 @@ body, html {
 <!-- Container (Contact Section) -->
 <div class="w3-content w3-container w3-padding-64" id="contact">
   <hr>
+
   <div class="w3-row w3-padding-32 w3-section">
+
     <div class="w3-col m8 w3-panel">
-      <div class="w3-large w3-margin-bottom">
+      <div class="w3-large w3-margin-bottom" align=left>
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Berkeley, US<br>
         <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="mailto:email@address.com">Email: nico.deshler@berkeley.edu</a> <br>
         <i class="fa fa-university fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="https://orcid.org/0000-0001-8657-3237">ORCID</a> <br>
       </div>
-      <p>Feel free to leave me a note!</p>
+      <div align=left>
+      <p>Leave a note</p>
+    </div>
       <form action="mailto:nico.deshler@berkeley.edu" method="post" enctype="text/plain">
         <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
           <div class="w3-half">
