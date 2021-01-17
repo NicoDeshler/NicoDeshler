@@ -158,7 +158,7 @@ body, html {
     <!-- Maglev Density Measurement -->
     <div class="w3-col l4">
       <a href ="Assets/PDFs/JACS-High-throughput density measurement using magnetic levitation.pdf"> <p style="color:blue"> MagLev Density Measurement </p> </a>
-      <img src="Assets/Videos/MagLev.gif" style="width:70%" onclick="onClick(this)" class="w3-hover-opacity" alt="MagLev Density Measurement">
+      <img src="Assets/Videos/RBCfocusing.gif" style="width:70%" onclick="onClick(this)" class="w3-hover-opacity" alt="Red Blood Cells concentrating to a fixed location dicated by their density.">
     </div>
     <!-- Aeromechancis of Spider Crickets -->
     <div class="w3-col l4">
@@ -264,10 +264,10 @@ body, html {
       <p align=justify> Its hard not to love bubbles.
         <span class="dots">...</span>
         <span class="more" style="display: none;">
-          In this work we adapt a light transport pipeline to render the chromatic dynamics of bubbles. Those mesmerizing swirls of color sometimes visible on the surface of soapy films?
-          Those are created by small differences in the thickness of the film that evolve over time. Thin film interference explains why certain colors appear more than others for different thicknesses. When light interacts with the top surface of the thin film, part of it is reflect and part is transmitted to the bottom surface.
-          Upon striking the bottom surface, the light is again partially reflected and partially transmitted. However, the two reflected components each pick up a different phase related to the thickness of the film. Consequently, they interfere constructively or destructively for different wavelengths which is why we see some
-          colors and not others. In this work, we pair the physics of thin film interference with the physics of fluids. We numerically integrate the 2D Navier-stokes equations defined over the surface of a sphere to propogate a flow field. Interpreting the density
+          In this work we adapt a light transport pipeline to render the chromatic dynamics of bubbles.
+          Physically, those mesmerizing swirls of color visible on the surface of soapy films re created by small differences in the thickness of the film. Thin film interference explains why certain colors appear more than others for different thicknesses. When light interacts with the top surface of the thin film, some light is reflected and some is transmitted to the bottom surface.
+          Upon striking the bottom surface, the light is again partially reflected and partially transmitted. However, the two reflected components each pick up a different phase related to the thickness of the film. Consequently, they interfere constructively or destructively at different wavelengths which is why we see some
+          colors and not others. In this work, we pair the physics of thin film interference with the physics of fluids to accurately characterize the evolution of the chromatics in time. We numerically integrate the 2D Navier-stokes equations defined over the surface of a sphere to propogate a density flow field. Interpreting the density
           term as a thickness, we update the radiance of each ray intersecting a thin-film surface based on its wavelength and the thickness of the film at the intersection point.
 
         </span>
@@ -278,13 +278,15 @@ body, html {
 
     <div class="w3-third">
       <div class="description" data-description="Cymatics">
-      <p align=justify> Ahh more bubbles.
+      <p align=justify>
+          A new method for measuring the speed
         <span class="dots">...</span>
         <span class="more" style="display: none;">
-          This work presents a novel method for determining the speed of wave propagation in soapy membranes (i.e. bubbles) using only a speaker, an LED, and a photodiode.
-          The experimental configuration is as follows: The speaker supplies a tranverse acoustic drive to a circular soap membrane. Simultaneously, a LED strobes the membrane at the same frequency as the acoustic drive while a photodiode collects the light reflected off the membrane.
-          In situations where the membrane is in a resonant mode, it will be oscillating at the same frequency as the drive. Under strobed illumination, the profile of the membrane will appear stationary. Hence, the photodiode should register a constant signal.
-          The resonant frequencies of the membrane can be related directly to the propagation speed of waves in the media. So this method is designed specifically to find the resonant drive frequencies of the membrane.
+          of wave propagation in soapy membranes (i.e. bubbles) is presented.
+          The experimental configuration uses only a speaker, an LED, and a photodiode. These components operate in unison as follows:
+          <br><br>The speaker supplies a tranverse acoustic drive to a circular soap membrane. Simultaneously, a LED strobes the membrane at the same frequency as the acoustic drive while a photodiode collects the light reflected off the membrane.
+          In situations where the membrane is in a resonant mode, it will be oscillating at the same frequency as the drive. Under strobed illumination, the profile of normal mode will appear stationary. Hence, the photodiode should register a constant signal.
+          The resonant frequencies of the membrane can be related directly to the propagation speed of waves in the media. After subjecting the membrane to an acoustic frequency scan, we employ a search algorithm over the photodiode signal to identify the resonant frequencies of the membrane.
 
         </span>
       </p>
@@ -294,10 +296,14 @@ body, html {
 
     <div class="w3-third">
       <div class="description" data-description="ClothSim">
-      <p align=justify> A description is coming soon!
-        <span class="dots">...</span>
-        <span class="more" style="display: none;">
-        </span>
+      <p align=justify>
+              This peceptually realistic cloth simulator
+              <span class="dots">...</span>
+              <span class="more" style="display: none;">
+
+              is driven by equations of motion from classical mechanics. Conceptually, the cloth is modelled as a 2D grid of point masses connected by an isometric spring lattice. The motion of each point mass on the grid is governed by the cumulative effect of the spring forces (obeying Hooke's Law) and external forces. The simulation propagates the position of each point mass forward in time using Verlet Integration techniques. While there are energy losses in this technique, the simulator retains stability. As part of the simulator, I also addressed collisions with objects in the scene as well as self-collision effects to prevent the cloth from passing through itself. I was amazed that this simulator could present perceptually convincing cloth behavior with a variety of material effects while circumventing the computational costs of ray tracing - on my CPU the simulator worked in near real-time. I found myself deeply drawn to the underlying physics enabling these simulations. After extensively scrutinizing some of the unphysical conditions imposed for guaranteeing stability in the simulator, I found was able to reconcile such innaccuracy in the model physics with the perceptual accuracy of the simulator.
+
+            </span>
       </p>
       <button onclick="readMore('ClothSim')" class="readMoreButton">Read more</button>
       </div>
@@ -496,7 +502,7 @@ body, html {
   <div class="w3-row-padding w3-center w3-section">
 
     <div class="w3-col l4">
-      <a>Background Oriented Schlieren for Mach Cone Imaging</a>
+      <a>Background Oriented Schlieren for Imaging Mach Cones</a>
       <img src="Assets/Videos/BOS2.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="T38 Supersonic Mach Cones Identified with BOS">
     </div>
  <!--
