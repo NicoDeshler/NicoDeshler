@@ -77,6 +77,8 @@ body, html {
   }
 }
 </style>
+
+
 <body>
 
 <!-- Navbar (sit on top) -->
@@ -98,15 +100,12 @@ body, html {
   </div>
 </div>
 
-
-
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">NICO <span class="w3-hide-small">DESHLER</span>
   </div>
 </div>
-
 
 <!-- Container (About Section) -->
 <div class="w3-display-container w3-opacity-min">
@@ -117,7 +116,6 @@ body, html {
   </div>
 </div>
 
-
 <!-- Second Parallax Image with About Me Text-->
 <div class="w3-content w3-container w3-padding-64" id="about">
   <hr>
@@ -126,7 +124,6 @@ body, html {
     Hello! I am a UC Berkeley undergraduate studying physics and computer science. I am most excited by projects that connect these disciplines in creative ways to produce new functionalities, modalities, and theories! Specifically, I am fascinated by optics, computational imaging, and computer graphics. These fields often attract questions of an interdisciplinary flavor and have historically produced powerful scientific tools and insights. More generally, I love learning about topics that are highly visual, geometric, and mathematical. Thanks for visiting my webpage! I hope you find some of the featured work interesting!
   </p>
 </div>
-
 
 <!-- Second Parallax Image with Portfolio Text-->
 <div class="w3-display-container w3-opacity-min">
@@ -228,10 +225,11 @@ body, html {
   <div class="w3-row-padding w3-center w3-section">
 
     <h3 class="w3-center">COURSEWORK</h3>
-    <p align=justify> A teaching assistant for an upperdivision math class I was taking once proclaimed that the greatest hack mathematicians ever discovered was practice.
-        This fact has not been overlooked in my coursework which consists predominantly of problem sets; a fascinating and effective (though often frusturatingly challenging) approach to learning technical material.
-        Unfortunately, problem sets do not ordinarily make for good featurable material. Instead I have decided to showcase coursework relating to the occasional final project opportunity.
-        These opportunities have appeared predominantly in computer graphics and physics labs. </p>
+    <p align=justify> A TA of mine once proclaimed that the greatest hack mathematicians ever discovered was practice.
+        This fact has not been overlooked in my coursework which consists predominantly of problem sets; an unreasnably effective approach to learning technical material.
+        Unfortunately, problem sets do not ordinarily make for good featurable material. Instead I have decided to showcase final projects associated with some of my courses.
+        These final projcets often form an amalgamation of the material we learned throughout the course.
+    </p>
 
 
     <div class="w3-col l4">
@@ -334,10 +332,15 @@ body, html {
 
     <div class="w3-third">
       <div class="description" data-description="MagLevApparatus">
-      <p> A description is coming soon!
+      <p align=justify> To measure the density
         <span class="dots">...</span>
         <span class="more" style="display: none;">
-        </span>
+          of biological samples in a high-throughput fashion I designed an apparatus that performs two functions:
+          <br></br> (1) Using permanent magnets configured to produce a uniform field over the sample, the apparatus spatially stratifies biological samples suspended in a paramagnetic fluid based on their densities. The vertical positions of the stratified samples encodes their density. For those interested, a more detailed description of this phenomenon is provided in the research section under the project
+          titled <b>MagLev Density Measurement</b>.
+          <br></br> (2) Using an array of 2F optical systems (relay lenses) and mirrors, an image of each stratified sample is projected to the plane of a household flatbed scanner. In this way, we can easily collect an image of each sample in parallel by running the flatbed scanner with the apparatus placed on top.
+          <br></br> The apparatus is designed to be cost-effective and house a 96-well plate, making it compatible with standard pharmeceutical and medical hardware. In this regard it can be easily integrated into the lab environment. It provides a way of recording the sample positions in an image and enables future digital processing.
+          </span>
       </p>
       <button onclick="readMore('MagLevApparatus')" class="readMoreButton">Read more</button>
       </div>
@@ -345,9 +348,15 @@ body, html {
 
     <div class="w3-third">
       <div class="description" data-description="N-ArmPIC">
-      <p> A description is coming soon!
+      <p align=justify> Interfometric imagers
         <span class="dots">...</span>
         <span class="more" style="display: none;">
+          are a class of computational camera that use interference to measure the 2D Fourier Transform of a target scene. This imaging method has been wildly succesful in synthesizing high resolution images the distant cosmos from a network of coordinated telescopes. In fact, the first image of a black hole ever captured in 2019 used measurements from telescope network collectively called the Event Horizon Telescope (EHT).
+          <br></br>Fundamentally, this method operates on the same principles as the Young's Slits experiment. The strength of different spatial frequencies in a scene is encoded in the intensity of a cosine interference signal, known as a <i>fringe</i>. By varying the separation between the slits, we can sample different spatial frequencies in the scene. In practice, interferometric imagers use focusing apertures rather than slits.
+          The distance between these apertures (or telescopes in the case of astronomy) is referred to as the <i>baseline</i>.
+          <br></br>Recently, there has been a growing effort to miniaturize interferometric imagers as they afford high resolution imaging without the bulky optics of traditional focusing imagers. This miniaturization has been achieved by performing interferometry on a photonic integrated circuit (PIC). To date the PIC architectures for miniaturized interferometers rely on pair-wise beam combination.
+          In this patent we propose interfering multiple beams simultaneously to generate fringes with higher information densities. For a non-redundant baseline configuration, which is to say that the collecting apertures are positioned such that the distance between any pair of apertures is unique, such a design increases the number of spatial frequency quadratically with respect to the number of apertures compared to linear growth afforded by pairwise aperture combination.
+          In other words, for the same number of input apertures N, the number of spatial frequency samples increases by a factor of ~N compared to previous architectures.
         </span>
       </p>
       <button onclick="readMore('N-ArmPIC')" class="readMoreButton">Read more</button>
@@ -356,7 +365,7 @@ body, html {
 
     <div class="w3-third">
       <div class="description" data-description="UVWand">
-      <p> A description is coming soon!
+      <p align=justify> A description is coming soon!
         <span class="dots">...</span>
         <span class="more" style="display: none;">
         </span>
@@ -371,7 +380,7 @@ body, html {
   <!-- ROW1: Responsive Grid for personal project images  -->
   <div class="w3-row-padding w3-center w3-section">
     <h3 class="w3-center">PERSONAL PROJECTS</h3>
-    <p align=justify>Here are some of my personal projects. Most are fun little programs I have written in my free time. </p>
+    <p align=justify>Here are some of my personal projects. Most are fun little graphics programs I have written in my free time. </p>
 
     <div class="w3-col l4">
       <a href="https://www.shadertoy.com/view/3dBfRh" target="_blank"> <p style="color:blue">Shadertoy: Boids Alorithm</p></a>
@@ -570,12 +579,8 @@ body, html {
   </div>
 </div>
 
-
-
 <!-- Container (Contact Section) -->
 <div class="w3-content w3-container w3-padding-64" id="contact">
-  <hr>
-
   <div class="w3-row w3-padding-32 w3-section">
 
     <div class="w3-col m8 w3-panel">
@@ -659,6 +664,6 @@ function readMore(description) {
 }
 </script>
 
-
 </body>
+
 </html>
