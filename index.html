@@ -290,7 +290,7 @@ body, html {
           <span class="more" style="display: none;">
           This peceptually realistic cloth simulator is driven by equations of motion from classical mechanics. Conceptually, the cloth is modelled as a 2D grid of point masses connected by an isometric spring lattice. The motion of each point mass on the grid is governed by the cumulative effect of the spring forces (obeying Hooke's Law) and external forces. The simulation propagates the position of each point mass forward in time using Verlet Integration techniques. While there are energy losses in this technique, the simulator retains stability.
           <br></br>The simulator also addresses collisions with objects in the scene as well as self-collision effects to prevent the cloth from passing through itself. Different cloth materials can be simulated by tuning physical constants like the spring constant and the cloth density. The program uses shaders for visual rendering which undercuts the computational costs of ray tracing (it runs near real-time on my laptop). I found myself deeply drawn to the underlying physical model enabling these simulations. I was surprised to see how perceptually convincing the simulator ran despite some unphysical conditions imposed on the propagator, which were required for stability. After careful scrutiny, I found that these seemingly unphysical constraints were actually loose approximations of certain real-world phenomena.
-          <br></br>For instance, the propagator caps the spring extension/contraction length to 10% of the rest length. Initially, this seems like a highly unphysical constraint as it impliess that the spring constant as a function displacement from the rest length looks like an infinite potential well. Clearly a strong deviation from Hooke's Law. After some investigation though, I found that many materials have a spring constant that varies exponentially as their stretched. Therefore, an infinite well is not all too far from a potential that varies exponentially with respect to the displacement from the rest length. 
+          <br></br>For instance, the propagator caps the spring extension/contraction length to 10% of the rest length. Initially, this seems like a highly unphysical constraint as it impliess that the spring constant as a function displacement from the rest length looks like an infinite potential well. Clearly a strong deviation from Hooke's Law. After some investigation though, I found that many materials have a spring constant that varies exponentially as their stretched. Therefore, an infinite well is not all too far from a potential that varies exponentially with respect to the displacement from the rest length.
         </span>
       </p>
       <button onclick="readMore('ClothSim')" class="readMoreButton">Read more</button>
@@ -582,7 +582,7 @@ body, html {
 <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
   <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  <p>Last Updated 3/14/2021</p>
+  <p>Last Updated 3/18/2021</p>
 </footer>
 
 <script>
