@@ -223,7 +223,7 @@ body, html {
 
   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
   <!-- COURSEWORK -->
-  <!-- Responsive Grid for coursework images -->
+  <!-- ROW1 Responsive Grid for coursework images -->
   <div class="w3-row-padding w3-center w3-section">
 
     <h3 class="w3-center">COURSEWORK</h3>
@@ -247,7 +247,7 @@ body, html {
     </div>
 
   </div>
-  <!-- Responsive Grid for coursework descriptions -->
+  <!-- ROW1 Responsive Grid for coursework descriptions -->
   <div class="w3-row-padding w3-center">
 
     <div class="w3-third">
@@ -296,6 +296,131 @@ body, html {
       <button onclick="readMore('ClothSim')" class="readMoreButton">Read more</button>
       </div>
     </div>
+
+    <!-- ROW2: Responsive Grid for coursework images -->
+    <div class="w3-row-padding w3-center w3-section">
+
+      <div class="w3-col l4">
+        <a href="Assets/PDFs/Physics_111B_Helmholtz_Resonator.pdf" target="_blank"><p style="color:blue">Helmholtz Resonator</p></a>
+        <img src="Assets/Images/HelmholtzResonator.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Spectrograms of the helmholtz resonator for different bottle geometries.">
+      </div>
+
+      <div class="w3-col l4">
+        <a href="Assets/PDFs/Physics_111B_Non_Linear_Dynamics_and_Chaos_Write_Up.pdf" target="_blank"><p style="color:blue">Nonlinear Dynamics and Chaos</a>
+        <img src="Assets/Images/PNJ_BifurcZoom.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A Bifurcation diagram for the PN junction.">
+      </div>
+
+      <div class="w3-col l4">
+        <a href ="Assets/PDFs/Physics_111B_Semiconductor_Hall_Effect.pdf" target="_blank"><p style="color:blue">Semiconductor Hall Effect</p></a>
+        <img src="Assets/Images/HallEffect.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A diagram of the Hall Effect in a germanium semiconductor sample.">
+      </div>
+
+    </div>
+    <!-- ROW2: Responsive Grid for coursework descriptions-->
+    <div class="w3-row-padding w3-center">
+
+      <div class="w3-third">
+        <div class="description" data-description="HelmholtzResonator">
+        <p align=justify>
+          <span class="dots"></span>
+          <span class="more" style="display: none;">
+            A description is coming soon!
+          </span>
+        </p>
+        <button onclick="readMore('HelmholtzResonator')" class="readMoreButton">Read more</button>
+        </div>
+      </div>
+
+      <div class="w3-third">
+        <div class="description" data-description="NLD_Chaos">
+        <p align=justify>
+          <span class="dots"></span>
+          <span class="more" style="display: none;">
+            A description is coming soon!
+          </span>
+        </p>
+
+        <button onclick="readMore('NLD_Chaos')" class="readMoreButton">Read more</button>
+        </div>
+      </div>
+
+      <div class="w3-third">
+        <div class="description" data-description="HallEffectSemiconductor">
+        <p align=justify>
+          <span class="dots"></span>
+          <span class="more" style="display: none;">
+            A description is coming soon!
+          </span>
+        </p>
+        <button onclick="readMore('HallEffectSemiconductor')" class="readMoreButton">Read more</button>
+      </div>
+      </div>
+
+    </div>
+
+    <!-- ROW3: Responsive Grid for coursework images -->
+    <!--
+    <div class="w3-row-padding w3-center w3-section">
+
+      <div class="w3-col l4">
+        <a href="Assets/PDFs/Physics_111B_Helmholtz_Resonator.pdf" target="_blank"><p style="color:blue">Helmholtz Resonator</p></a>
+        <img src="Assets/Images/HelmholtzResonator.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Spectrograms of the helmholtz resonator for different bottle geometries.">
+      </div>
+
+      <div class="w3-col l4">
+        <a href="Assets/PDFs/Physics_111B_Non_Linear_Dynamics_and_Chaos_Write_Up.pdf" target="_blank"><p style="color:blue">Nonlinear Dynamics and Chaos</a>
+        <img src="Assets/Images/PNJ_BifurcZoom.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A Bifurcation diagram for the PN junction.">
+      </div>
+
+      <div class="w3-col l4">
+        <a href ="Assets/PDFs/Physics_111B_Semiconductor_Hall_Effect.pdf" target="_blank"><p style="color:blue">Semiconductor Hall Effect</p></a>
+        <img src="Assets/Images/HallEffect.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="A diagram of the Hall Effect in a germanium semiconductor sample.">
+      </div>
+
+    </div>
+  -->
+
+    <!-- ROW3: Responsive Grid for coursework descriptions-->
+    <!--
+    <div class="w3-row-padding w3-center">
+
+      <div class="w3-third">
+        <div class="description" data-description="DecisionTrees">
+        <p align=justify>
+          <span class="dots"></span>
+          <span class="more" style="display: none;">
+            A description is coming soon!
+          </span>
+        </p>
+        <button onclick="readMore('HelmholtzResonator')" class="readMoreButton">Read more</button>
+        </div>
+      </div>
+
+      <div class="w3-third">
+        <div class="description" data-description="NLD_Chaos">
+        <p align=justify>
+          <span class="dots"></span>
+          <span class="more" style="display: none;">
+            A description is coming soon!
+        </p>
+        <button onclick="readMore('NLD_Chaos')" class="readMoreButton">Read more</button>
+        </div>
+      </div>
+
+      <div class="w3-third">
+        <div class="description" data-description="HallEffectSemiconductor">
+        <p align=justify>
+        <span class="more" style="display: none;">
+            A description is coming soon!
+          </span>
+        </p>
+        <button onclick="readMore('HallEffectSemiconductor')" class="readMoreButton">Read more</button>
+      </div>
+      </div>
+
+    </div>
+  -->
+
 
   </div>
 
@@ -554,7 +679,10 @@ body, html {
     <div class="w3-col m8 w3-panel">
       <div class="w3-large w3-margin-bottom" align=left>
         <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Berkeley, US<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="mailto:email@address.com">Email: nico.deshler@berkeley.edu</a> <br>
+
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Primary Email: <a href="mailto:nico.deshler@berkeley.edu">nico.deshler@berkeley.edu</a> <br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Secondary Email: <a href="mailto:ndeshler@email.arizona.edu">ndeshler@email.arizona.edu</a> <br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Work Email: <a href="mailto:nicolas.j.deshler@lmco.com">nicolas.j.deshler@lmco.com</a> <br>
         <i class="fa fa-university fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="https://orcid.org/0000-0001-8657-3237">ORCID</a> <br>
       </div>
       <div align=left>
