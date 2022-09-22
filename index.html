@@ -605,10 +605,11 @@ body, html {
       <img src="Assets/Videos/PAVFlowSim.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Boeing Personal Air Vehicle Competition">
     </div>
 
+
     <div class="w3-col l4">
-      <a href ="Assets/PDFs/Physics Extended Essay Final - Investigating the Effects of Wingtip Feathers on Induced Drag Reduction and Wing Efficiency.pdf" target="_blank"><p style="color:blue">Bio-Inspired Wing Design</p></a>
-      <img src="Assets/Images/EEFig.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The Effects of Wingtip Feathers on Induced Drag Reductionand Wing Efficiency">
-    </div>
+        <a href="https://www.shadertoy.com/view/st3yDn" target="_blank"><p style="color:blue">ShaderToy: Mandelbrot Set</p></a>
+        <img src="Assets/Videos/Mandelbrot.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Zooming into the Mandelbrot fractal">
+      </div>
 
   </div>
   <!-- ROW2: Responsive Grid for personal project descriptions-->
@@ -639,14 +640,20 @@ body, html {
     </div>
 
     <div class="w3-third">
-      <div class="description" data-description="ExtendedEssay">
+      <div class="description" data-description="Mandelbrot">
       <p align=justify>
       <span class="dots"></span>
       <span class="more" style="display: none;">
-          The aerodynamic efficiency of soaring birds can be accredited, in part, to a distinct anatomical feature of their wing: Primary feathers. In this project, I investigated how primary feathers influence wingtip vorticity and induced drag by experimentally measuring aerodynamic forces and conducting flow-physics simulations. Using a home-built wind tunnel and a modular base wing, I measured aerodynamic lift and drag for a series of feather profiles and angles-of-attack (AOA). The ratio of these force measurements quantitatively characterized the efficiency of the wing configuration. To establish reliable baselines, I performed flow simulations using XFLR5 on comparable virtual wings. These baselines corroborated the experimental values acquired using the wind tunnel.
-        </span>
+          I know. It's a rather cliche fractal to animate but the Mandelbrot set has some amazing properties outside of its captivating graphics. Before discussing those though let us go over what the Mandelbrot set is and what this visual represents. A point <var>c</var> in the complex plane is considered part of the Mandelbrot set if it remaisn stable (does not diverge) under infinite iteration of the update rule
+          <span class="math"><var>z</var><sub>n+1</sub> = <var>z</var><sub>n</sub><sup>2</sup> + <var>c</var></span> where   <span class="math"><var>z</var><sub>0</sub> =  0 </span>. The black regions of the plane depicted in the animation constitute points in the Mandelbrot set. The remaining regions are unstable and are colored based on their rate of divergence. The Mandelbrot set is in fact a special case of a Julia set. In general, unique Julia sets are defined by different initializations of <var>z</var><sub>0</sub>. It is astounding that such structure can emerge from such a simple update rule. For more resources on this topic I suggest the following educational math content:
+          <br></br>
+          <a href="https://iquilezles.org/articles/msetsmooth/">Smooth Mandelbrot Shading - Inigo Quilez</a>
+          <br></br>
+          <a href="https://www.youtube.com/watch?v=NGMRB4O922I">The Mandelbrot Set - Numberphile</a>
+          <br></br>
+          <a href="https://www.youtube.com/watch?v=FFftmWSzgmk&t">What's so special about the Mandelbrot Set? - Numberphile</a>
       </p>
-      <button onclick="readMore('ExtendedEssay')" class="readMoreButton">Read more</button>
+      <button onclick="readMore('Mandelbrot')" class="readMoreButton">Read more</button>
     </div>
     </div>
 
@@ -663,10 +670,12 @@ body, html {
       <img src="Assets/Images/Boyd_Convergence_HighOrder_HG_modes.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The Boyd interpretation of the Gouy Phase applied to higher-order Hermite-Gauss Modes">
     </div>
 
-  <div class="w3-col l4">
-      <a href="https://www.shadertoy.com/view/st3yDn" target="_blank"><p style="color:blue">ShaderToy: Mandelbrot Set</p></a>
-      <img src="Assets/Videos/Mandelbrot.gif" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Zooming into the Mandelbrot fractal">
+
+    <div class="w3-col l4">
+      <a href ="Assets/PDFs/Physics Extended Essay Final - Investigating the Effects of Wingtip Feathers on Induced Drag Reduction and Wing Efficiency.pdf" target="_blank"><p style="color:blue">Bio-Inspired Wing Design</p></a>
+      <img src="Assets/Images/EEFig.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The Effects of Wingtip Feathers on Induced Drag Reductionand Wing Efficiency">
     </div>
+
   </div>
   <!-- ROW3: Responsive Grid for personal project descriptions-->
   <div class="w3-row-padding w3-center">
@@ -698,24 +707,20 @@ body, html {
     </div>
     </div>
 
+    <div class="w3-third">
+      <div class="description" data-description="ExtendedEssay">
+      <p align=justify>
+      <span class="dots"></span>
+      <span class="more" style="display: none;">
+          The aerodynamic efficiency of soaring birds can be accredited, in part, to a distinct anatomical feature of their wing: Primary feathers. In this project, I investigated how primary feathers influence wingtip vorticity and induced drag by experimentally measuring aerodynamic forces and conducting flow-physics simulations. Using a home-built wind tunnel and a modular base wing, I measured aerodynamic lift and drag for a series of feather profiles and angles-of-attack (AOA). The ratio of these force measurements quantitatively characterized the efficiency of the wing configuration. To establish reliable baselines, I performed flow simulations using XFLR5 on comparable virtual wings. These baselines corroborated the experimental values acquired using the wind tunnel.
+        </span>
+      </p>
+      <button onclick="readMore('ExtendedEssay')" class="readMoreButton">Read more</button>
+    </div>
+    </div>
 
-      <div class="w3-third">
-        <div class="description" data-description="Mandelbrot">
-        <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-            I know. It's a rather cliche fractal to animate but the Mandelbrot set has some amazing properties outside of its captivating graphics. Before discussing those though let us go over what the Mandelbrot set is and what this visual represents. A point <var>c</var> in the complex plane is considered part of the Mandelbrot set if it remaisn stable (does not diverge) under infinite iteration of the update rule
-            <span class="math"><var>z</var><sub>n+1</sub> = <var>z</var><sub>n</sub><sup>2</sup> + <var>c</var></span> where   <span class="math"><var>z</var><sub>0</sub> =  0 </span>. The black regions of the plane depicted in the animation constitute points in the Mandelbrot set. The remaining regions are unstable and are colored based on their rate of divergence. The Mandelbrot set is in fact a special case of a Julia set. In general, unique Julia sets are defined by different initializations of <var>z</var><sub>0</sub>. It is astounding that such structure can emerge from such a simple update rule. For more resources on this topic I suggest the following educational math content:
-            <br></br>
-            <a href="https://iquilezles.org/articles/msetsmooth/">Smooth Mandelbrot Shading - Inigo Quilez</a>
-            <br></br>
-            <a href="https://www.youtube.com/watch?v=NGMRB4O922I">The Mandelbrot Set - Numberphile</a>
-            <br></br>
-            <a href="https://www.youtube.com/watch?v=FFftmWSzgmk&t">What's so special about the Mandelbrot Set? - Numberphile</a>
-        </p>
-        <button onclick="readMore('Mandelbrot')" class="readMoreButton">Read more</button>
-      </div>
-      </div>
+
+
 
   </div>
 
