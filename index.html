@@ -168,10 +168,10 @@ body, html {
         <img src="Assets/Videos/membrane.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Estimating the state of an optomechanical membrane resonator at the Heisenberg limit for radiation pressure backaction.">
     </div>
 
-    <!-- Sub-Rayleigh Object Classification -->
+    <!-- Experimental Coronagraph -->
     <div class="w3-col l4">
-      <a href="Assets/PDFs/ONN_Classification.pdf" target="_blank"><p style="color:blue">Diffractive Neural Networks</p></a>
-      <img src="Assets/Images/DNN_Diagram.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Diffractive Neural Networks for sub-Rayleigh object classification.">
+      <a href="Assets/PDFs/Experimental_Coronagraph_COSI_2024.pdf" target="_blank"><p style="color:blue">Quantum-Optimal Coronagraph</p></a>
+      <img src="Assets/Images/ExperimentalCoronagraphImages.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Images of Sub-Rayleigh synthetic exoplanets imaged with a quantum-optimal coronagraph.">
     </div>
 
   </div>
@@ -204,16 +204,16 @@ body, html {
         </div>
       </div>
 
-    <!-- Sub-Rayleigh Object Classification -->
+    <!-- Experimental Coronagraph -->
       <div class="w3-third">
-        <div class="description" data-description="DNN">
+        <div class="description" data-description="ExperimentalCoronagraph">
         <p align=justify>
           <span class="dots"></span>
           <span class="more" style="display: none;">
-          We perform image classification for objects smaller than the Rayleigh resolution limit using diffractive optical neural networks. We also compare the performance of this technique to that of a digital classifier trained on spatial mode sorting measurements and a classifier trained on direct detection measurements.
+            We implement a direct imaging coronagraph that rejects all light from an on-axis star using a double-pass spatial mode sorter. Our experimental setup can precisely localize exoplanets below the diffraction limit at 1000:1 star-planet contrast.
           </span>
         </p>
-        <button onclick="readMore('DNN')" class="readMoreButton">Read more</button>
+        <button onclick="readMore('ExperimentalCoronagraph')" class="readMoreButton">Read more</button>
         </div>
       </div>
 
@@ -530,6 +530,12 @@ body, html {
       <img src="Assets/Videos/EMMultiAperture_DD.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Expectation Maximization running on incident photons to resolve two sources.">
     </div>
 
+    <!-- Sub-Rayleigh Object Classification -->
+    <div class="w3-col l4">
+      <a href="Assets/PDFs/ONN_Classification.pdf" target="_blank"><p style="color:blue">Diffractive Neural Networks</p></a>
+      <img src="Assets/Images/DNN_Diagram.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Diffractive Neural Networks for sub-Rayleigh object classification.">
+    </div>
+
   </div>
 
   <!-- ROW3: Responsive Grid for coursework descriptions-->
@@ -547,6 +553,19 @@ body, html {
         <button onclick="readMore('2PointSource')" class="readMoreButton">Read more</button>
         </div>
       </div>
+
+      <!-- Sub-Rayleigh Object Classification -->
+        <div class="w3-third">
+          <div class="description" data-description="DNN">
+          <p align=justify>
+            <span class="dots"></span>
+            <span class="more" style="display: none;">
+            We perform image classification for objects smaller than the Rayleigh resolution limit using diffractive optical neural networks. We also compare the performance of this technique to that of a digital classifier trained on spatial mode sorting measurements and a classifier trained on direct detection measurements.
+            </span>
+          </p>
+          <button onclick="readMore('DNN')" class="readMoreButton">Read more</button>
+          </div>
+        </div>
 
   </div>
   <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
