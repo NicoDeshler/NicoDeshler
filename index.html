@@ -113,13 +113,13 @@ body, html {
   <hr>
   <img src="Assets/Images/portrait.jpg" hspace="50px" width=300px style="float:left"/>
   <p align=justify>
-    Hello! Thanks for visiting my webpage! I am a PhD student in the College of Optical Sciences (OSC) at the University of Arizona.
+    Hello! Thanks for visiting my webpage! I am a PhD student in the College of Optical Sciences at the University of Arizona.
     I completed my undergraduate degrees in physics and computer science at the University of California, Berkeley.
-    I am most excited by projects in computational imaging and computer graphics that aim to produce new functionalities, modalities, and theories!
-    More generally, I love learning about topics that are highly visual, geometric, and mathematical.
+    I am most excited by projects in quantum information science, estimation theory, and computational imaging that aim to produce new capabilities, modalities, and theories!
+    In general, I love learning about topics that are highly visual, geometric, and mathematical.
   <br></br>
-    I am currently conducting research in the <a href="https://wp.optics.arizona.edu/ashoka/" target="_blank">Intelligent Imaging and Sensing Lab</a> led by Professor Amit Ashok and in the <a href="https://cqn-erc.arizona.edu/" target="_blank">Center for Quantum Networks</a> directed by Professor Saikat Guha. My work integrates compressive sensing and quantum parameter estimation to achieve generalized super-resolution imaging of incoherent scenes.
-    Within my graduate college, I am co-president of the OSC Journal Club (check out the <a href= "https://drive.google.com/drive/folders/1J2Vwk4acpNIHk_imQYL2BbHVyVMUjgUT?usp=sharing" target="_blank">archive</a> of past presentations!). I am also an NSF GRFP fellow funded by grant No. DGE-2137419. Outside of academics you will probably find me reading fantasy, making music, rock climbing, or playing soccer.
+    I conduct research within the <a href="https://wp.optics.arizona.edu/ashoka/" target="_blank">Intelligent Imaging and Sensing Lab</a> led by Professor Amit Ashok and the <a href="https://cqn-erc.arizona.edu/" target="_blank">Center for Quantum Networks</a> directed by Professor Saikat Guha. My work applies quantum parameter estimation theory in service of super-resolution imaging.
+    Within my graduate college, I am co-president of the OSC Journal Club (check out the <a href= "https://drive.google.com/drive/folders/1J2Vwk4acpNIHk_imQYL2BbHVyVMUjgUT?usp=sharing" target="_blank">archive</a> of past presentations!). I am also an NSF GRFP fellow funded by grant No. DGE-2137419. Outside of academics I enjoy reading fantasy, making music, rock climbing, and playing soccer.
   </p>
 </div>
 
@@ -142,16 +142,16 @@ body, html {
     <h3 class="w3-center">RESEARCH</h3>
     <p align=justify> My past research experiences span a range fields including quantum optics, computational imaging, compressive sensing, magnetic levitation, and fluid dynamics. The project descriptions provide a general overview of the motivations and central results of each study. If you find your interest piqued, click on the image headings to access a publication on the project! </p>
 
+    <!-- NV Magnetometry -->
+    <div class="w3-col l4">
+      <a href="http://arxiv.org/abs/2508.13438" target="_blank"><p style="color:blue">Superresolution Quantum Sensing</p></a>
+      <img src="Assets/Images/NV_Magnetometry.JPG" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Imaging-based Nitrogen-Vacancy magnetometry using the ODMR protocol.">
+    </div>
+
     <!-- Quantum limits of Exoplanet Discovery -->
     <div class="w3-col l4">
         <a href ="https://arxiv.org/abs/2403.17988" target="_blank"> <p style="color:blue"> Quantum Limits of Exoplanet Discovery</p> </a>
         <img src="Assets/Images/QuantumExo.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Discovering Exoplanets using quantum-limited coronagraphs">
-    </div>
-
-    <!-- Membrane State Estimation -->
-    <div class="w3-col l4">
-        <a href ="https://arxiv.org/abs/2407.07060" target="_blank"> <p style="color:blue">Quantum Resonator Estimation</p> </a>
-        <img src="Assets/Videos/membrane.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Estimating the state of an optomechanical membrane resonator at the Heisenberg limit for radiation pressure backaction.">
     </div>
 
     <!-- Experimental Coronagraph -->
@@ -164,6 +164,30 @@ body, html {
   <!-- ROW1: Responsive Grid for research descriptions  -->
   <div class="w3-row-padding w3-center">
 
+    <!-- NV Magnetometry -->
+      <div class="w3-third">
+        <div class="description" data-description="NVMagnetometry">
+        <p align=justify>
+          <span class="dots"></span>
+          <span class="more" style="display: none;">
+            Optically addressable ensembles of solid-state defects, such as nitrogen vacancy (NV) centers, are
+            a leading modality for imaging-based magnetometry, thermometry and strain sensing. However,
+            monitoring the fluorescence of individual defects within a sub-diffraction ensemble remains an outstanding challenge that currently limits access to atomic-scale features and dynamics. For compact
+            clusters of NVs, imaging-based atomic sensing may be formulated as a low-dimensional multiparameter estimation task in which one seeks to localize each defect and quantify the field strength
+            in its immediate vicinity. In this work, we employ optical spatial mode demultiplexing (SPADE) to
+            enhance localization and brightness estimation accuracy at sub-diffraction scales. Specifically, we
+            develop a two-stage sensing protocol that augments direct imaging by projecting the incoming optical field onto point spread function (PSF)-adapted spatial modes and Yuen-Kennedy-Lax (YKL)
+            spatial modes, enabling efficient extraction of emitter positions and brightnesses. We numerically
+            evaluate the statistical performance of our protocol for sub-diffraction optically detected magnetic
+            resonance (ODMR) and Rabi sensing experiments. Compared to conventional focal plane intensity
+            measurements, our protocol improves emitter localization accuracy by 6× and brightness estimation
+            accuracy by 2× for tightly confined ensembles, residing well below the diffraction limit.
+          </span>
+        </p>
+        <button onclick="readMore('NVMagnetometry')" class="readMoreButton">Read more</button>
+        </div>
+      </div>
+
     <!-- Quantum limits of Exoplanet Discovery -->
       <div class="w3-third">
         <div class="description" data-description="QuantumExo">
@@ -174,19 +198,6 @@ body, html {
         </span>
         </p>
         <button onclick="readMore('QuantumExo')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-    <!-- Membrane State Estimation -->
-      <div class="w3-third">
-        <div class="description" data-description="MechMembrane">
-        <p align=justify>
-          <span class="dots"></span>
-           <span class="more" style="display: none;">
-             We explore using optical mode-sorting measurements to estimate the state of an oscillating optomechanical membrane. The estimation parameters of interest are the time-dependent amplitude coefficients of the membrane's transverse vibrational modes. We also consider the effect of measurement back-action induced by radiation pressure in our parameter estimates by postulating a quantum Hamiltonian for the system. In principle, this work could find applications in imaging-based (cavity-free) optomechanical metrology and active membrane cooling using feedback and structured illumination.
-          </span>
-        </p>
-        <button onclick="readMore('MechMembrane')" class="readMoreButton">Read more</button>
         </div>
       </div>
 
@@ -208,6 +219,12 @@ body, html {
   <!-- ROW2: Responsive Grid for research images  -->
   <div class="w3-row-padding w3-center w3-section">
 
+    <!-- Membrane State Estimation -->
+    <div class="w3-col l4">
+        <a href ="https://doi.org/10.1103/64xv-3fyx" target="_blank"> <p style="color:blue">Imaging-Based Quantum Optomechanics</p> </a>
+        <img src="Assets/Videos/membrane.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Estimating the state of an optomechanical membrane resonator at the Heisenberg limit for radiation pressure backaction.">
+    </div>
+
     <!-- Multi-Aperture Quantum Imaging -->
     <div class="w3-col l4">
         <a href ="Assets/PDFs/Quantum_Super_Resolution_Imaging_with_Multi_Aperture_Systems-COSI_2023.pdf" target="_blank"> <p style="color:blue"> Multi-Aperture Quantum Imaging</p> </a>
@@ -220,16 +237,22 @@ body, html {
         <img src="Assets/Images/Compressive_Quantum_Imaging_fig.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Sub-Diffraction incoherent imaging with quantum modal measurements.">
     </div>
 
-    <!-- NV Magnetometry -->
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/NV_Magnetometry.pdf" target="_blank"><p style="color:blue">NV Magnetometry</p></a>
-      <img src="Assets/Images/NV_Magnetometry.JPG" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Imaging-based Nitrogen-Vacancy magnetometry using the ODMR protocol.">
-    </div>
-
   </div>
   <!-- ROW2: Responsive Grid for research descriptions  -->
   <div class="w3-row-padding w3-center">
 
+    <!-- Membrane State Estimation -->
+      <div class="w3-third">
+        <div class="description" data-description="MechMembrane">
+        <p align=justify>
+          <span class="dots"></span>
+           <span class="more" style="display: none;">
+             We explore using optical mode-sorting measurements to estimate the state of an oscillating optomechanical membrane. The estimation parameters of interest are the time-dependent amplitude coefficients of the membrane's transverse vibrational modes. We also consider the effect of measurement back-action induced by radiation pressure in our parameter estimates by postulating a quantum Hamiltonian for the system. In principle, this work could find applications in imaging-based (cavity-free) optomechanical metrology and active membrane cooling using feedback and structured illumination.
+          </span>
+        </p>
+        <button onclick="readMore('MechMembrane')" class="readMoreButton">Read more</button>
+        </div>
+      </div>
 
       <div class="w3-third">
         <div class="description" data-description="MultiAperture_QI">
@@ -254,19 +277,6 @@ body, html {
           </span>
         </p>
         <button onclick="readMore('Distributed_QI')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-    <!-- NV Magnetometry -->
-      <div class="w3-third">
-        <div class="description" data-description="NVMagnetometry">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-            A description is coming soon!
-          </span>
-        </p>
-        <button onclick="readMore('NVMagnetometry')" class="readMoreButton">Read more</button>
         </div>
       </div>
 
