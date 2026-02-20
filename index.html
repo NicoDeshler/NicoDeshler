@@ -1,943 +1,760 @@
 <!DOCTYPE html>
-<html>
-<title>Nico Deshler Webpage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<body style="background-color:white;">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif; color: black;}
-body, html {
-  height: 100%;
-  color: black;
-  line-height: 1.8;
-}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nico Deshler — Quantum Information & Metrology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-.hr {
-  display: block;
-  margin-top: 3em;
-  margin-bottom: 3em;
-  margin-left: auto;
-  margin-right: auto;
-  border-style: inset;
-  border-width: 1px;
-}
+  <style>
+    :root {
+      --bg:        #111213;
+      --bg-mid:    #1a1b1d;
+      --bg-card:   rgba(26,27,29,0.92);
+      --blue:      #7eb8d4;
+      --blue-glow: rgba(126,184,212,0.10);
+      --sky:       #a8cfe0;
+      --white:     #f0f1f2;
+      --text:      #b4bac0;
+      --muted:     #6a7178;
+      --border:    rgba(126,184,212,0.14);
+      --ease:      0.35s cubic-bezier(0.4,0,0.2,1);
+    }
 
-/* Create a Parallax Effect */
-.bgimg-1 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Outfit',sans-serif;
+      background:var(--bg); color:var(--text);
+      line-height:1.72; overflow-x:hidden;
+    }
+    body::before {
+      content:''; position:fixed; inset:0;
+      background:
+        radial-gradient(ellipse at 18% 8%, rgba(126,184,212,0.04) 0%, transparent 58%),
+        radial-gradient(ellipse at 82% 85%, rgba(55,60,65,0.09) 0%, transparent 52%);
+      pointer-events:none; z-index:0;
+    }
+    ::selection { background:var(--blue); color:#fff; }
+    a { color:var(--sky); text-decoration:none; transition:color var(--ease); }
+    a:hover { color:var(--white); }
 
-/* First image (Logo. Full height) */
-.bgimg-1 {
-  background-image: url("Assets/Images/light.jpg");
-  min-height: 400px;
-}
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      padding:0 clamp(1.5rem,5vw,4rem); height:62px;
+      display:flex; align-items:center; justify-content:space-between;
+      transition:background var(--ease), box-shadow var(--ease);
+    }
+    nav.scrolled {
+      background:rgba(17,18,19,0.92);
+      backdrop-filter:blur(16px);
+      box-shadow:0 1px 0 var(--border);
+    }
+    .nav-logo { font-family:'Outfit',sans-serif; font-weight:500; font-size:1rem; color:var(--white); }
+    .nav-logo span { color:var(--blue); }
+    .nav-links { display:flex; align-items:center; gap:clamp(1rem,2vw,1.8rem); list-style:none; }
+    .nav-links a {
+      font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--muted); position:relative; transition:color var(--ease);
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-3px; left:0;
+      width:0; height:1px; background:var(--blue); transition:width var(--ease);
+    }
+    .nav-links a:hover { color:var(--white); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-cta {
+      border:1px solid var(--border); padding:0.32rem 0.8rem; border-radius:4px;
+      color:var(--sky) !important; transition:background var(--ease), border-color var(--ease) !important;
+    }
+    .nav-cta:hover { background:var(--blue-glow); border-color:var(--blue); color:var(--white) !important; }
+    .nav-cta::after { display:none !important; }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+    .hamburger span { display:block; width:22px; height:1.5px; background:var(--muted); }
+    .mobile-menu {
+      display:none; position:fixed; top:62px; left:0; right:0; z-index:999;
+      background:rgba(17,18,19,0.97); backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--border); padding:1.4rem 2rem;
+      flex-direction:column; gap:1.1rem;
+    }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { font-size:0.88rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
+    .mobile-menu a:hover { color:var(--white); }
+    @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:flex;} }
 
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
+    /* HERO */
+    #home {
+      min-height:100vh; display:flex; align-items:center; justify-content:center;
+      padding:5rem clamp(1.5rem,5vw,4rem) 4rem;
+      position:relative; text-align:center; z-index:1;
+    }
+    .hero-content { max-width:760px; }
+    .hero-eyebrow {
+      display:inline-flex; align-items:center; gap:0.6rem;
+      font-size:0.7rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase;
+      color:var(--blue); margin-bottom:1.5rem;
+      opacity:0; animation:fadeUp 0.8s 0.2s forwards;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content:''; display:block; width:22px; height:1px; background:var(--blue); opacity:0.5;
+    }
+    .hero-name {
+      font-family:'DM Serif Display',serif;
+      font-size:clamp(2.8rem,7vw,5.5rem); font-weight:400; font-style:normal;
+      line-height:1.06; color:var(--white); letter-spacing:0.01em; margin-bottom:1.3rem;
+      opacity:0; animation:fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-subtitle {
+      font-size:clamp(0.88rem,1.8vw,1rem); font-weight:300; color:var(--muted);
+      max-width:540px; margin:0 auto 2.4rem;
+      opacity:0; animation:fadeUp 0.8s 0.6s forwards;
+    }
+    .hero-ctas {
+      display:flex; gap:0.9rem; justify-content:center; flex-wrap:wrap;
+      opacity:0; animation:fadeUp 0.8s 0.8s forwards;
+    }
+    .btn {
+      display:inline-flex; align-items:center; gap:0.45rem;
+      padding:0.6rem 1.4rem; border-radius:4px;
+      font-size:0.78rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;
+      border:none; cursor:pointer; transition:all var(--ease);
+    }
+    .btn-primary { background:var(--blue); color:#111; }
+    .btn-primary:hover { background:var(--sky); color:#111; transform:translateY(-1px); box-shadow:0 6px 20px rgba(126,184,212,0.25); }
+    .btn-secondary { background:transparent; border:1px solid var(--border); color:var(--sky); }
+    .btn-secondary:hover { background:var(--blue-glow); border-color:var(--blue); color:var(--white); transform:translateY(-1px); }
+    .hero-scroll {
+      position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
+      display:flex; flex-direction:column; align-items:center; gap:0.45rem;
+      opacity:0; animation:fadeIn 1s 1.3s forwards;
+    }
+    .hero-scroll span { font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); }
+    .scroll-line {
+      width:1px; height:36px; background:linear-gradient(to bottom,var(--muted),transparent);
+      animation:scrollPulse 2s ease-in-out infinite;
+    }
 
-.readMoreButton {
-  background-color: grey;
-  border: 2px solid #e7e7e7;
-  color: black;
-  padding: 5px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 2px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-.readMoreButton:hover {background-color: white;}
+    /* SECTIONS */
+    section { padding:clamp(4rem,8vw,6.5rem) clamp(1.5rem,6vw,5rem); position:relative; z-index:1; }
+    .max-w { max-width:1180px; margin:0 auto; }
+    .section-header { margin-bottom:3rem; }
+    .section-label { display:inline-block; font-size:0.66rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue); margin-bottom:0.6rem; }
+    .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:300; color:var(--white); line-height:1.22; }
+    .section-rule { width:36px; height:1px; background:var(--blue); opacity:0.5; margin-top:1rem; }
 
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
-    min-height: 400px;
-  }
-}
-</style>
+    /* ABOUT */
+    #about { border-top:1px solid var(--border); }
+    .about-grid { display:grid; grid-template-columns:260px 1fr; gap:clamp(2rem,5vw,4.5rem); align-items:start; }
+    @media(max-width:700px){ .about-grid{grid-template-columns:1fr;} }
+    .about-photo-wrap { position:sticky; top:5rem; }
+    .photo-frame { border-radius:4px; overflow:hidden; position:relative; }
+    .photo-frame::after { content:''; position:absolute; inset:0; border:1px solid var(--border); border-radius:4px; pointer-events:none; }
+    .photo-frame img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; filter:grayscale(25%) brightness(0.88); transition:filter var(--ease); }
+    .photo-frame:hover img { filter:grayscale(0%) brightness(1); }
+    .about-links { display:flex; flex-direction:column; gap:0.55rem; margin-top:1.3rem; }
+    .alink { display:flex; align-items:center; gap:0.65rem; font-size:0.8rem; color:var(--muted); transition:color var(--ease); }
+    .alink:hover { color:var(--white); }
+    .alink i { width:14px; text-align:center; color:var(--blue); font-size:0.8rem; }
+    .about-body p { font-size:0.93rem; font-weight:300; color:var(--text); margin-bottom:1.1rem; line-height:1.85; }
+    .about-body a { color:var(--sky); border-bottom:1px solid rgba(168,207,224,0.22); }
+    .about-body a:hover { color:var(--white); border-bottom-color:var(--white); }
+    .about-body strong { color:var(--sky); font-weight:400; }
+    .tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:1.4rem; }
+    .tag {
+      padding:0.28rem 0.65rem; border:1px solid var(--border); border-radius:3px;
+      font-size:0.69rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase;
+      color:var(--muted); background:var(--blue-glow); transition:all var(--ease);
+    }
+    .tag:hover { color:var(--sky); border-color:var(--blue); }
 
+    /* PORTFOLIO */
+    #portfolio { border-top:1px solid var(--border); }
+    .port-tabs { display:flex; border-bottom:1px solid var(--border); margin-bottom:2.8rem; overflow-x:auto; scrollbar-width:none; }
+    .port-tabs::-webkit-scrollbar { display:none; }
+    .tab-btn {
+      flex-shrink:0; padding:0.8rem 1.4rem;
+      font-family:'Outfit',sans-serif; font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+      color:var(--muted); background:transparent; border:none; border-bottom:2px solid transparent;
+      margin-bottom:-1px; cursor:pointer; transition:all var(--ease);
+    }
+    .tab-btn:hover { color:var(--text); }
+    .tab-btn.active { color:var(--white); border-bottom-color:var(--blue); }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; animation:fadeIn 0.35s ease; }
+    .tab-intro { font-size:0.9rem; font-weight:300; color:var(--muted); max-width:680px; margin-bottom:2.2rem; line-height:1.78; }
 
+    /* CARDS */
+    .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.3rem; }
+    .card {
+      background:var(--bg-card); border:1px solid var(--border); border-radius:6px; overflow:hidden;
+      transition:border-color var(--ease), box-shadow var(--ease), transform var(--ease); cursor:pointer;
+    }
+    .card:hover { border-color:rgba(126,184,212,0.35); box-shadow:0 6px 28px rgba(0,0,0,0.32); transform:translateY(-2px); }
+    .card.open { border-color:rgba(126,184,212,0.4); }
+    .card-img { width:100%; height:180px; object-fit:cover; display:block; background:var(--bg-mid); }
+    .card-body { padding:1.1rem 1.3rem; }
+    .card-ext {
+      display:inline-flex; align-items:center; gap:0.3rem;
+      font-size:0.7rem; font-weight:500; letter-spacing:0.07em; text-transform:uppercase;
+      color:var(--blue); opacity:0.8; margin-bottom:0.4rem; transition:opacity var(--ease);
+    }
+    .card-ext:hover { opacity:1; color:var(--white); }
+    .card-title { font-family:'Cormorant Garamond',serif; font-size:1.08rem; font-weight:500; color:var(--white); line-height:1.35; margin-bottom:0.75rem; }
+    .card-toggle-row { display:flex; align-items:center; justify-content:space-between; }
+    .toggle-label { font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); transition:color var(--ease); }
+    .card:hover .toggle-label { color:var(--sky); }
+    .toggle-icon {
+      width:20px; height:20px; border:1px solid var(--border); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--muted); font-size:0.6rem; transition:all var(--ease); flex-shrink:0;
+    }
+    .card:hover .toggle-icon { border-color:var(--blue); color:var(--blue); }
+    .card.open .toggle-icon { background:var(--blue); border-color:var(--blue); color:#111; transform:rotate(45deg); }
+    .card-desc { max-height:0; overflow:hidden; transition:max-height 0.48s cubic-bezier(0.4,0,0.2,1); }
+    .card.open .card-desc { max-height:900px; }
+    .card-desc-inner {
+      padding-top:0.9rem; margin-top:0.9rem; border-top:1px solid var(--border);
+      font-size:0.84rem; font-weight:300; color:var(--text); line-height:1.85;
+    }
+    .card-desc-inner a { color:var(--sky); border-bottom:1px solid rgba(168,207,224,0.2); }
+    .card-desc-inner a:hover { color:var(--white); }
+
+    /* CONTACT */
+    #contact { border-top:1px solid var(--border); }
+    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4.5rem); align-items:start; }
+    @media(max-width:680px){ .contact-grid{grid-template-columns:1fr;} }
+    .contact-info p { font-size:0.9rem; font-weight:300; color:var(--muted); line-height:1.8; margin-bottom:1.8rem; }
+    .clinks { display:flex; flex-direction:column; gap:0.95rem; }
+    .clink { display:flex; align-items:flex-start; gap:0.9rem; }
+    .clink-icon { width:34px; height:34px; flex-shrink:0; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--blue); font-size:0.82rem; background:var(--blue-glow); }
+    .clink-label { font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.15rem; }
+    .clink-val { font-size:0.85rem; color:var(--text); }
+    .contact-form { display:flex; flex-direction:column; gap:0.9rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; }
+    @media(max-width:460px){ .form-row{grid-template-columns:1fr;} }
+    .fg { display:flex; flex-direction:column; gap:0.35rem; }
+    .fg label { font-size:0.66rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
+    .fg input, .fg textarea {
+      background:rgba(26,27,29,0.7); border:1px solid var(--border); border-radius:4px;
+      padding:0.6rem 0.85rem; font-family:'Outfit',sans-serif; font-size:0.86rem;
+      font-weight:300; color:var(--white); outline:none; resize:none;
+      transition:border-color var(--ease), box-shadow var(--ease);
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color:var(--muted); }
+    .fg input:focus, .fg textarea:focus { border-color:var(--blue); box-shadow:0 0 0 3px var(--blue-glow); }
+    .fg textarea { min-height:115px; }
+
+    /* FOOTER */
+    footer {
+      border-top:1px solid var(--border); padding:2.2rem clamp(1.5rem,6vw,5rem);
+      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.8rem;
+      position:relative; z-index:1;
+    }
+    .footer-name { font-size:0.9rem; font-weight:500; color:var(--muted); }
+    .footer-name span { color:var(--blue); }
+    .footer-note { font-size:0.72rem; color:var(--muted); }
+    .footer-up { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:var(--muted); cursor:pointer; transition:color var(--ease); }
+    .footer-up:hover { color:var(--white); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}  to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+    @keyframes scrollPulse { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+
+    /* SCROLL REVEAL */
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity 0.65s ease,transform 0.65s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    .stagger > * { opacity:0; transform:translateY(14px); transition:opacity 0.5s ease,transform 0.5s ease; }
+    .stagger.in > *:nth-child(1)  { opacity:1; transform:none; transition-delay:0.00s; }
+    .stagger.in > *:nth-child(2)  { opacity:1; transform:none; transition-delay:0.06s; }
+    .stagger.in > *:nth-child(3)  { opacity:1; transform:none; transition-delay:0.12s; }
+    .stagger.in > *:nth-child(4)  { opacity:1; transform:none; transition-delay:0.18s; }
+    .stagger.in > *:nth-child(5)  { opacity:1; transform:none; transition-delay:0.24s; }
+    .stagger.in > *:nth-child(6)  { opacity:1; transform:none; transition-delay:0.30s; }
+    .stagger.in > *:nth-child(7)  { opacity:1; transform:none; transition-delay:0.36s; }
+    .stagger.in > *:nth-child(8)  { opacity:1; transform:none; transition-delay:0.42s; }
+    .stagger.in > *:nth-child(9)  { opacity:1; transform:none; transition-delay:0.48s; }
+  </style>
+</head>
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-home" style="color:white"></i><span style="color:white"> HOME</span></a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user" style="color:white"></i><span style="color:white"> ABOUT</span></a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th" style="color:white"></i><span style="color:white"> PORTFOLIO</span></a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope" style="color:white"></i><span style="color:white"> CONTACT</span></a>
-    <a href="Assets\PDFs\Deshler-Nicolas_CV.pdf " target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-book" style="color:white"></i><span style="color:white"> CURRICULUM VITAE</span></a>
-    <a href="https://github.com/NicoDeshler" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-github" style="color:white"></i><span style="color:white"> GITHUB</span></a>
-    <a href="Assets\PDFs\GRFP_essays.pdf" target="_blank" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-flask" style="color:white"></i><span style="color:white"> NSF GRFP</span></a>
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">N<span>.</span>Deshler</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="Assets/PDFs/Deshler-Nicolas_CV.pdf" target="_blank" class="nav-cta"><i class="fa fa-file-lines"></i> CV</a></li>
+      <li><a href="https://github.com/NicoDeshler" target="_blank" class="nav-cta"><i class="fab fa-github"></i> GitHub</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="toggleMenu()">Home</a>
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="Assets/PDFs/Deshler-Nicolas_CV.pdf" target="_blank">Curriculum Vitae</a>
+    <a href="https://github.com/NicoDeshler" target="_blank">GitHub</a>
+    <a href="Assets/PDFs/GRFP_essays.pdf" target="_blank">NSF GRFP</a>
   </div>
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#CV" class="w3-bar-item w3-button" onclick="toggleFunction()">CURRICULUM VITAE</a>
-    <a href="#github" class="w3-bar-item w3-button" onclick="toggleFunction()">GITHUB</a>
-    <a href="#grfp" class="w3-bar-item w3-button" onclick="toggleFunction()">NSF GRFP</a>
-  </div>
-</div>
-
-<!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <!--<span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">NICO <span class="w3-hide-small">DESHLER</span> -->
-  </div>
-</div>
-
-<!-- Container (About Section) -->
-<div class="w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <p><br></p>
-    <p><br></p>
-    <span class="w3-xxlarge w3-text-black w3-wide">Nico Deshler</span>
-  </div>
-</div>
-
-<!-- Second Parallax Image with About Me Text-->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <hr>
-  <img src="Assets/Images/portrait.jpg" hspace="50px" width=300px style="float:left"/>
-  <p align=justify>
-    Hello! Thanks for visiting my webpage! I am a PhD student in the College of Optical Sciences at the University of Arizona.
-    I completed my undergraduate degrees in physics and computer science at the University of California, Berkeley.
-    I am most excited by projects in quantum information science, estimation theory, and computational imaging that aim to produce new capabilities, modalities, and theories!
-    In general, I love learning about topics that are highly visual, geometric, and mathematical.
-  <br></br>
-    I conduct research within the <a href="https://wp.optics.arizona.edu/ashoka/" target="_blank">Intelligent Imaging and Sensing Lab</a> led by Professor Amit Ashok and the <a href="https://cqn-erc.arizona.edu/" target="_blank">Center for Quantum Networks</a> directed by Professor Saikat Guha. My work applies quantum parameter estimation theory in service of super-resolution imaging.
-    Within my graduate college, I am co-president of the OSC Journal Club (check out the <a href= "https://drive.google.com/drive/folders/1J2Vwk4acpNIHk_imQYL2BbHVyVMUjgUT?usp=sharing" target="_blank">archive</a> of past presentations!). I am also an NSF GRFP fellow funded by grant No. DGE-2137419. Outside of academics I enjoy reading fantasy, making music, rock climbing, and playing soccer.
-  </p>
-</div>
-
-<!-- Second Parallax Image with Portfolio Text-->
-<div class="w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-black w3-wide">PORTFOLIO</span>
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <hr>
-
-  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-  <!-- RESEARCH  -->
-  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-  <!-- ROW1: Responsive Grid for research images  -->
-  <div class="w3-row-padding w3-center w3-section">
-    <h3 class="w3-center">RESEARCH</h3>
-    <p align=justify> My past research experiences span a range fields including quantum optics, computational imaging, compressive sensing, magnetic levitation, and fluid dynamics. The project descriptions provide a general overview of the motivations and central results of each study. If you find your interest piqued, click on the image headings to access a publication on the project! </p>
-
-    <!-- NV Magnetometry -->
-    <div class="w3-col l4">
-      <a href="http://arxiv.org/abs/2508.13438" target="_blank"><p style="color:blue">Superresolution Quantum Sensing</p></a>
-      <img src="Assets/Images/NV_Magnetometry.JPG" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Imaging-based Nitrogen-Vacancy magnetometry using the ODMR protocol.">
-    </div>
-
-    <!-- Quantum limits of Exoplanet Discovery -->
-    <div class="w3-col l4">
-        <a href ="https://arxiv.org/abs/2403.17988" target="_blank"> <p style="color:blue"> Quantum Limits of Exoplanet Discovery</p> </a>
-        <img src="Assets/Images/QuantumExo.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Discovering Exoplanets using quantum-limited coronagraphs">
-    </div>
-
-    <!-- Experimental Coronagraph -->
-    <div class="w3-col l4">
-      <a href="https://opg.optica.org/optica/fulltext.cfm?uri=optica-12-4-518&id=570325" target="_blank"><p style="color:blue">Quantum-Optimal Coronagraph</p></a>
-      <img src="Assets/Images/ExperimentalCoronagraphImages.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Images of Sub-Rayleigh synthetic exoplanets imaged with a quantum-optimal coronagraph.">
-    </div>
-
-  </div>
-  <!-- ROW1: Responsive Grid for research descriptions  -->
-  <div class="w3-row-padding w3-center">
-
-    <!-- NV Magnetometry -->
-      <div class="w3-third">
-        <div class="description" data-description="NVMagnetometry">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-            Optically addressable ensembles of solid-state defects, such as nitrogen vacancy (NV) centers, are
-            a leading modality for imaging-based magnetometry, thermometry and strain sensing. However,
-            monitoring the fluorescence of individual defects within a sub-diffraction ensemble remains an outstanding challenge that currently limits access to atomic-scale features and dynamics. For compact
-            clusters of NVs, imaging-based atomic sensing may be formulated as a low-dimensional multiparameter estimation task in which one seeks to localize each defect and quantify the field strength
-            in its immediate vicinity. In this work, we employ optical spatial mode demultiplexing (SPADE) to
-            enhance localization and brightness estimation accuracy at sub-diffraction scales. Specifically, we
-            develop a two-stage sensing protocol that augments direct imaging by projecting the incoming optical field onto point spread function (PSF)-adapted spatial modes and Yuen-Kennedy-Lax (YKL)
-            spatial modes, enabling efficient extraction of emitter positions and brightnesses. We numerically
-            evaluate the statistical performance of our protocol for sub-diffraction optically detected magnetic
-            resonance (ODMR) and Rabi sensing experiments. Compared to conventional focal plane intensity
-            measurements, our protocol improves emitter localization accuracy by 6× and brightness estimation
-            accuracy by 2× for tightly confined ensembles, residing well below the diffraction limit.
-          </span>
-        </p>
-        <button onclick="readMore('NVMagnetometry')" class="readMoreButton">Read more</button>
-        </div>
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-content">
+      <div class="hero-eyebrow">PhD Researcher · University of Arizona</div>
+      <h1 class="hero-name">Nico Deshler</h1>
+      <p class="hero-subtitle">Doctoral student in quantum information science, quantum metrology &amp; computational imaging.</p>
+      <div class="hero-ctas">
+        <a href="#portfolio" class="btn btn-primary"><i class="fa fa-flask"></i> View Research</a>
+        <a href="#about" class="btn btn-secondary"><i class="fa fa-user"></i> About Me</a>
+        <a href="Assets/PDFs/Deshler-Nicolas_CV.pdf" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i> Download CV</a>
       </div>
-
-    <!-- Quantum limits of Exoplanet Discovery -->
-      <div class="w3-third">
-        <div class="description" data-description="QuantumExo">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-            Discovering exoplanets in orbit around distant stars via direct imaging is fundamentally impeded by the high dynamic range between the star and the planet. Coronagraphs strive to increase the signal-to-noise ratio of exoplanet signatures by optically rejecting light from the host star while leaving light from the exoplanet mostly unaltered. However it is unclear whether coronagraphs are an optimal strategy for attaining fundamental limits relevant exoplanet discovery. In this work, we report the quantum information limits of exoplanet detection and localization specified by the Quantum Chernoff Exponent (QCE) and the Quantum Fisher Information Matrix (QFIM) respectively. In view of these quantum limits, we assess and compare several high-performance coronagraph designs that theoretically achieve total rejection of an on-axis point source. We find that systems which exclusively eliminate the fundamental mode of the telescope without attenuating higher-order orthogonal modes are quantum-optimal in the regime of high star-planet contrasts. Importantly, the QFIM is shown to persist well below the diffraction-limit of the telescope, suggesting that quantum-optimal coronagraphs may further expand the domain of accessible exoplanets.
-        </span>
-        </p>
-        <button onclick="readMore('QuantumExo')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-    <!-- Experimental Coronagraph -->
-      <div class="w3-third">
-        <div class="description" data-description="ExperimentalCoronagraph">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-            We implement a direct imaging coronagraph that rejects all light from an on-axis star using a double-pass spatial mode sorter. Our experimental setup can precisely localize exoplanets below the diffraction limit at 1000:1 star-planet contrast.
-          </span>
-        </p>
-        <button onclick="readMore('ExperimentalCoronagraph')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
     </div>
+    <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
+  </section>
 
-  <!-- ROW2: Responsive Grid for research images  -->
-  <div class="w3-row-padding w3-center w3-section">
-
-    <!-- Membrane State Estimation -->
-    <div class="w3-col l4">
-        <a href ="https://doi.org/10.1103/64xv-3fyx" target="_blank"> <p style="color:blue">Imaging-Based Quantum Optomechanics</p> </a>
-        <img src="Assets/Videos/membrane.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Estimating the state of an optomechanical membrane resonator at the Heisenberg limit for radiation pressure backaction.">
-    </div>
-
-    <!-- Multi-Aperture Quantum Imaging -->
-    <div class="w3-col l4">
-        <a href ="Assets/PDFs/Quantum_Super_Resolution_Imaging_with_Multi_Aperture_Systems-COSI_2023.pdf" target="_blank"> <p style="color:blue"> Multi-Aperture Quantum Imaging</p> </a>
-        <img src="Assets/Images/COSI_2023_Figure.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Sub-Diffraction constellation localization with multi-aperture systems">
-    </div>
-
-    <!-- Adaptive Quantum Imaging with Sparsity Constraints -->
-    <div class="w3-col l4">
-        <a href ="https://github.com/I2SL/Compressive-Quantum-Imaging" target="_blank"> <p style="color:blue"> Compressive Quantum Imaging</p> </a>
-        <img src="Assets/Images/Compressive_Quantum_Imaging_fig.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Sub-Diffraction incoherent imaging with quantum modal measurements.">
-    </div>
-
-  </div>
-  <!-- ROW2: Responsive Grid for research descriptions  -->
-  <div class="w3-row-padding w3-center">
-
-    <!-- Membrane State Estimation -->
-      <div class="w3-third">
-        <div class="description" data-description="MechMembrane">
-        <p align=justify>
-          <span class="dots"></span>
-           <span class="more" style="display: none;">
-             We explore using optical mode-sorting measurements to estimate the state of an oscillating optomechanical membrane. The estimation parameters of interest are the time-dependent amplitude coefficients of the membrane's transverse vibrational modes. We also consider the effect of measurement back-action induced by radiation pressure in our parameter estimates by postulating a quantum Hamiltonian for the system. In principle, this work could find applications in imaging-based (cavity-free) optomechanical metrology and active membrane cooling using feedback and structured illumination.
-          </span>
-        </p>
-        <button onclick="readMore('MechMembrane')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-      <div class="w3-third">
-        <div class="description" data-description="MultiAperture_QI">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-            Multi-Aperture systems have been used to enhance the resolution of classical imaging systems while subverting the engineering challenges associated with making large contiguous optical components. Here we demonstrate the advantage of quantum modal imaging applied to multi-aperture systems for estimating the locations of point sources in a sub-rayleigh constelltion.
-            Interestingly, the relative performance advantage of modal imaging over direct detection improves as the constellation separation distances become smaller and the system becomes more photon-starved.
-          </span>
-        </p>
-        <button onclick="readMore('MultiAperture_QI')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-     <!-- Adaptive Quantum Imaging with Sparsity Constraints-->
-      <div class="w3-third">
-        <div class="description" data-description="Distributed_QI">
-        <p align=justify>
-          <span class="dots"></span>
-           <span class="more" style="display: none;">
-             A description is coming soon!
-          </span>
-        </p>
-        <button onclick="readMore('Distributed_QI')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-    </div>
-
-  <!-- ROW3: Responsive Grid for research images  -->
-  <div class="w3-row-padding w3-center w3-section">
-    <!-- Computational Imaging and DiffuserCam -->
-    <div class="w3-col l4">
-        <a href ="Assets/PDFs/COSI-2020-Multi-sensor lensless imaging synthetic large-format sensing with disjoint sensor array.pdf" target="_blank"> <p style="color:blue"> Multi-Sensor DiffuserCam </p> </a>
-        <img src="Assets/Images/COSI_2020_Figure.JPG" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Image reconstruction with FISTA.">
-    </div>
-    <!-- Maglev Density Measurement -->
-    <div class="w3-col l4">
-      <a href ="Assets/PDFs/JACS-High-throughput density measurement using magnetic levitation.pdf" target="_blank"> <p style="color:blue"> MagLev Density Measurement </p> </a>
-      <img src="Assets/Videos/RBCfocusing.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Red Blood Cells concentrating to a fixed location dicated by their density.">
-    </div>
-    <!-- Aeromechancis of Spider Crickets -->
-    <div class="w3-col l4">
-      <a href ="Assets/PDFs/ASME - Aeromechanics of Long Jumps in Spider Crickets-Insights from Experiments and Modeling.pdf" target="_blank"> <p style="color:blue"> Aeromechanics of Jumping Crickets </p> </a>
-      <img src="Assets/Videos/CricketJump.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Cricket in flight.">
-    </div>
-
-  </div>
-  <!-- Row3: Responsive Grid for research descriptions  -->
-  <div class="w3-row-padding w3-center">
-
-     <!-- Computational Imaging and DiffuserCam -->
-      <div class="w3-third">
-        <div class="description" data-description="DiffuserCam">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-               Mask-based computational cameras are uniquely capable of recovering 3D information from a single multiplexed 2D sensor measurement. This research seeks to augment the 3D reconstruction volumes of mask-based cameras by employing multi-sensor arrays to synthesize an enlarged sensing area.
-               <br></br>Under this objective, my work has primarily addressed theory, simulation, and prototyping. I derived a guiding mathematical model motivating our exploration of large-sensor platforms within a ray-optics framework. Improvements predicted by our model include enhanced voxel resolution and extended depth-of-field for 3D reconstruction volumes. I also wrote data pipelines that interface Matlab and Python with Zemax OpticStudio to explore the design space for sensor arrays. These pipelines characterized design performance by comparing simulated 3D scenes and measurements with the corresponding reconstructions.
-               <br></br>Informed by these simulated heuristics, we developed a prototype camera featuring a 2x2 sensor array which successfully recovers wide-field images with merely 8.6% of the pixels required for a conventional lensed system! To achieve this, I adapted existing DiffuserCam reconstruction algorithms and calibration methods to address structured erasures inherent in multi-sensor measurements.
-          </span>
-        </p>
-        <button onclick="readMore('DiffuserCam')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-      <!-- Maglev Density Measurement -->
-      <div class="w3-third">
-        <div class="description" data-description="MagLev">
-        <p align=justify>
-          <span class="dots"></span>
-           <span class="more" style="display: none;">
-          Magnetic Levitation (MagLev) of biological samples in a paramagnetic solution has been used to perform density-based characterizations of
-          living cells and to conduct medical diagnostics. In this work, we developed a cost-effective MagLev instrument for measuring densities across a
-          broad collection of assay types in a high-throughput fashion. Two neodinium permanent magnets oriented in an anti-helmholtz format produce a strong quasi-uniform magnetic field in which a sample is placed.
-          Consequently, buoyant, magnetic, and graviational forces stratify the sample along the direction of this magnetic field based on density. By tuning the paramagnetic solution, the range of measurable densities
-          or the precision of the measurement can be adjusted. The video above shows this phenomenon in action. Here, a collection of microbeads appear stratified vertically; vertical displacement encodes their density.
-          We can refine the density uniformity of the microbead population by extracting only those within a certain height range, as shown.
-
-          <br></br>The high-throughput instrument we present in this study is compatible with standardized assay equipment (a 96-well plate) and consumer-level flatbed scanners.
-          Using CAD modelling in Solidworks and rapid
-          prototyping technology (i.e. 3D printers and laser cutters) I designed the optical hardware for our device. Specifically, I created the optical
-          assembly as a grid of collinear relay lenses and planar mirrors. This component transmits an orthogonal in-focus view of levitated samples to
-          the surface of a flatbed scanner, enabling data acquisition. In addition, I supported writing image processing programs in MATLAB for analyzing
-          levitation data to discern sample densities. In practice, this affordable and simple platform could bring point-of-care medical diagnostics to
-          regions facing serious endemics
-
-          </span>
-        </p>
-        <button onclick="readMore('MagLev')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-        <!-- Aeromechancis of Spider Crickets -->
-        <div class="w3-third">
-          <div class="description" data-description="CricketAero">
-          <p align=justify>
-            <span class="dots"></span>
-            <span class="more" style="display: none;">
-               Jumping is a unique form of locomotion that spans aerial and terrestrial domains.In this research, we investigated the aeromechanics governing stable insect jump trajectories, specifically for spider crickets. These insects jump impressively long distances in proportion to their size yet consistently land upright.
-               <br></br>Using 3-dimensional videogrammetry methods, we tracked and plotted the cricket’s center of mass (CoM) and limb positions over the course of its jump trajectory. We then developed Matlab programs to compute drag force vectors acting on each component of the insect as well as the net torque acting about its Center of Mass from the jump data. These analyses indicated that the cricket’s aerial posture generates restoring torques when perturbed. The stabilizing posture prominent in the descent period of the jump trajectory could be vital to successfully replicating this form of locomotion in robotic systems.
-            </span>
-          </p>
-          <button onclick="readMore('CricketAero')" class="readMoreButton">Read more</button>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="max-w">
+      <div class="about-grid">
+        <div class="about-photo-wrap reveal">
+          <div class="photo-frame"><img src="Assets/Images/portrait.jpg" alt="Nico Deshler"></div>
+          <div class="about-links">
+            <a href="mailto:ndeshler@arizona.edu" class="alink"><i class="fa fa-envelope"></i><span>ndeshler@arizona.edu</span></a>
+            <a href="https://scholar.google.com/citations?user=_U3Jf6EAAAAJ&hl=en" target="_blank" class="alink"><i class="fa fa-graduation-cap"></i><span>Google Scholar</span></a>
+            <a href="https://orcid.org/0000-0001-8657-3237" target="_blank" class="alink"><i class="fa fa-id-card"></i><span>ORCID 0000-0001-8657-3237</span></a>
+            <a href="https://github.com/NicoDeshler" target="_blank" class="alink"><i class="fab fa-github"></i><span>NicoDeshler</span></a>
+            <a href="Assets/PDFs/GRFP_essays.pdf" target="_blank" class="alink"><i class="fa fa-award"></i><span>NSF GRFP Fellow · DGE-2137419</span></a>
+            <a href="https://wp.optics.arizona.edu/ashoka/" target="_blank" class="alink"><i class="fa fa-microscope"></i><span>Intelligent Imaging &amp; Sensing Lab</span></a>
+            <a href="https://cqn-erc.arizona.edu/" target="_blank" class="alink"><i class="fa fa-atom"></i><span>Center for Quantum Networks</span></a>
+            <a href="https://drive.google.com/drive/folders/1J2Vwk4acpNIHk_imQYL2BbHVyVMUjgUT?usp=sharing" target="_blank" class="alink"><i class="fa fa-book-open"></i><span>OSC Journal Club Archive</span></a>
           </div>
         </div>
-
-    </div>
-
-  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-  <!-- COURSEWORK -->
-  <!-- ROW1 Responsive Grid for coursework images -->
-  <div class="w3-row-padding w3-center w3-section">
-
-    <h3 class="w3-center">COURSEWORK</h3>
-    <p align=justify> A TA of mine once proclaimed that the greatest hack mathematicians ever discovered was practice. This fact has not been overlooked in my coursework which consists predominantly of problem sets; an unreasonably effective approach to learning technical material. Unfortunately, problem sets do not ordinarily make for good featurable material. Instead I have decided to showcase final projects associated with some of my courses. These final projects offer amalgam of material learned throughout the course.
-    </p>
-
-    <div class="w3-col l4">
-      <a href ="https://dangeng.github.io/184-final-project/?fbclid=IwAR3vLInLS8HQrFwdMUgAOKZfvI3dOxV57l-XYLD0xmRMZYuc90GGzIRaKsc" target="_blank"> <p style="color:blue"> Bubble Simulator </p> </a>
-      <img src="Assets/Videos/BubbleSimulator.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Fluid Flow and Thin Film Interference">
-    </div>
-
-    <div class="w3-col l4">
-      <a href ="Assets/PDFs/Physics_111A_Final_Project_2019.pdf" target="_blank"><p style="color:blue"> Cymatics and Waves </p> </a>
-      <img src="Assets/Videos/cymatics.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Wave Propagation in Soap Bubble Membranes">
-    </div>
-
-
-    <div class="w3-col l4">
-      <a href ="https://nicodeshler.github.io/CS184-sp20-p4-clothsim/" target="_blank"><p style="color:blue">Cloth Simulator</p></a>
-      <img src="Assets/Videos/ClothSimulator.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Cloth Simulator">
-    </div>
-
-  </div>
-  <!-- ROW1 Responsive Grid for coursework descriptions -->
-  <div class="w3-row-padding w3-center">
-
-    <div class="w3-third">
-      <div class="description" data-description="BubbleSimulator">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          In this work we adapt a light transport pipeline to render the chromatic dynamics of bubbles. Physically, those mesmerizing swirls of color visible on the surface of soapy films are created by small differences in the thickness of the film.
-          <br></br>Thin film interference explains why certain colors appear more than others for different thicknesses. When light interacts with the top surface of the thin film, some light is reflected and some is transmitted to the bottom surface.
-          Upon striking the bottom surface, the light is again partially reflected and partially transmitted. However, the two reflected components each pick up a different phase related to the thickness of the film. Consequently, they interfere constructively or destructively at different wavelengths which is why we see some
-          colors and not others.
-          <br></br>In this work, we pair the physics of thin film interference with the physics of fluids to accurately characterize the evolution of the chromatics in time. We numerically integrate the 2D Navier-stokes equations defined over the surface of a sphere to propogate a density flow field. Interpreting the density
-          term as a thickness, we update the radiance of each ray intersecting a thin-film surface based on its wavelength and the thickness of the film at the intersection point.
-        </span>
-      </p>
-      <button onclick="readMore('BubbleSimulator')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="Cymatics">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          A new method for measuring the speed of wave propagation in soapy membranes(i.e. bubbles) is presented.
-          The experimental configuration uses only a speaker, an LED, and a photodiode. These components operate in unison as follows:
-          <br><br>The speaker supplies a tranverse acoustic drive to a circular soap membrane. Simultaneously, a LED strobes the membrane at the same frequency as the acoustic drive while a photodiode collects the light reflected off the membrane.
-          In situations where the membrane is in a resonant mode, the membrane oscillates at the same frequency as the drive frequency (with a phase shift). Under strobed illumination, the profile of normal mode will appear stationary. Hence, the photodiode should register a constant signal.
-          The resonant frequencies of the membrane can be related directly to the propagation speed of waves in the media. After subjecting the membrane to an acoustic frequency scan, we employ a search algorithm over the photodiode signal to identify the resonant frequencies of the membrane.
-        </span>
-      </p>
-      <button onclick="readMore('Cymatics')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="ClothSim">
-      <p align=justify>
-        <span class="dots"></span>
-          <span class="more" style="display: none;">
-          This peceptually realistic cloth simulator is driven by equations of motion from classical mechanics. Conceptually, the cloth is modelled as a 2D grid of point masses connected by an isometric spring lattice. The motion of each point mass on the grid is governed by the cumulative effect of the spring forces (obeying Hooke's Law) and external forces. The simulation propagates the position of each point mass forward in time using Verlet Integration techniques. While there are energy losses in this technique, the simulator retains stability.
-          <br></br>The simulator also addresses collisions with objects in the scene as well as self-collision effects to prevent the cloth from passing through itself. Different cloth materials can be simulated by tuning physical constants like the spring constant and the cloth density. The program uses shaders for visual rendering which undercuts the computational costs of ray tracing (it runs near real-time on my laptop). I found myself deeply drawn to the underlying physical model enabling these simulations. I was surprised to see how perceptually convincing the simulator ran despite some unphysical conditions imposed on the propagator, which were required for stability. After careful scrutiny, I found that these seemingly unphysical constraints were actually loose approximations of certain real-world phenomena.
-          <br></br>For instance, the propagator caps the spring extension/contraction length to 10% of the rest length. Initially, this seems like a highly unphysical constraint as it impliess that the spring constant as a function displacement from the rest length looks like an infinite potential well. Clearly a strong deviation from Hooke's Law. After some investigation though, I found that many materials have a spring constant that varies exponentially as their stretched. Therefore, an infinite well is not all too far from a potential that varies exponentially with respect to the displacement from the rest length.
-        </span>
-      </p>
-      <button onclick="readMore('ClothSim')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-  </div>
-  <!-- ROW2: Responsive Grid for coursework images -->
-  <div class="w3-row-padding w3-center w3-section">
-
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/Physics_111B_Helmholtz_Resonator.pdf" target="_blank"><p style="color:blue">Helmholtz Resonator</p></a>
-      <img src="Assets/Images/HelmholtzResonator.PNG" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Spectrograms of the helmholtz resonator for different bottle geometries.">
-    </div>
-
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/Physics_111B_Non_Linear_Dynamics_and_Chaos_Write_Up.pdf" target="_blank"><p style="color:blue">Nonlinear Dynamics and Chaos</p></a>
-      <img src="Assets/Images/PNJ_BifurcZoom.png" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="A Bifurcation diagram for the PN junction.">
-    </div>
-
-    <div class="w3-col l4">
-      <a href ="Assets/PDFs/Physics_111B_Semiconductor_Hall_Effect.pdf" target="_blank"><p style="color:blue">Semiconductor Hall Effect</p></a>
-      <img src="Assets/Images/HallEffect.png" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="A diagram of the Hall Effect in a germanium semiconductor sample.">
-    </div>
-
-  </div>
-  <!-- ROW2: Responsive Grid for coursework descriptions-->
-  <div class="w3-row-padding w3-center">
-
-    <div class="w3-third">
-      <div class="description" data-description="HelmholtzResonator">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          This study explores the relationship between the resonance frequency of a Helmholtz resonator
-          and two of its geometric parameters: the cavity volume and the neck length. Spectrograms of the
-          audio signal generated by different resonator geometries are collected and used in a spectral analysis
-          of the resonant frequencies. Power law fits of the resonance frequencies measured for different cavity
-          volumes and different effective neck lengths were computed. Theoretical predictions are in greater agreement with the power law relationship found
-          for the cavity volume than for the neck length. An analysis of the measurement error and the
-          damping (Q factor) of the Helmholtz resonator are also provided.
-        </span>
-      </p>
-      <button onclick="readMore('HelmholtzResonator')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="NLD_Chaos">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          This work is an exploration in non-linear dynamics and chaos. Our system of focus is the PN
-          junction - a driven oscillatory circuit containing a semiconducting diode with a non-linear response.
-          Of principal interest is the relationship between the chaotic parameters and the dynamical variables.
-          For the PN junction these are, respectively, the amplitude of a tunable voltage source and the electrical current of the circuit. The dynamics of this system are analyzed in simulation. In particular,
-          we numerically integrate the dynamical equations of the circuit and explore the periodicity of state
-          space orbits. Bifurcation diagrams plotted over a progression of the chaotic parameter demonstrate
-          sequential period doubling and cycling between chaotic and stable bands. Informed by these visualizations, we identify a strange attractor for the circuit. We also explore delay time embeddings of
-          the current in two and three dimensions. Finally, we compute the largest Lyapunov exponent for
-          different values of the chaotic parameter.
-        </span>
-      </p>
-
-      <button onclick="readMore('NLD_Chaos')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="HallEffectSemiconductor">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          In this work we explore the influence of temperature on
-          the electrical properties of an Aluminum-doped Germanium semiconductor. Specifically, we determine the free
-          charge carrier density, the resistivity, and the charge mobility of the semiconductor as function of temperature by
-          measuring the Hall coefficients using the Van der Pauw
-          technique
-        </span>
-      </p>
-      <button onclick="readMore('HallEffectSemiconductor')" class="readMoreButton">Read more</button>
-    </div>
-    </div>
-
-  </div>
-
-  <!-- ROW3: Responsive Grid for coursework descriptions-->
-  <div class="w3-row-padding w3-center w3-section">
-    <!-- Quantum Superresolution -->
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/Super-Resolution_2pt_src.pdf" target="_blank"><p style="color:blue">Quantum Super-Resolution</p></a>
-      <img src="Assets/Videos/EMMultiAperture_DD.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Expectation Maximization running on incident photons to resolve two sources.">
-    </div>
-
-    <!-- Sub-Rayleigh Object Classification -->
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/ONN_Classification.pdf" target="_blank"><p style="color:blue">Diffractive Neural Networks</p></a>
-      <img src="Assets/Images/DNN_Diagram.svg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Diffractive Neural Networks for sub-Rayleigh object classification.">
-    </div>
-
-  </div>
-
-  <!-- ROW3: Responsive Grid for coursework descriptions-->
-  <div class="w3-row-padding w3-center">
-
-    <!-- Quantum Superresolution 2-Source Walkthrough -->
-      <div class="w3-third">
-        <div class="description" data-description="2PointSource">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-            A description is coming soon!
-          </span>
-        </p>
-        <button onclick="readMore('2PointSource')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-      <!-- Sub-Rayleigh Object Classification -->
-        <div class="w3-third">
-          <div class="description" data-description="DNN">
-          <p align=justify>
-            <span class="dots"></span>
-            <span class="more" style="display: none;">
-            We perform image classification for objects smaller than the Rayleigh resolution limit using diffractive optical neural networks. We also compare the performance of this technique to that of a digital classifier trained on spatial mode sorting measurements and a classifier trained on direct detection measurements.
-            </span>
-          </p>
-          <button onclick="readMore('DNN')" class="readMoreButton">Read more</button>
+        <div class="about-body reveal">
+          <div class="section-header">
+            <span class="section-label">About</span>
+            <h2 class="section-title">Hi, I'm Nico.</h2>
+            <div class="section-rule"></div>
+          </div>
+          <p>I'm a PhD student in the College of Optical Sciences at the University of Arizona, advised by Professor <a href="https://wp.optics.arizona.edu/ashoka/" target="_blank">Amit Ashok</a> (Intelligent Imaging &amp; Sensing Lab) and affiliated with the <a href="https://cqn-erc.arizona.edu/" target="_blank">Center for Quantum Networks</a> directed by Professor Saikat Guha. I completed my undergraduate degrees in Physics and Computer Science at the University of California, Berkeley.</p>
+          <p>My research applies <strong>quantum parameter estimation theory</strong> to super-resolution imaging and quantum sensing — asking what information is fundamentally accessible when light carries the signal. I'm most excited by problems that are visual, geometric, and deeply mathematical.</p>
+          <p>Within my graduate college I'm co-president of the OSC Journal Club. Outside of academics I enjoy reading fantasy, making music, rock climbing, and playing soccer.</p>
+          <div class="tags">
+            <span class="tag">Quantum Information</span>
+            <span class="tag">Quantum Metrology</span>
+            <span class="tag">Super-Resolution</span>
+            <span class="tag">SPADE</span>
+            <span class="tag">Quantum Fisher Information</span>
+            <span class="tag">Coronagraphy</span>
+            <span class="tag">Computational Imaging</span>
+            <span class="tag">Estimation Theory</span>
           </div>
         </div>
-
-  </div>
-  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-  <!-- PATENTS -->
-  <!-- Responsive Grid for patent images -->
-  <div class="w3-row-padding w3-center w3-section">
-    <h3 class="w3-center">PATENTS</h3>
-    <p class="w3-center"> </p>
-
-    <div class="w3-col l4">
-      <a href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2019222582&tab=PCTBIBLIO" target="_blank"> <p style="color:blue">Sample Measurement with Mirrors</p></a>
-      <img src="Assets/Images/MagLevApparatus.png" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="High-throughput MagLev density measurement system">
-    </div>
-
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/N-Arm Interferometer Patent.pdf" target="_blank"> <p style="color:blue"> PIC-Based Interferometric Transceiver</p></a>
-      <img src="Assets/Images/N-armPIC.png" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Multichannel interferometer">
-    </div>
-
-    <div class="w3-col l4">
-      <a href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11896726" target="_blank"> <p style="color:blue">Interactive UV Decontamination System </p></a>
-      <img src="Assets/Images/SmartUVWand.png" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Ultraviolet decontamination wand with real-time dosage feedback">
-    </div>
-
-
-  </div>
-  <!-- Responsive Grid for patent descriptions -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-third">
-      <div class="description" data-description="MagLevApparatus">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          The apparatus depicted above measures the density of biological samples in a high-throughput fashion by performing two functions:
-          <br></br> (1) Using permanent magnets configured to produce a uniform field over the sample, the apparatus spatially stratifies biological samples suspended in a paramagnetic fluid based on their densities. The vertical positions of the stratified samples encodes their density. For those interested, a more detailed description of this phenomenon is provided in the research section under the project
-          titled <b>MagLev Density Measurement</b>.
-          <br></br> (2) Using an array of 2F optical systems (relay lenses) and mirrors, an image of each stratified sample is projected to the plane of a household flatbed scanner. In this way, we can easily collect an image of each sample in parallel by running the flatbed scanner with the apparatus placed on top.
-          <br></br> The apparatus is designed to be cost-effective and house a 96-well plate, making it compatible with standard pharmeceutical and medical hardware. In this regard it can be easily integrated into the lab environment. It provides a way of recording the sample positions in an image and enables future digital processing.
-          </span>
-      </p>
-      <button onclick="readMore('MagLevApparatus')" class="readMoreButton">Read more</button>
       </div>
     </div>
+  </section>
 
-    <div class="w3-third">
-      <div class="description" data-description="N-ArmPIC">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          Interfometric imagers are a class of computational camera that use interference to measure the 2D Fourier Transform of a target scene. This imaging method has been wildly succesful in synthesizing high resolution images of the distant cosmos using a network of coordinated telescopes. A salient example is the first-ever image of the shadow of a black hole captured in 2019. The measurements for this image were collected by the Event Horizon Telescope (EHT) network and used interferometric imaging techniques.
-          <br></br>Fundamentally, this method operates on the same principles as the Young's Slits experiment. The strength of different spatial frequencies in a scene is encoded in the intensity of a cosine interference signal, known as a <i>fringe</i>. By varying the separation between the slits, we can sample different spatial frequencies in the scene. In practice, interferometric imagers use focusing apertures rather than slits.
-          The distance between these apertures (or telescopes in the case of astronomy) is referred to as the <i>baseline</i>.
-          <br></br>Recently, there has been a growing effort to miniaturize interferometric imagers as they afford high resolution imaging without the bulky optics of traditional focusing imagers. This miniaturization has been achieved by performing interferometry on a photonic integrated circuit (PIC). To date the PIC architectures for miniaturized interferometers rely on pair-wise beam combination.
-          In this patent we propose interfering multiple beams simultaneously to generate fringes with higher information densities. For a non-redundant baseline configuration, which is to say that the collecting apertures are positioned such that the distance between any pair of apertures is unique, such a design drastically increases the number of spatial frequencies sampled in a scene for a given number of input apertures. For the same number of input apertures N, the number of spatial frequency samples collected with this design increases by a factor of N compared to previous architectures.
-        </span>
-      </p>
-      <button onclick="readMore('N-ArmPIC')" class="readMoreButton">Read more</button>
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="max-w">
+      <div class="section-header reveal">
+        <span class="section-label">Portfolio</span>
+        <h2 class="section-title">Research &amp; Projects</h2>
+        <div class="section-rule"></div>
       </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="UVWand">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          Existing decontamination systems fail to provide quantitative information about their effectiveness within a target environment. This patent was motivated by the social, economic, and human loss suffered during the COVID-19 pandemic. These losses have exposed a lack of innovation in the space of consumer-level spatial decontamination technologies. In this patent we propose an Ultraviolet decontamination wand outfitted with a computer vision system that relays
-          the exposure supplied to a target surface back to the user. In this way a quantitative level of decontamination (e.g. %99.999 pathogenic deactivation) can be guaranteed throughout the environment.
-          <br></br> UV light has been shown to sever bonds in genetic material and prevent transcription and translation processes in the cell by forming pyrimidine dymers. It is therefore an effective decontamination technique against all forms of pathogens, both living (microbial) and non-living (viral). The survival probability of these pathogens falls exponentially with the level of UV dosage (energy per unit area) supplied. Since the dosage is a function of
-          exposure time and irradiance, a 3D visual system on the decontamination wand can compute the dosage based on a surface's distance to the wand, the angle of incidence, the power of the UV bulb, and the integrated exposure time. The exposure level is relayed to the user in an interprettable colormap that indicates which regions in the environment have been sufficiently decontaminated wand which need further attention.
-        </span>
-      </p>
-      <button onclick="readMore('UVWand')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
-  <!-- PERSONAL PROJECTS -->
-  <!-- ROW1: Responsive Grid for personal project images  -->
-  <div class="w3-row-padding w3-center w3-section">
-    <h3 class="w3-center">PERSONAL PROJECTS</h3>
-    <p align=justify> Here are some of my personal projects. Most are fun little programs and algortihms I have implemented in my free time. In addition to computational imaging and graphics, I have always been fascinated by fluid dynamics, flight, and aircraft design. Some of the projects shown below are manifestation of these additional interests. </p>
-
-    <div class="w3-col l4">
-      <a href="https://www.shadertoy.com/view/3dBfRh" target="_blank"> <p style="color:blue">Shadertoy: Boids Alorithm</p></a>
-      <img src="Assets/Videos/Boidified.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Flocking Boids">
-    </div>
-
-
-    <div class="w3-col l4">
-          <a href="https://www.shadertoy.com/view/ttsBRj" target="_blank"><p style="color:blue">ShaderToy: 2D Gravity</p></a>
-          <img src="Assets/Videos/2DGravity.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="2D N-Body Gravitational Dynamics">
-    </div>
-
-
-    <div class="w3-col l4">
-          <a href="https://www.shadertoy.com/view/tsdcDB" target="_blank"><p style="color:blue">ShaderToy: Voronoi Tesselation</p></a>
-          <img src="Assets/Videos/Voronoi.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="A Dynamic Voronoi Tesselation">
-    </div>
-  </div>
-  <!-- ROW1: Responsive Grid for personal project descriptions -->
-  <div class="w3-row-padding w3-center">
-      <div class="w3-third">
-        <div class="description" data-description="BoidsAlgorithm">
-              <p align=justify>
-                <span class="dots"></span>
-                <span class="more" style="display: none;">
-                 The boids algorithm is a simple model for flocking behavior found naturally in schools of fish and certain bird populations. The algorithm considers interactions between a boid (bird-oid) object and its neighbors as well as the dominant flight direction of the entire flock in order to update trajectories. In each time step, the algorithm calls for the following updates:
-                <br>1) flock cohesion (Uses the separation from neighboring boids to determine which direction a boid should move to join the flock)
-                <br><br>2) flock alignment (which uses the velocities of the neighboring boids to determine the net direction of the flock)
-                <br><br>3) collision avoidance (Uses the separation from neighboring boids to determine how a boid should move to avoid collisions with other members of the flock)
-                <br><br>
-                Each of these updates has an associated weight that can be tuned to modify certain characteristics of the flocking behavior. For instance, granting more weight to the flock alignment update weight will result a more uniform set of trajectories within the flock.
-                <!-- <br></br> <b>References:</b>
-                <br></br> <a href="http://www.kfish.org/boids/pseudocode.html" target="_blank"><p style="color:blue">The Boids Pseudocode</p></a> -->
-                </span>
-              </p>
-        <button onclick="readMore('BoidsAlgorithm')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-      <div class="w3-third">
-        <div class="description" data-description="2DGrav">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-             This 2D gravity simulator uses a simple Forward-Euler method for the underlying propagator of the planet positions. The update step for each planet is determined by modelling all gravitating objects within the simulation as point-like and applying Newton's Law of Gravity. Interestingly, this familiar law takes a new form when we work in two dimensions instead of three dimensions. It no longer follows the inverse square law but rather adopts a proportionality to 1/r. Even more interesting is the fact that escape velocities are impossible under this new gravitation regime!
-          </span>
-        </p>
-        <button onclick="readMore('2DGrav')" class="readMoreButton">Read more</button>
-        </div>
+      <div class="port-tabs reveal" id="portTabs">
+        <button class="tab-btn active" data-tab="research">Research</button>
+        <button class="tab-btn" data-tab="personal">Personal Projects</button>
+        <button class="tab-btn" data-tab="coursework">Coursework</button>
+        <button class="tab-btn" data-tab="patents">Patents</button>
       </div>
 
-      <div class="w3-third">
-        <div class="description" data-description="Voronoi">
-        <p align=justify>
-          <span class="dots"></span>
-          <span class="more" style="display: none;">
-            Voronoi tesselation is often used as a model for cellular structures found in nature. It is also really beautiful! The process of generating these patterns is as follows: We begin by randomly populating a plane with seeds of different colors. Seeds are special points that will tell us how to partition the surrounding space into fitted polygonal cells. We then color every non-seed point on the plane the same color as the seed it is closest to - the seed from which its Euclidean distance is a minimum.
-          </span>
-        </p>
-        <button onclick="readMore('Voronoi')" class="readMoreButton">Read more</button>
-        </div>
-      </div>
-
-  </div>
-  <!-- ROW2: Responsive Grid for personal project images-->
-  <div class="w3-row-padding w3-center w3-section">
-
-    <div class="w3-col l4">
-      <a href="noref" target="_blank"><p style="color:blue">Phase Retrieval</p></a>
-      <img src="Assets/Videos/HIOPhaseRetrieval.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="The Hybrid Input-Output (HIO) Phase Retrieval algorithm in action">
-    </div>
-
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/PAVRenderMontage.pdf" target="_blank"><p style="color:blue">VTOL Aircraft</p></a>
-      <img src="Assets/Videos/PAVFlowSim.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Boeing Personal Air Vehicle Competition">
-    </div>
-
-
-    <div class="w3-col l4">
-        <a href="https://www.shadertoy.com/view/st3yDn" target="_blank"><p style="color:blue">ShaderToy: Mandelbrot Set</p></a>
-        <img src="Assets/Videos/Mandelbrot.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="Zooming into the Mandelbrot fractal">
-      </div>
-
-  </div>
-  <!-- ROW2: Responsive Grid for personal project descriptions-->
-  <div class="w3-row-padding w3-center">
-
-    <div class="w3-third">
-      <div class="description" data-description="PhaseRetrieval">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          Phase retrieval algorithms solve the <a href="https://en.wikipedia.org/wiki/Phase_problem" target="_blank"> Phase Problem </a>. That is they recover the Fourier Transform of a real, non-negative function using only measurements of the Fourier Modulus - no phase information. Since the scenes we image in the physical world are real (an intensity distribution in space) and the non-negatve (the notion of negative intensity does not exist), these algorithms have been deployed with remarkable success in a variety of imaging applications. One such application has been in interferometric imagers (see patents section). Phase information in fringe measurements is often corrupted through effects like atmospheric turbulence and optical aberrations. The amplitude however is generally left in tact. Here I have implemented the <a href=https://www.osapublishing.org/ol/abstract.cfm?uri=ol-3-1-27 target="_blank"> Hybrid Input-Output (HIO) algorithm </a>. The figure an estimated reconstruction of the scene converging to the ground truth after only a few hundred iterations. Even with the phase information totally lost, these algorithms can recover the original scene up to a translation or reflection. Such transformations amount to global phase factor in the estimate of the fourier transform which is ignored in the loss function.
-        </span>
-      </p>
-      <button onclick="readMore('PhaseRetrieval')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="VTOL">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          Electric Vertical Takeoff and Landing (E-VTOL) are the future of personal aviation. Companies like <a href="https://www.aurora.aero/pav-evtol-passenger-air-vehicle/" target="_blank"> Aurora </a> and <a href="https://www.opener.aero/" target="_blank"> Opener </a> are in a race to develop vehicles that are highly compatible with increasingly urbanized societies. The figure above showcases our E-VTOL design submission to Boeing's Personal Air Vehicle (PAV) competition. The aircraft achieves VTOL capabilites by rotating the twin-propeller wing and redirecting an exhaust nozzle downwards. The design is optimized for good aerodynamic efficiency during vertical ascent and in horizontal flight. We used Computational Fluid Dynamics programs to assess the pressure profile shown over the aircraft surfaces in both vertical and horizontal flight configurations.
-        </span>
-      </p>
-      <button onclick="readMore('VTOL')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="Mandelbrot">
-      <p align=justify>
-      <span class="dots"></span>
-      <span class="more" style="display: none;">
-          I know. It's a rather cliche fractal to animate but the Mandelbrot set has some amazing properties outside of its captivating graphics. Before discussing those though let us go over what the Mandelbrot set is and what this visual represents. A point <var>c</var> in the complex plane is considered part of the Mandelbrot set if it remaisn stable (does not diverge) under infinite iteration of the update rule
-          <span class="math"><var>z</var><sub>n+1</sub> = <var>z</var><sub>n</sub><sup>2</sup> + <var>c</var></span> where   <span class="math"><var>z</var><sub>0</sub> =  0 </span>. The black regions of the plane depicted in the animation constitute points in the Mandelbrot set. The remaining regions are unstable and are colored based on their rate of divergence. The Mandelbrot set is in fact a special case of a Julia set. In general, unique Julia sets are defined by different initializations of <var>z</var><sub>0</sub>. It is astounding that such structure can emerge from such a simple update rule. For more resources on this topic I suggest the following educational math content:
-          <br></br>
-          <a href="https://iquilezles.org/articles/msetsmooth/">Smooth Mandelbrot Shading - Inigo Quilez</a>
-          <br></br>
-          <a href="https://www.youtube.com/watch?v=NGMRB4O922I">The Mandelbrot Set - Numberphile</a>
-          <br></br>
-          <a href="https://www.youtube.com/watch?v=FFftmWSzgmk&t">What's so special about the Mandelbrot Set? - Numberphile</a>
-      </p>
-      <button onclick="readMore('Mandelbrot')" class="readMoreButton">Read more</button>
-    </div>
-    </div>
-
-  </div>
-  <!-- ROW3 Responsive Grid for personal project images-->
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col l4">
-      <a href="noref" target="_blank"><p style="color:blue">Background-Oriented Schlieren</p></a>
-      <img src="Assets/Videos/BOS2.gif" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="T38 Supersonic Mach Cones Identified with BOS">
-    </div>
-
-    <div class="w3-col l4">
-      <a href="Assets/PDFs/Boyd Intepretation for Higher-Order HG Modes.pdf" target="_blank"><p style="color:blue">Gouy Phase for HG Modes</p></a>
-      <img src="Assets/Images/Boyd_Convergence_HighOrder_HG_modes.png" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="The Boyd interpretation of the Gouy Phase applied to higher-order Hermite-Gauss Modes">
-    </div>
-
-
-    <div class="w3-col l4">
-      <a href ="Assets/PDFs/Physics Extended Essay Final - Investigating the Effects of Wingtip Feathers on Induced Drag Reduction and Wing Efficiency.pdf" target="_blank"><p style="color:blue">Bio-Inspired Wing Design</p></a>
-      <img src="Assets/Images/EEFig.jpg" width=300px height=200px onclick="onClick(this)" class="w3-hover-opacity" alt="The Effects of Wingtip Feathers on Induced Drag Reductionand Wing Efficiency">
-    </div>
-
-  </div>
-  <!-- ROW3: Responsive Grid for personal project descriptions-->
-  <div class="w3-row-padding w3-center">
-
-    <div class="w3-third">
-      <div class="description" data-description="BOS">
-      <p align=justify>
-        <span class="dots"></span>
-        <span class="more" style="display: none;">
-          Schlieren imaging is a technique for observing slight changes in refractive index. Non-homogeneous variations in the refractive index produce small deflections in the light path associatd with different regions of the imaging system's field of view. These variations can be visualized by masking/filtering the deflected rays optically or by detecting perturbations using image processing. A certain computational method for Schlieren imaging called Background Oriented Schlieren (BOS) is addressed here. In this project I implemented two Background-Oriented Schlieren (BOS) algorithms and applied them to videos of supersonic T38 Talons acquired by NASA. The objective of this application was to recover the mach cones of the aircraft.
-          <br></br>Mach cones are a particularly interesting application space for BOS for two reasons. First, the angle generated by the mach cone can be used to measure airspeed (although other more precise techniques exist). Second, BOS imaging also addresses the problem of detecting supersonic stealth aircraft with radar. All supersonic aircraft generate a pressure wave. While the size of the pressure wave depends on the aerodynamics of the vehicle, it still induces a perceptible refractive index change.
-          <br></br> In general, <a href = "https://ntrs.nasa.gov/api/citations/20170005509/downloads/20170005509.pdf">BOS algorithms</a> use adjacent video frames to detect small pixel perturbations caused by ray deflections. The first version of this algorithm that I implemented performs a cross-correlations between common subregions of adjacent video frames. For each pixel, we define a small neighborhood of pixels surrounding it. Then we take two adjacent video frames and apply a cross-correlation between common neighborhoods. Indentifying the peaks in these cross-correlations amounts to finding the displacement of each pixel. The second version involves
-          <a href="https://en.wikipedia.org/wiki/Optical_flow#:~:text=Optical%20flow%20or%20optic%20flow,brightness%20pattern%20in%20an%20image.">optical flow</a> techniques. The purpose of optical flow is also to determine pixel displacement. However, instead of using cross-correlations, optical flow algorithms employ the constraint that the total image intensity should remain constant accross frames. In other words, when a pixel is displaced, its intensity is unaffected. Under this assumption, optical flow relates the spatial gradient of the image intensity to the temporal gradient of the image intensity using adjacent video frames.
-        </span>
-      </p>
-      <button onclick="readMore('BOS')" class="readMoreButton">Read more</button>
-      </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="GouyPhase">
-      <p align=justify>
-      <span class="dots"></span>
-      <span class="more" style="display: none;">
-          The Gouy phase is a phenomena observed in focused lasers. In particular, the electricmagnetic field of the laser picks up an &pi; phase shift after passing through the focus and propagating to infinity. Professor Robert Boyd at the University of Rochester presented an intuitive geometric derivation for why this phase shift appears in gaussian beams. He compared the true optical path length of the beam waist to that of a reference ray that passing through a perfect focus. The purpose of this study was to numerically explore whether this argument extends to higher-order Hermite-Gauss modes. It was found that the Boyd interpretation accurately characterizes the net Gouy phase in the far-field for all modes. However, it fails to succesfully describe the evolution of the phase at intermediate distances from the focus.
-        </span>
-      </p>
-      <button onclick="readMore('GouyPhase')" class="readMoreButton">Read more</button>
-    </div>
-    </div>
-
-    <div class="w3-third">
-      <div class="description" data-description="ExtendedEssay">
-      <p align=justify>
-      <span class="dots"></span>
-      <span class="more" style="display: none;">
-          The aerodynamic efficiency of soaring birds can be accredited, in part, to a distinct anatomical feature of their wing: Primary feathers. In this project, I investigated how primary feathers influence wingtip vorticity and induced drag by experimentally measuring aerodynamic forces and conducting flow-physics simulations. Using a home-built wind tunnel and a modular base wing, I measured aerodynamic lift and drag for a series of feather profiles and angles-of-attack (AOA). The ratio of these force measurements quantitatively characterized the efficiency of the wing configuration. To establish reliable baselines, I performed flow simulations using XFLR5 on comparable virtual wings. These baselines corroborated the experimental values acquired using the wind tunnel.
-        </span>
-      </p>
-      <button onclick="readMore('ExtendedEssay')" class="readMoreButton">Read more</button>
-    </div>
-    </div>
-
-
-
-
-  </div>
-</div>
-
-<!-- Third Parallax Image with Contact Text-->
-<div class="w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-black w3-wide">CONTACT</span>
-  </div>
-</div>
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <hr>
-  <div class="w3-row w3-padding-32 w3-section">
-
-    <div class="w3-col m8 w3-panel">
-      <div class="w3-large w3-margin-bottom" align=left>
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Tucson, US<br>
-
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Primary Email: <a href="mailto:ndeshler@arizona.edu">ndeshler@arizona.edu</a> <br>
-        <i class="fa fa-graduation-cap fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="https://scholar.google.com/citations?user=_U3Jf6EAAAAJ&hl=en">Google Scholar</a> <br>
-        <i class="fa fa-university fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> <a href="https://orcid.org/0000-0001-8657-3237">ORCID</a> <br>
-      </div>
-      <div align=left>
-      <p>Leave a note</p>
-    </div>
-      <form action="mailto:ndeshler@arizona.edu" method="post" enctype="text/plain">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+      <!-- RESEARCH TAB -->
+      <div class="tab-panel active" id="tab-research">
+        <p class="tab-intro">My research spans quantum optics, computational imaging, compressive sensing, and quantum optomechanics. Click any card to read the full description.</p>
+        <div class="cards stagger">
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/NV_Magnetometry.JPG" alt="Superresolution Quantum Sensing">
+            <div class="card-body">
+              <a class="card-ext" href="http://arxiv.org/abs/2508.13438" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> arXiv</a>
+              <h3 class="card-title">Superresolution Quantum Sensing</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">We employ optical spatial mode demultiplexing (SPADE) to enhance localization and brightness estimation of sub-diffraction NV center ensembles. Our two-stage protocol projects the incoming field onto PSF-adapted and YKL spatial modes, improving emitter localization accuracy by 6× and brightness estimation by 2× compared to conventional focal-plane measurements.</div></div>
+            </div>
           </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/QuantumExo.svg" alt="Quantum Limits of Exoplanet Discovery">
+            <div class="card-body">
+              <a class="card-ext" href="https://arxiv.org/abs/2403.17988" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> arXiv</a>
+              <h3 class="card-title">Quantum Limits of Exoplanet Discovery</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">We report the quantum information limits of exoplanet detection and localization via the Quantum Chernoff Exponent and QFIM. Systems eliminating only the fundamental telescope mode are quantum-optimal at high star-planet contrasts. The QFIM persists well below the diffraction limit, suggesting quantum-optimal coronagraphs can expand the domain of accessible exoplanets.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/ExperimentalCoronagraphImages.svg" alt="Quantum-Optimal Coronagraph">
+            <div class="card-body">
+              <a class="card-ext" href="https://opg.optica.org/optica/fulltext.cfm?uri=optica-12-4-518&id=570325" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> Optica</a>
+              <h3 class="card-title">Quantum-Optimal Coronagraph</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">We implement a direct imaging coronagraph that rejects all light from an on-axis star using a double-pass spatial mode sorter, enabling precise sub-diffraction exoplanet localization at 1000:1 star-planet contrast.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/membrane.gif" alt="Imaging-Based Quantum Optomechanics">
+            <div class="card-body">
+              <a class="card-ext" href="https://doi.org/10.1103/64xv-3fyx" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> Journal</a>
+              <h3 class="card-title">Imaging-Based Quantum Optomechanics</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">We explore optical mode-sorting measurements to estimate the state of an oscillating optomechanical membrane, targeting time-dependent amplitude coefficients of its transverse vibrational modes. We model radiation-pressure back-action via a quantum Hamiltonian, with applications in cavity-free optomechanical metrology and active membrane cooling.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/COSI_2023_Figure.svg" alt="Multi-Aperture Quantum Imaging">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Quantum_Super_Resolution_Imaging_with_Multi_Aperture_Systems-COSI_2023.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> COSI 2023</a>
+              <h3 class="card-title">Multi-Aperture Quantum Imaging</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">We demonstrate quantum modal imaging applied to multi-aperture systems for sub-Rayleigh point-source localization. The performance advantage of modal imaging over direct detection grows as constellation separations shrink and the system becomes more photon-starved.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/Compressive_Quantum_Imaging_fig.svg" alt="Compressive Quantum Imaging">
+            <div class="card-body">
+              <a class="card-ext" href="https://github.com/I2SL/Compressive-Quantum-Imaging" target="_blank" onclick="event.stopPropagation()"><i class="fab fa-github"></i> GitHub</a>
+              <h3 class="card-title">Compressive Quantum Imaging</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Sub-diffraction incoherent imaging using adaptive quantum modal measurements with sparsity constraints.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/COSI_2020_Figure.JPG" alt="Multi-Sensor DiffuserCam">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/COSI-2020-Multi-sensor lensless imaging synthetic large-format sensing with disjoint sensor array.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> COSI 2020</a>
+              <h3 class="card-title">Multi-Sensor DiffuserCam</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">We augment mask-based camera reconstruction volumes using multi-sensor arrays. I derived the guiding mathematical model, designed the relay-lens/mirror optical assembly, and adapted DiffuserCam algorithms for structured erasures. Our 2×2 sensor prototype recovers wide-field images with only 8.6% of the pixels of a conventional lensed system.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/RBCfocusing.gif" alt="MagLev Density Measurement">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/JACS-High-throughput density measurement using magnetic levitation.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> JACS</a>
+              <h3 class="card-title">MagLev Density Measurement</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">A cost-effective anti-Helmholtz MagLev instrument for high-throughput density measurement compatible with 96-well plates and consumer flatbed scanners. I designed the relay-lens and mirror optical assembly in SolidWorks and wrote MATLAB image-processing pipelines to extract sample densities from levitation data.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/CricketJump.gif" alt="Aeromechanics of Jumping Crickets">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/ASME - Aeromechanics of Long Jumps in Spider Crickets-Insights from Experiments and Modeling.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> ASME</a>
+              <h3 class="card-title">Aeromechanics of Jumping Crickets</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Using 3D videogrammetry we tracked spider cricket CoM and limb trajectories throughout a jump. Drag force and net torque analysis revealed the cricket's aerial posture passively generates stabilizing restoring torques — a mechanism vital for biologically inspired robotic locomotion.</div></div>
+            </div>
           </div>
         </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-black w3-right w3-section" type="submit" onclick>
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </form>
+      </div>
+
+      <!-- PERSONAL TAB -->
+      <div class="tab-panel" id="tab-personal">
+        <p class="tab-intro">Programs and algorithms built in free time — spanning computational graphics, fluid dynamics, aircraft design, and signal processing.</p>
+        <div class="cards stagger">
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/Boidified.gif" alt="Boids Algorithm">
+            <div class="card-body">
+              <a class="card-ext" href="https://www.shadertoy.com/view/3dBfRh" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
+              <h3 class="card-title">Boids Algorithm</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">A minimal flocking model based on three per-timestep updates: cohesion (join the flock), alignment (match neighbors' velocity), and collision avoidance. Tuning the relative weights produces dramatically different collective behaviors — from tight murmurations to loose swarms.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/2DGravity.gif" alt="2D Gravity">
+            <div class="card-body">
+              <a class="card-ext" href="https://www.shadertoy.com/view/ttsBRj" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
+              <h3 class="card-title">2D N-Body Gravity Simulator</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">A Forward-Euler N-body integrator in 2D. In two dimensions, gravity adopts a 1/r law rather than 1/r². A remarkable consequence: escape velocity is impossible — no projectile can permanently leave the gravitational influence of a 2D massive body.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/Voronoi.gif" alt="Voronoi Tessellation">
+            <div class="card-body">
+              <a class="card-ext" href="https://www.shadertoy.com/view/tsdcDB" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
+              <h3 class="card-title">Voronoi Tessellation</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Dynamic Voronoi tessellation: populate a plane with colored seeds, then color every other point the same color as its nearest seed. The resulting polygonal cell structure beautifully models cellular patterns found throughout nature.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/HIOPhaseRetrieval.gif" alt="Phase Retrieval">
+            <div class="card-body">
+              <h3 class="card-title">HIO Phase Retrieval</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Implementation of the <a href="https://www.osapublishing.org/ol/abstract.cfm?uri=ol-3-1-27" target="_blank">Hybrid Input-Output algorithm</a> for solving the Phase Problem — recovering a scene's Fourier transform from modulus measurements alone. Convergence in a few hundred iterations, up to a global translation or reflection.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/PAVFlowSim.gif" alt="E-VTOL Aircraft">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/PAVRenderMontage.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Design Report</a>
+              <h3 class="card-title">E-VTOL Aircraft Design</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Boeing PAV competition submission. The aircraft achieves VTOL capability by rotating a twin-propeller wing and redirecting an exhaust nozzle downward. CFD simulations characterized pressure profiles over the airframe in both vertical and horizontal flight configurations.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/Mandelbrot.gif" alt="Mandelbrot Set">
+            <div class="card-body">
+              <a class="card-ext" href="https://www.shadertoy.com/view/st3yDn" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
+              <h3 class="card-title">Mandelbrot Set Explorer</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">A point c belongs to the Mandelbrot set if it remains bounded under z → z² + c. Black regions are stable; surrounding regions are colored by divergence rate. Astounding fractal structure from a two-line recurrence relation.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/BOS2.gif" alt="Background-Oriented Schlieren">
+            <div class="card-body">
+              <h3 class="card-title">Background-Oriented Schlieren</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Two BOS algorithms applied to NASA video of supersonic T-38 Talons. The first uses adjacent-frame cross-correlations to track pixel displacements; the second applies optical flow under intensity conservation. Both reveal the pressure-induced refractive index changes around supersonic shockwaves.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/Boyd_Convergence_HighOrder_HG_modes.png" alt="Gouy Phase">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Boyd Intepretation for Higher-Order HG Modes.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
+              <h3 class="card-title">Gouy Phase for HG Modes</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Numerical study of whether Boyd's geometric derivation of the Gouy phase extends to higher-order Hermite-Gauss modes. Result: the Boyd interpretation correctly predicts the net far-field Gouy phase for all modes, but fails at intermediate distances from the focus.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/EEFig.jpg" alt="Bio-Inspired Wing Design">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Physics Extended Essay Final - Investigating the Effects of Wingtip Feathers on Induced Drag Reduction and Wing Efficiency.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Essay</a>
+              <h3 class="card-title">Bio-Inspired Wing Design</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Measuring how primary feathers influence wingtip vorticity and induced drag using a home-built wind tunnel. Aerodynamic lift/drag measured across feather profiles and angles-of-attack, with XFLR5 flow simulations providing theoretical baselines. Results reveal the aerodynamic benefits of bird-inspired wingtip geometries.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COURSEWORK TAB -->
+      <div class="tab-panel" id="tab-coursework">
+        <p class="tab-intro">Final projects from graduate and undergraduate courses spanning physics, computer science, and optical sciences.</p>
+        <div class="cards stagger">
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/BubbleSimulator.gif" alt="Bubble Simulator">
+            <div class="card-body">
+              <a class="card-ext" href="https://dangeng.github.io/184-final-project/" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> Project Page</a>
+              <h3 class="card-title">Bubble Simulator</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Light transport adapted to render chromatic dynamics of soap bubbles. Thin film interference is paired with 2D Navier-Stokes integration over a sphere to physically evolve the thickness distribution and update radiance per ray intersection.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/cymatics.gif" alt="Cymatics and Waves">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Physics_111A_Final_Project_2019.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
+              <h3 class="card-title">Cymatics and Waves</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">A new method for measuring wave propagation speed in soap membranes using a speaker, LED, and photodiode. At resonant frequencies, stroboscopic illumination renders the mode profile stationary and the photodiode reads constant — enabling a frequency sweep to identify resonances and extract wave speed.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/ClothSimulator.gif" alt="Cloth Simulator">
+            <div class="card-body">
+              <a class="card-ext" href="https://nicodeshler.github.io/CS184-sp20-p4-clothsim/" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> Project Page</a>
+              <h3 class="card-title">Cloth Simulator</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Perceptually realistic cloth simulation via a 2D point-mass / Hooke's-law spring lattice integrated with Verlet methods. Handles scene and self-collisions with GPU shaders for near-real-time rendering.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/HelmholtzResonator.PNG" alt="Helmholtz Resonator">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Physics_111B_Helmholtz_Resonator.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
+              <h3 class="card-title">Helmholtz Resonator</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Power-law fits of resonance frequency vs. cavity volume and neck length, with spectral analysis of audio signals and Q-factor characterization. Theoretical predictions compare well against cavity-volume data.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/PNJ_BifurcZoom.png" alt="Nonlinear Dynamics">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Physics_111B_Non_Linear_Dynamics_and_Chaos_Write_Up.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
+              <h3 class="card-title">Nonlinear Dynamics &amp; Chaos</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Exploration of a PN-junction driven oscillatory circuit. Bifurcation diagrams reveal sequential period doubling; we identify a strange attractor, explore 2D/3D delay-time embeddings, and compute the largest Lyapunov exponent across the chaotic parameter range.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/HallEffect.png" alt="Semiconductor Hall Effect">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Physics_111B_Semiconductor_Hall_Effect.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
+              <h3 class="card-title">Semiconductor Hall Effect</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Temperature dependence of free carrier density, resistivity, and charge mobility in aluminum-doped germanium, measured using Van der Pauw Hall coefficient techniques.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Videos/EMMultiAperture_DD.gif" alt="Quantum Super-Resolution">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/Super-Resolution_2pt_src.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
+              <h3 class="card-title">Quantum Super-Resolution</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Expectation Maximization applied to incident photons to resolve two sub-Rayleigh point sources — a walkthrough of the two-point source problem in quantum super-resolution imaging.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/DNN_Diagram.svg" alt="Diffractive Neural Networks">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/ONN_Classification.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
+              <h3 class="card-title">Diffractive Neural Networks</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Sub-Rayleigh image classification using diffractive optical neural networks, benchmarked against digital classifiers trained on spatial mode sorting measurements and direct detection measurements.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PATENTS TAB -->
+      <div class="tab-panel" id="tab-patents">
+        <p class="tab-intro">Patented inventions spanning optical metrology, photonic integrated circuits, and UV decontamination systems.</p>
+        <div class="cards stagger">
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/MagLevApparatus.png" alt="MagLev Apparatus">
+            <div class="card-body">
+              <a class="card-ext" href="https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2019222582&tab=PCTBIBLIO" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> WIPO</a>
+              <h3 class="card-title">Sample Measurement with Mirrors</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Anti-Helmholtz permanent magnets stratify biological samples in paramagnetic fluid by density; a 2F relay-lens and mirror array projects stratified samples onto a household flatbed scanner. Designed for cost-effective 96-well plate compatibility and point-of-care medical diagnostics.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/N-armPIC.png" alt="N-Arm PIC">
+            <div class="card-body">
+              <a class="card-ext" href="Assets/PDFs/N-Arm Interferometer Patent.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Patent</a>
+              <h3 class="card-title">PIC-Based Interferometric Transceiver</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">Unlike prior pairwise beam-combination PIC architectures, this design interferes multiple beams simultaneously. For a non-redundant aperture baseline, it samples N× more spatial frequencies than conventional designs for the same number of input apertures.</div></div>
+            </div>
+          </div>
+          <div class="card" onclick="toggleCard(this)">
+            <img class="card-img" src="Assets/Images/SmartUVWand.png" alt="UV Decontamination System">
+            <div class="card-body">
+              <a class="card-ext" href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11896726" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> USPTO</a>
+              <h3 class="card-title">Interactive UV Decontamination System</h3>
+              <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
+              <div class="card-desc"><div class="card-desc-inner">A UV wand with a 3D computer vision system that computes delivered UV dosage per surface region in real time, providing quantitative decontamination guarantees displayed as a live colormap to the user.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </div>
-</div>
+  </section>
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-  <p>Last Updated 10/13/2022</p>
-</footer>
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="max-w">
+      <div class="section-header reveal">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="section-rule"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal">
+          <div class="contact-info"><p>I'm always happy to discuss research, collaborations, or interesting problems. Feel free to reach out by email or leave a message.</p></div>
+          <div class="clinks">
+            <div class="clink"><div class="clink-icon"><i class="fa fa-location-dot"></i></div><div><div class="clink-label">Location</div><div class="clink-val">Tucson, Arizona, US</div></div></div>
+            <div class="clink"><div class="clink-icon"><i class="fa fa-envelope"></i></div><div><div class="clink-label">Email</div><div class="clink-val"><a href="mailto:ndeshler@arizona.edu">ndeshler@arizona.edu</a></div></div></div>
+            <div class="clink"><div class="clink-icon"><i class="fa fa-graduation-cap"></i></div><div><div class="clink-label">Google Scholar</div><div class="clink-val"><a href="https://scholar.google.com/citations?user=_U3Jf6EAAAAJ&hl=en" target="_blank">View Publications</a></div></div></div>
+            <div class="clink"><div class="clink-icon"><i class="fa fa-id-card"></i></div><div><div class="clink-label">ORCID</div><div class="clink-val"><a href="https://orcid.org/0000-0001-8657-3237" target="_blank">0000-0001-8657-3237</a></div></div></div>
+            <div class="clink"><div class="clink-icon"><i class="fab fa-github"></i></div><div><div class="clink-label">GitHub</div><div class="clink-val"><a href="https://github.com/NicoDeshler" target="_blank">NicoDeshler</a></div></div></div>
+          </div>
+        </div>
+        <form class="contact-form reveal" action="mailto:ndeshler@arizona.edu" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="fg"><label for="name">Name</label><input type="text" id="name" name="Name" placeholder="Your name" required></div>
+            <div class="fg"><label for="email">Email</label><input type="email" id="email" name="Email" placeholder="your@email.com" required></div>
+          </div>
+          <div class="fg"><label for="subject">Subject</label><input type="text" id="subject" name="Subject" placeholder="What's this about?"></div>
+          <div class="fg"><label for="message">Message</label><textarea id="message" name="Message" placeholder="Your message..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="align-self:flex-end"><i class="fa fa-paper-plane"></i> Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-<script>
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">N<span>.</span>Deshler</div>
+    <div class="footer-note">PhD Student · College of Optical Sciences · University of Arizona</div>
+    <a href="#home" class="footer-up"><i class="fa fa-arrow-up"></i> Back to top</a>
+  </footer>
 
-// Change style of navbar on scroll
-window.onscroll = function() {readMore()};
-function readMore() {
-    var navbar = document.getElementById("myNavbar");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
-    } else {
-        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+  <script>
+    // Navbar scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+
+    // Mobile menu
+    function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+
+    // Tabs
+    document.getElementById('portTabs').addEventListener('click', e => {
+      const btn = e.target.closest('.tab-btn');
+      if (!btn) return;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      setTimeout(runReveal, 30);
+    });
+
+    // Card expand/collapse
+    function toggleCard(card) {
+      const opening = !card.classList.contains('open');
+      card.classList.toggle('open', opening);
+      const lbl = card.querySelector('.toggle-label');
+      if (lbl) lbl.textContent = opening ? 'Read less' : 'Read more';
     }
-}
 
-// Used to toggle the menu on small screens when clicking on the menu button
-function toggleFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else {
-        x.className = x.className.replace(" w3-show", "");
+    // Scroll reveal — observer + guaranteed fallback for iframe/preview contexts
+    function runReveal() {
+      const els = document.querySelectorAll('.reveal:not(.in), .stagger:not(.in)');
+      if (!els.length) return;
+
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries, o) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { entry.target.classList.add('in'); o.unobserve(entry.target); }
+          });
+        }, { threshold: 0, rootMargin: '0px 0px 60px 0px' });
+        els.forEach(el => obs.observe(el));
+      } else {
+        els.forEach(el => el.classList.add('in'));
+      }
+
+      // Hard fallback: anything not yet visible after 600ms gets shown regardless
+      setTimeout(() => {
+        document.querySelectorAll('.reveal:not(.in), .stagger:not(.in)').forEach(el => el.classList.add('in'));
+      }, 600);
     }
-}
 
-// Used for read more button
-function readMore(description) {
-  var dots = document.querySelector(`.description[data-description="${description}"] .dots`);
-  var moreText = document.querySelector(`.description[data-description="${description}"] .more`);
-  var btnText = document.querySelector(`.description[data-description="${description}"] .readMoreButton`);
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more";
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less";
-    moreText.style.display = "inline";
-  }
-}
-</script>
-
+    runReveal();
+  </script>
 </body>
-
 </html>
