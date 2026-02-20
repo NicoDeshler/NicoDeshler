@@ -8,298 +8,195 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <style>
     :root {
-      --bg:        #111213;
-      --bg-mid:    #1a1b1d;
-      --bg-card:   rgba(26,27,29,0.92);
-      --blue:      #7eb8d4;
-      --blue-glow: rgba(126,184,212,0.10);
-      --sky:       #a8cfe0;
-      --white:     #f0f1f2;
-      --text:      #b4bac0;
-      --muted:     #6a7178;
-      --border:    rgba(126,184,212,0.14);
-      --ease:      0.35s cubic-bezier(0.4,0,0.2,1);
+      --bg:#111213; --bg-mid:#1a1b1d; --bg-card:rgba(26,27,29,0.92);
+      --blue:#7eb8d4; --blue-glow:rgba(126,184,212,0.10); --sky:#a8cfe0;
+      --white:#f0f1f2; --text:#b4bac0; --muted:#6a7178;
+      --border:rgba(126,184,212,0.14);
+      --ease:0.35s cubic-bezier(0.4,0,0.2,1);
     }
-
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
-    body {
-      font-family:'Outfit',sans-serif;
-      background:var(--bg); color:var(--text);
-      line-height:1.72; overflow-x:hidden;
-    }
-    body::before {
-      content:''; position:fixed; inset:0;
-      background:
-        radial-gradient(ellipse at 18% 8%, rgba(126,184,212,0.04) 0%, transparent 58%),
-        radial-gradient(ellipse at 82% 85%, rgba(55,60,65,0.09) 0%, transparent 52%);
-      pointer-events:none; z-index:0;
-    }
-    ::selection { background:var(--blue); color:#fff; }
-    a { color:var(--sky); text-decoration:none; transition:color var(--ease); }
-    a:hover { color:var(--white); }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);line-height:1.72;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse at 18% 8%,rgba(126,184,212,0.04) 0%,transparent 58%),radial-gradient(ellipse at 82% 85%,rgba(55,60,65,0.09) 0%,transparent 52%);pointer-events:none;z-index:0;}
+    ::selection{background:var(--blue);color:#fff;}
+    a{color:var(--sky);text-decoration:none;transition:color var(--ease);}
+    a:hover{color:var(--white);}
 
     /* NAV */
-    nav {
-      position:fixed; top:0; left:0; right:0; z-index:1000;
-      padding:0 clamp(1.5rem,5vw,4rem); height:62px;
-      display:flex; align-items:center; justify-content:space-between;
-      transition:background var(--ease), box-shadow var(--ease);
-    }
-    nav.scrolled {
-      background:rgba(17,18,19,0.92);
-      backdrop-filter:blur(16px);
-      box-shadow:0 1px 0 var(--border);
-    }
-    .nav-logo { font-family:'Outfit',sans-serif; font-weight:500; font-size:1rem; color:var(--white); }
-    .nav-logo span { color:var(--blue); }
-    .nav-links { display:flex; align-items:center; gap:clamp(1rem,2vw,1.8rem); list-style:none; }
-    .nav-links a {
-      font-size:0.75rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
-      color:var(--muted); position:relative; transition:color var(--ease);
-    }
-    .nav-links a::after {
-      content:''; position:absolute; bottom:-3px; left:0;
-      width:0; height:1px; background:var(--blue); transition:width var(--ease);
-    }
-    .nav-links a:hover { color:var(--white); }
-    .nav-links a:hover::after { width:100%; }
-    .nav-cta {
-      border:1px solid var(--border); padding:0.32rem 0.8rem; border-radius:4px;
-      color:var(--sky) !important; transition:background var(--ease), border-color var(--ease) !important;
-    }
-    .nav-cta:hover { background:var(--blue-glow); border-color:var(--blue); color:var(--white) !important; }
-    .nav-cta::after { display:none !important; }
-    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
-    .hamburger span { display:block; width:22px; height:1.5px; background:var(--muted); }
-    .mobile-menu {
-      display:none; position:fixed; top:62px; left:0; right:0; z-index:999;
-      background:rgba(17,18,19,0.97); backdrop-filter:blur(18px);
-      border-bottom:1px solid var(--border); padding:1.4rem 2rem;
-      flex-direction:column; gap:1.1rem;
-    }
-    .mobile-menu.open { display:flex; }
-    .mobile-menu a { font-size:0.88rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); }
-    .mobile-menu a:hover { color:var(--white); }
-    @media(max-width:768px){ .nav-links{display:none;} .hamburger{display:flex;} }
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 clamp(1.5rem,5vw,4rem);height:62px;display:flex;align-items:center;justify-content:space-between;transition:background var(--ease),box-shadow var(--ease);}
+    nav.scrolled{background:rgba(17,18,19,0.92);backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--border);}
+    .nav-logo-wrap{display:flex;align-items:center;gap:0.55rem;}
+    #lightCanvas{display:block;flex-shrink:0;opacity:0.8;}
+    .nav-logo{font-family:'Outfit',sans-serif;font-weight:500;font-size:1rem;color:var(--white);}
+    .nav-logo span{color:var(--blue);}
+    .nav-links{display:flex;align-items:center;gap:clamp(0.9rem,2vw,1.7rem);list-style:none;}
+    .nav-links a{font-size:0.74rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);position:relative;transition:color var(--ease);display:inline-flex;align-items:center;gap:0.32rem;}
+    .nav-links a i{font-size:0.68rem;opacity:0.7;transition:opacity var(--ease);}
+    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--blue);transition:width var(--ease);}
+    .nav-links a:hover{color:var(--white);}
+    .nav-links a:hover i{opacity:1;}
+    .nav-links a:hover::after{width:100%;}
+    .nav-cta{border:1px solid var(--border);padding:0.32rem 0.8rem;border-radius:4px;color:var(--sky)!important;transition:background var(--ease),border-color var(--ease)!important;}
+    .nav-cta:hover{background:var(--blue-glow);border-color:var(--blue);color:var(--white)!important;}
+    .nav-cta::after{display:none!important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .hamburger span{display:block;width:22px;height:1.5px;background:var(--muted);}
+    .mobile-menu{display:none;position:fixed;top:62px;left:0;right:0;z-index:999;background:rgba(17,18,19,0.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);padding:1.4rem 2rem;flex-direction:column;gap:1.1rem;}
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{font-size:0.88rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+    .mobile-menu a:hover{color:var(--white);}
+    @media(max-width:768px){.nav-links{display:none;}.hamburger{display:flex;}}
 
     /* HERO */
-    #home {
-      min-height:100vh; display:flex; align-items:center; justify-content:center;
-      padding:5rem clamp(1.5rem,5vw,4rem) 4rem;
-      position:relative; text-align:center; z-index:1;
-    }
-    .hero-content { max-width:760px; }
-    .hero-eyebrow {
-      display:inline-flex; align-items:center; gap:0.6rem;
-      font-size:0.7rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase;
-      color:var(--blue); margin-bottom:1.5rem;
-      opacity:0; animation:fadeUp 0.8s 0.2s forwards;
-    }
-    .hero-eyebrow::before, .hero-eyebrow::after {
-      content:''; display:block; width:22px; height:1px; background:var(--blue); opacity:0.5;
-    }
-    .hero-name {
-      font-family:'DM Serif Display',serif;
-      font-size:clamp(2.8rem,7vw,5.5rem); font-weight:400; font-style:normal;
-      line-height:1.06; color:var(--white); letter-spacing:0.01em; margin-bottom:1.3rem;
-      opacity:0; animation:fadeUp 0.8s 0.4s forwards;
-    }
-    .hero-subtitle {
-      font-size:clamp(0.88rem,1.8vw,1rem); font-weight:300; color:var(--muted);
-      max-width:540px; margin:0 auto 2.4rem;
-      opacity:0; animation:fadeUp 0.8s 0.6s forwards;
-    }
-    .hero-ctas {
-      display:flex; gap:0.9rem; justify-content:center; flex-wrap:wrap;
-      opacity:0; animation:fadeUp 0.8s 0.8s forwards;
-    }
-    .btn {
-      display:inline-flex; align-items:center; gap:0.45rem;
-      padding:0.6rem 1.4rem; border-radius:4px;
-      font-size:0.78rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase;
-      border:none; cursor:pointer; transition:all var(--ease);
-    }
-    .btn-primary { background:var(--blue); color:#111; }
-    .btn-primary:hover { background:var(--sky); color:#111; transform:translateY(-1px); box-shadow:0 6px 20px rgba(126,184,212,0.25); }
-    .btn-secondary { background:transparent; border:1px solid var(--border); color:var(--sky); }
-    .btn-secondary:hover { background:var(--blue-glow); border-color:var(--blue); color:var(--white); transform:translateY(-1px); }
-    .hero-scroll {
-      position:absolute; bottom:2.2rem; left:50%; transform:translateX(-50%);
-      display:flex; flex-direction:column; align-items:center; gap:0.45rem;
-      opacity:0; animation:fadeIn 1s 1.3s forwards;
-    }
-    .hero-scroll span { font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); }
-    .scroll-line {
-      width:1px; height:36px; background:linear-gradient(to bottom,var(--muted),transparent);
-      animation:scrollPulse 2s ease-in-out infinite;
-    }
+    #home{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:5rem clamp(1.5rem,5vw,4rem) 4rem;position:relative;text-align:center;z-index:1;}
+    .hero-content{max-width:760px;}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.8s 0.2s forwards;}
+    .hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:22px;height:1px;background:var(--blue);opacity:0.5;}
+    .hero-name{font-family:'DM Serif Display',serif;font-size:clamp(2.8rem,7vw,5.5rem);font-weight:400;font-style:normal;line-height:1.06;color:var(--white);letter-spacing:0.01em;margin-bottom:1.3rem;opacity:0;animation:fadeUp 0.8s 0.4s forwards;}
+    .hero-subtitle{font-size:clamp(0.88rem,1.8vw,1rem);font-weight:300;color:var(--muted);max-width:540px;margin:0 auto 2.4rem;opacity:0;animation:fadeUp 0.8s 0.6s forwards;}
+    .hero-ctas{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp 0.8s 0.8s forwards;}
+    .btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.6rem 1.4rem;border-radius:4px;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;border:none;cursor:pointer;transition:all var(--ease);}
+    .btn-primary{background:var(--blue);color:#111;}
+    .btn-primary:hover{background:var(--sky);color:#111;transform:translateY(-1px);box-shadow:0 6px 20px rgba(126,184,212,0.25);}
+    .btn-secondary{background:transparent;border:1px solid var(--border);color:var(--sky);}
+    .btn-secondary:hover{background:var(--blue-glow);border-color:var(--blue);color:var(--white);transform:translateY(-1px);}
+    .hero-scroll{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.45rem;opacity:0;animation:fadeIn 1s 1.3s forwards;}
+    .hero-scroll span{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);}
+    .scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--muted),transparent);animation:scrollPulse 2s ease-in-out infinite;}
 
     /* SECTIONS */
-    section { padding:clamp(4rem,8vw,6.5rem) clamp(1.5rem,6vw,5rem); position:relative; z-index:1; }
-    .max-w { max-width:1180px; margin:0 auto; }
-    .section-header { margin-bottom:3rem; }
-    .section-label { display:inline-block; font-size:0.66rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--blue); margin-bottom:0.6rem; }
-    .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.9rem,4vw,3rem); font-weight:300; color:var(--white); line-height:1.22; }
-    .section-rule { width:36px; height:1px; background:var(--blue); opacity:0.5; margin-top:1rem; }
+    section{padding:clamp(4rem,8vw,6.5rem) clamp(1.5rem,6vw,5rem);position:relative;z-index:1;}
+    .max-w{max-width:1180px;margin:0 auto;}
+    .section-header{margin-bottom:3rem;}
+    .section-label{display:inline-block;font-size:0.66rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:0.6rem;}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4vw,3rem);font-weight:300;color:var(--white);line-height:1.22;}
+    .section-rule{width:36px;height:1px;background:var(--blue);opacity:0.5;margin-top:1rem;}
 
     /* ABOUT */
-    #about { border-top:1px solid var(--border); }
-    .about-grid { display:grid; grid-template-columns:260px 1fr; gap:clamp(2rem,5vw,4.5rem); align-items:start; }
-    @media(max-width:700px){ .about-grid{grid-template-columns:1fr;} }
-    .about-photo-wrap { position:sticky; top:5rem; }
-    .photo-frame { border-radius:4px; overflow:hidden; position:relative; }
-    .photo-frame::after { content:''; position:absolute; inset:0; border:1px solid var(--border); border-radius:4px; pointer-events:none; }
-    .photo-frame img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; filter:grayscale(25%) brightness(0.88); transition:filter var(--ease); }
-    .photo-frame:hover img { filter:grayscale(0%) brightness(1); }
-    .about-links { display:flex; flex-direction:column; gap:0.55rem; margin-top:1.3rem; }
-    .alink { display:flex; align-items:center; gap:0.65rem; font-size:0.8rem; color:var(--muted); transition:color var(--ease); }
-    .alink:hover { color:var(--white); }
-    .alink i { width:14px; text-align:center; color:var(--blue); font-size:0.8rem; }
-    .about-body p { font-size:0.93rem; font-weight:300; color:var(--text); margin-bottom:1.1rem; line-height:1.85; }
-    .about-body a { color:var(--sky); border-bottom:1px solid rgba(168,207,224,0.22); }
-    .about-body a:hover { color:var(--white); border-bottom-color:var(--white); }
-    .about-body strong { color:var(--sky); font-weight:400; }
-    .tags { display:flex; flex-wrap:wrap; gap:0.45rem; margin-top:1.4rem; }
-    .tag {
-      padding:0.28rem 0.65rem; border:1px solid var(--border); border-radius:3px;
-      font-size:0.69rem; font-weight:500; letter-spacing:0.05em; text-transform:uppercase;
-      color:var(--muted); background:var(--blue-glow); transition:all var(--ease);
-    }
-    .tag:hover { color:var(--sky); border-color:var(--blue); }
+    #about{border-top:1px solid var(--border);}
+    .about-grid{display:grid;grid-template-columns:260px 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start;}
+    @media(max-width:700px){.about-grid{grid-template-columns:1fr;}}
+    .about-photo-wrap{position:sticky;top:5rem;}
+    .photo-frame{border-radius:4px;overflow:hidden;position:relative;}
+    .photo-frame::after{content:'';position:absolute;inset:0;border:1px solid var(--border);border-radius:4px;pointer-events:none;}
+    .photo-frame img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;filter:grayscale(25%) brightness(0.88);transition:filter var(--ease);}
+    .photo-frame:hover img{filter:grayscale(0%) brightness(1);}
+    .about-links{display:flex;flex-direction:column;gap:0.55rem;margin-top:1.3rem;}
+    .alink{display:flex;align-items:center;gap:0.65rem;font-size:0.8rem;color:var(--muted);transition:color var(--ease);}
+    .alink:hover{color:var(--white);}
+    .alink i{width:14px;text-align:center;color:var(--blue);font-size:0.8rem;}
+    .about-body p{font-size:0.93rem;font-weight:300;color:var(--text);margin-bottom:1.1rem;line-height:1.85;}
+    .about-body a{color:var(--sky);border-bottom:1px solid rgba(168,207,224,0.22);}
+    .about-body a:hover{color:var(--white);border-bottom-color:var(--white);}
+    .about-body strong{color:var(--sky);font-weight:400;}
+    .tags{display:flex;flex-wrap:wrap;gap:0.45rem;margin-top:1.4rem;}
+    .tag{padding:0.28rem 0.65rem;border:1px solid var(--border);border-radius:3px;font-size:0.69rem;font-weight:500;letter-spacing:0.05em;text-transform:uppercase;color:var(--muted);background:var(--blue-glow);transition:all var(--ease);}
+    .tag:hover{color:var(--sky);border-color:var(--blue);}
 
     /* PORTFOLIO */
-    #portfolio { border-top:1px solid var(--border); }
-    .port-tabs { display:flex; border-bottom:1px solid var(--border); margin-bottom:2.8rem; overflow-x:auto; scrollbar-width:none; }
-    .port-tabs::-webkit-scrollbar { display:none; }
-    .tab-btn {
-      flex-shrink:0; padding:0.8rem 1.4rem;
-      font-family:'Outfit',sans-serif; font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
-      color:var(--muted); background:transparent; border:none; border-bottom:2px solid transparent;
-      margin-bottom:-1px; cursor:pointer; transition:all var(--ease);
-    }
-    .tab-btn:hover { color:var(--text); }
-    .tab-btn.active { color:var(--white); border-bottom-color:var(--blue); }
-    .tab-panel { display:none; }
-    .tab-panel.active { display:block; animation:fadeIn 0.35s ease; }
-    .tab-intro { font-size:0.9rem; font-weight:300; color:var(--muted); max-width:680px; margin-bottom:2.2rem; line-height:1.78; }
-
-    /* CARDS */
-    .cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.3rem; }
-    .card {
-      background:var(--bg-card); border:1px solid var(--border); border-radius:6px; overflow:hidden;
-      transition:border-color var(--ease), box-shadow var(--ease), transform var(--ease); cursor:pointer;
-    }
-    .card:hover { border-color:rgba(126,184,212,0.35); box-shadow:0 6px 28px rgba(0,0,0,0.32); transform:translateY(-2px); }
-    .card.open { border-color:rgba(126,184,212,0.4); }
-    .card-img { width:100%; height:180px; object-fit:cover; display:block; background:var(--bg-mid); }
-    .card-body { padding:1.1rem 1.3rem; }
-    .card-ext {
-      display:inline-flex; align-items:center; gap:0.3rem;
-      font-size:0.7rem; font-weight:500; letter-spacing:0.07em; text-transform:uppercase;
-      color:var(--blue); opacity:0.8; margin-bottom:0.4rem; transition:opacity var(--ease);
-    }
-    .card-ext:hover { opacity:1; color:var(--white); }
-    .card-title { font-family:'Cormorant Garamond',serif; font-size:1.08rem; font-weight:500; color:var(--white); line-height:1.35; margin-bottom:0.75rem; }
-    .card-toggle-row { display:flex; align-items:center; justify-content:space-between; }
-    .toggle-label { font-size:0.7rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); transition:color var(--ease); }
-    .card:hover .toggle-label { color:var(--sky); }
-    .toggle-icon {
-      width:20px; height:20px; border:1px solid var(--border); border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      color:var(--muted); font-size:0.6rem; transition:all var(--ease); flex-shrink:0;
-    }
-    .card:hover .toggle-icon { border-color:var(--blue); color:var(--blue); }
-    .card.open .toggle-icon { background:var(--blue); border-color:var(--blue); color:#111; transform:rotate(45deg); }
-    .card-desc { max-height:0; overflow:hidden; transition:max-height 0.48s cubic-bezier(0.4,0,0.2,1); }
-    .card.open .card-desc { max-height:900px; }
-    .card-desc-inner {
-      padding-top:0.9rem; margin-top:0.9rem; border-top:1px solid var(--border);
-      font-size:0.84rem; font-weight:300; color:var(--text); line-height:1.85;
-    }
-    .card-desc-inner a { color:var(--sky); border-bottom:1px solid rgba(168,207,224,0.2); }
-    .card-desc-inner a:hover { color:var(--white); }
+    #portfolio{border-top:1px solid var(--border);}
+    .port-tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:2.8rem;overflow-x:auto;scrollbar-width:none;}
+    .port-tabs::-webkit-scrollbar{display:none;}
+    .tab-btn{flex-shrink:0;padding:0.8rem 1.4rem;font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);background:transparent;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:pointer;transition:all var(--ease);}
+    .tab-btn:hover{color:var(--text);}
+    .tab-btn.active{color:var(--white);border-bottom-color:var(--blue);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;animation:fadeIn 0.35s ease;}
+    .tab-intro{font-size:0.9rem;font-weight:300;color:var(--muted);max-width:680px;margin-bottom:2.2rem;line-height:1.78;}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.3rem;}
+    .card{background:var(--bg-card);border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:border-color var(--ease),box-shadow var(--ease),transform var(--ease);cursor:pointer;}
+    .card:hover{border-color:rgba(126,184,212,0.35);box-shadow:0 6px 28px rgba(0,0,0,0.32);transform:translateY(-2px);}
+    .card.open{border-color:rgba(126,184,212,0.4);}
+    .card-img{width:100%;height:180px;object-fit:cover;display:block;background:var(--bg-mid);}
+    .card-body{padding:1.1rem 1.3rem;}
+    .card-ext{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.7rem;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;color:var(--blue);opacity:0.8;margin-bottom:0.4rem;transition:opacity var(--ease);}
+    .card-ext:hover{opacity:1;color:var(--white);}
+    .card-title{font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-weight:500;color:var(--white);line-height:1.35;margin-bottom:0.75rem;}
+    .card-toggle-row{display:flex;align-items:center;justify-content:space-between;}
+    .toggle-label{font-size:0.7rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);transition:color var(--ease);}
+    .card:hover .toggle-label{color:var(--sky);}
+    .toggle-icon{width:20px;height:20px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.6rem;transition:all var(--ease);flex-shrink:0;}
+    .card:hover .toggle-icon{border-color:var(--blue);color:var(--blue);}
+    .card.open .toggle-icon{background:var(--blue);border-color:var(--blue);color:#111;transform:rotate(45deg);}
+    .card-desc{max-height:0;overflow:hidden;transition:max-height 0.48s cubic-bezier(0.4,0,0.2,1);}
+    .card.open .card-desc{max-height:900px;}
+    .card-desc-inner{padding-top:0.9rem;margin-top:0.9rem;border-top:1px solid var(--border);font-size:0.84rem;font-weight:300;color:var(--text);line-height:1.85;}
+    .card-desc-inner a{color:var(--sky);border-bottom:1px solid rgba(168,207,224,0.2);}
+    .card-desc-inner a:hover{color:var(--white);}
 
     /* CONTACT */
-    #contact { border-top:1px solid var(--border); }
-    .contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:clamp(2rem,5vw,4.5rem); align-items:start; }
-    @media(max-width:680px){ .contact-grid{grid-template-columns:1fr;} }
-    .contact-info p { font-size:0.9rem; font-weight:300; color:var(--muted); line-height:1.8; margin-bottom:1.8rem; }
-    .clinks { display:flex; flex-direction:column; gap:0.95rem; }
-    .clink { display:flex; align-items:flex-start; gap:0.9rem; }
-    .clink-icon { width:34px; height:34px; flex-shrink:0; border:1px solid var(--border); border-radius:4px; display:flex; align-items:center; justify-content:center; color:var(--blue); font-size:0.82rem; background:var(--blue-glow); }
-    .clink-label { font-size:0.65rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:0.15rem; }
-    .clink-val { font-size:0.85rem; color:var(--text); }
-    .contact-form { display:flex; flex-direction:column; gap:0.9rem; }
-    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:0.9rem; }
-    @media(max-width:460px){ .form-row{grid-template-columns:1fr;} }
-    .fg { display:flex; flex-direction:column; gap:0.35rem; }
-    .fg label { font-size:0.66rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); }
-    .fg input, .fg textarea {
-      background:rgba(26,27,29,0.7); border:1px solid var(--border); border-radius:4px;
-      padding:0.6rem 0.85rem; font-family:'Outfit',sans-serif; font-size:0.86rem;
-      font-weight:300; color:var(--white); outline:none; resize:none;
-      transition:border-color var(--ease), box-shadow var(--ease);
-    }
-    .fg input::placeholder, .fg textarea::placeholder { color:var(--muted); }
-    .fg input:focus, .fg textarea:focus { border-color:var(--blue); box-shadow:0 0 0 3px var(--blue-glow); }
-    .fg textarea { min-height:115px; }
+    #contact{border-top:1px solid var(--border);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start;}
+    @media(max-width:680px){.contact-grid{grid-template-columns:1fr;}}
+    .contact-info p{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.8;margin-bottom:1.8rem;}
+    .clinks{display:flex;flex-direction:column;gap:0.95rem;}
+    .clink{display:flex;align-items:flex-start;gap:0.9rem;}
+    .clink-icon{width:34px;height:34px;flex-shrink:0;border:1px solid var(--border);border-radius:4px;display:flex;align-items:center;justify-content:center;color:var(--blue);font-size:0.82rem;background:var(--blue-glow);}
+    .clink-label{font-size:0.65rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:0.15rem;}
+    .clink-val{font-size:0.85rem;color:var(--text);}
+    .contact-form{display:flex;flex-direction:column;gap:0.9rem;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;}
+    @media(max-width:460px){.form-row{grid-template-columns:1fr;}}
+    .fg{display:flex;flex-direction:column;gap:0.35rem;}
+    .fg label{font-size:0.66rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+    .fg input,.fg textarea{background:rgba(26,27,29,0.7);border:1px solid var(--border);border-radius:4px;padding:0.6rem 0.85rem;font-family:'Outfit',sans-serif;font-size:0.86rem;font-weight:300;color:var(--white);outline:none;resize:none;transition:border-color var(--ease),box-shadow var(--ease);}
+    .fg input::placeholder,.fg textarea::placeholder{color:var(--muted);}
+    .fg input:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-glow);}
+    .fg textarea{min-height:115px;}
 
     /* FOOTER */
-    footer {
-      border-top:1px solid var(--border); padding:2.2rem clamp(1.5rem,6vw,5rem);
-      display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.8rem;
-      position:relative; z-index:1;
-    }
-    .footer-name { font-size:0.9rem; font-weight:500; color:var(--muted); }
-    .footer-name span { color:var(--blue); }
-    .footer-note { font-size:0.72rem; color:var(--muted); }
-    .footer-up { display:flex; align-items:center; gap:0.4rem; font-size:0.72rem; color:var(--muted); cursor:pointer; transition:color var(--ease); }
-    .footer-up:hover { color:var(--white); }
+    footer{border-top:1px solid var(--border);padding:2.2rem clamp(1.5rem,6vw,5rem);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.8rem;position:relative;z-index:1;}
+    .footer-name{font-size:0.9rem;font-weight:500;color:var(--muted);}
+    .footer-name span{color:var(--blue);}
+    .footer-note{font-size:0.72rem;color:var(--muted);}
+    .footer-up{display:flex;align-items:center;gap:0.4rem;font-size:0.72rem;color:var(--muted);cursor:pointer;transition:color var(--ease);}
+    .footer-up:hover{color:var(--white);}
 
     /* ANIMATIONS */
-    @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}  to{opacity:1;transform:translateY(0);} }
-    @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
-    @keyframes scrollPulse { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    @keyframes scrollPulse{0%,100%{opacity:0.3;}50%{opacity:1;}}
 
     /* SCROLL REVEAL */
-    .reveal { opacity:0; transform:translateY(18px); transition:opacity 0.65s ease,transform 0.65s ease; }
-    .reveal.in { opacity:1; transform:translateY(0); }
-    .stagger > * { opacity:0; transform:translateY(14px); transition:opacity 0.5s ease,transform 0.5s ease; }
-    .stagger.in > *:nth-child(1)  { opacity:1; transform:none; transition-delay:0.00s; }
-    .stagger.in > *:nth-child(2)  { opacity:1; transform:none; transition-delay:0.06s; }
-    .stagger.in > *:nth-child(3)  { opacity:1; transform:none; transition-delay:0.12s; }
-    .stagger.in > *:nth-child(4)  { opacity:1; transform:none; transition-delay:0.18s; }
-    .stagger.in > *:nth-child(5)  { opacity:1; transform:none; transition-delay:0.24s; }
-    .stagger.in > *:nth-child(6)  { opacity:1; transform:none; transition-delay:0.30s; }
-    .stagger.in > *:nth-child(7)  { opacity:1; transform:none; transition-delay:0.36s; }
-    .stagger.in > *:nth-child(8)  { opacity:1; transform:none; transition-delay:0.42s; }
-    .stagger.in > *:nth-child(9)  { opacity:1; transform:none; transition-delay:0.48s; }
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal.in{opacity:1;transform:translateY(0);}
+    .stagger > *{opacity:0;transform:translateY(14px);transition:opacity 0.5s ease,transform 0.5s ease;}
+    .stagger.in > *:nth-child(1){opacity:1;transform:none;transition-delay:0.00s;}
+    .stagger.in > *:nth-child(2){opacity:1;transform:none;transition-delay:0.06s;}
+    .stagger.in > *:nth-child(3){opacity:1;transform:none;transition-delay:0.12s;}
+    .stagger.in > *:nth-child(4){opacity:1;transform:none;transition-delay:0.18s;}
+    .stagger.in > *:nth-child(5){opacity:1;transform:none;transition-delay:0.24s;}
+    .stagger.in > *:nth-child(6){opacity:1;transform:none;transition-delay:0.30s;}
+    .stagger.in > *:nth-child(7){opacity:1;transform:none;transition-delay:0.36s;}
+    .stagger.in > *:nth-child(8){opacity:1;transform:none;transition-delay:0.42s;}
+    .stagger.in > *:nth-child(9){opacity:1;transform:none;transition-delay:0.48s;}
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav id="nav">
-    <div class="nav-logo">N<span>.</span>Deshler</div>
+    <div class="nav-logo-wrap">
+      <canvas id="lightCanvas" width="36" height="36"></canvas>
+      <div class="nav-logo">N<span>.</span>Deshler</div>
+    </div>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#home"><i class="fa fa-house"></i> Home</a></li>
+      <li><a href="#about"><i class="fa fa-user"></i> About</a></li>
+      <li><a href="#portfolio"><i class="fa fa-layer-group"></i> Portfolio</a></li>
+      <li><a href="#contact"><i class="fa fa-envelope"></i> Contact</a></li>
       <li><a href="Assets/PDFs/Deshler-Nicolas_CV.pdf" target="_blank" class="nav-cta"><i class="fa fa-file-lines"></i> CV</a></li>
       <li><a href="https://github.com/NicoDeshler" target="_blank" class="nav-cta"><i class="fab fa-github"></i> GitHub</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </nav>
   <div class="mobile-menu" id="mobileMenu">
-    <a href="#home" onclick="toggleMenu()">Home</a>
-    <a href="#about" onclick="toggleMenu()">About</a>
-    <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="#home" onclick="toggleMenu()"><i class="fa fa-house"></i> Home</a>
+    <a href="#about" onclick="toggleMenu()"><i class="fa fa-user"></i> About</a>
+    <a href="#portfolio" onclick="toggleMenu()"><i class="fa fa-layer-group"></i> Portfolio</a>
+    <a href="#contact" onclick="toggleMenu()"><i class="fa fa-envelope"></i> Contact</a>
     <a href="Assets/PDFs/Deshler-Nicolas_CV.pdf" target="_blank">Curriculum Vitae</a>
     <a href="https://github.com/NicoDeshler" target="_blank">GitHub</a>
     <a href="Assets/PDFs/GRFP_essays.pdf" target="_blank">NSF GRFP</a>
@@ -308,7 +205,7 @@
   <!-- HERO -->
   <section id="home">
     <div class="hero-content">
-      <div class="hero-eyebrow">PhD Researcher · University of Arizona</div>
+      <div class="hero-eyebrow">PhD Researcher &middot; University of Arizona</div>
       <h1 class="hero-name">Nico Deshler</h1>
       <p class="hero-subtitle">Doctoral student in quantum information science, quantum metrology &amp; computational imaging.</p>
       <div class="hero-ctas">
@@ -331,7 +228,7 @@
             <a href="https://scholar.google.com/citations?user=_U3Jf6EAAAAJ&hl=en" target="_blank" class="alink"><i class="fa fa-graduation-cap"></i><span>Google Scholar</span></a>
             <a href="https://orcid.org/0000-0001-8657-3237" target="_blank" class="alink"><i class="fa fa-id-card"></i><span>ORCID 0000-0001-8657-3237</span></a>
             <a href="https://github.com/NicoDeshler" target="_blank" class="alink"><i class="fab fa-github"></i><span>NicoDeshler</span></a>
-            <a href="Assets/PDFs/GRFP_essays.pdf" target="_blank" class="alink"><i class="fa fa-award"></i><span>NSF GRFP Fellow · DGE-2137419</span></a>
+            <a href="Assets/PDFs/GRFP_essays.pdf" target="_blank" class="alink"><i class="fa fa-award"></i><span>NSF GRFP Fellow &middot; DGE-2137419</span></a>
             <a href="https://wp.optics.arizona.edu/ashoka/" target="_blank" class="alink"><i class="fa fa-microscope"></i><span>Intelligent Imaging &amp; Sensing Lab</span></a>
             <a href="https://cqn-erc.arizona.edu/" target="_blank" class="alink"><i class="fa fa-atom"></i><span>Center for Quantum Networks</span></a>
             <a href="https://drive.google.com/drive/folders/1J2Vwk4acpNIHk_imQYL2BbHVyVMUjgUT?usp=sharing" target="_blank" class="alink"><i class="fa fa-book-open"></i><span>OSC Journal Club Archive</span></a>
@@ -340,11 +237,11 @@
         <div class="about-body reveal">
           <div class="section-header">
             <span class="section-label">About</span>
-            <h2 class="section-title">Hi, I'm Nico.</h2>
+            <h2 class="section-title">Hello, I'm Nico.</h2>
             <div class="section-rule"></div>
           </div>
           <p>I'm a PhD student in the College of Optical Sciences at the University of Arizona, advised by Professor <a href="https://wp.optics.arizona.edu/ashoka/" target="_blank">Amit Ashok</a> (Intelligent Imaging &amp; Sensing Lab) and affiliated with the <a href="https://cqn-erc.arizona.edu/" target="_blank">Center for Quantum Networks</a> directed by Professor Saikat Guha. I completed my undergraduate degrees in Physics and Computer Science at the University of California, Berkeley.</p>
-          <p>My research applies <strong>quantum parameter estimation theory</strong> to super-resolution imaging and quantum sensing — asking what information is fundamentally accessible when light carries the signal. I'm most excited by problems that are visual, geometric, and deeply mathematical.</p>
+          <p>My research applies <strong>quantum parameter estimation theory</strong> to super-resolution imaging and quantum sensing &mdash; asking what information is fundamentally accessible when light carries the signal. I'm most excited by problems that are visual, geometric, and deeply mathematical.</p>
           <p>Within my graduate college I'm co-president of the OSC Journal Club. Outside of academics I enjoy reading fantasy, making music, rock climbing, and playing soccer.</p>
           <div class="tags">
             <span class="tag">Quantum Information</span>
@@ -376,7 +273,7 @@
         <button class="tab-btn" data-tab="patents">Patents</button>
       </div>
 
-      <!-- RESEARCH TAB -->
+      <!-- RESEARCH -->
       <div class="tab-panel active" id="tab-research">
         <p class="tab-intro">My research spans quantum optics, computational imaging, compressive sensing, and quantum optomechanics. Click any card to read the full description.</p>
         <div class="cards stagger">
@@ -386,7 +283,7 @@
               <a class="card-ext" href="http://arxiv.org/abs/2508.13438" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> arXiv</a>
               <h3 class="card-title">Superresolution Quantum Sensing</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">We employ optical spatial mode demultiplexing (SPADE) to enhance localization and brightness estimation of sub-diffraction NV center ensembles. Our two-stage protocol projects the incoming field onto PSF-adapted and YKL spatial modes, improving emitter localization accuracy by 6× and brightness estimation by 2× compared to conventional focal-plane measurements.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">We employ optical spatial mode demultiplexing (SPADE) to enhance localization and brightness estimation of sub-diffraction NV center ensembles. Our two-stage protocol projects the incoming field onto PSF-adapted and YKL spatial modes, improving emitter localization accuracy by 6x and brightness estimation by 2x compared to conventional focal-plane measurements.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -413,7 +310,7 @@
               <a class="card-ext" href="https://doi.org/10.1103/64xv-3fyx" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> Journal</a>
               <h3 class="card-title">Imaging-Based Quantum Optomechanics</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">We explore optical mode-sorting measurements to estimate the state of an oscillating optomechanical membrane, targeting time-dependent amplitude coefficients of its transverse vibrational modes. We model radiation-pressure back-action via a quantum Hamiltonian, with applications in cavity-free optomechanical metrology and active membrane cooling.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">We explore optical mode-sorting measurements to estimate the state of an oscillating optomechanical membrane. We model radiation-pressure back-action via a quantum Hamiltonian, with applications in cavity-free optomechanical metrology and active membrane cooling with structured illumination.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -440,7 +337,7 @@
               <a class="card-ext" href="Assets/PDFs/COSI-2020-Multi-sensor lensless imaging synthetic large-format sensing with disjoint sensor array.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> COSI 2020</a>
               <h3 class="card-title">Multi-Sensor DiffuserCam</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">We augment mask-based camera reconstruction volumes using multi-sensor arrays. I derived the guiding mathematical model, designed the relay-lens/mirror optical assembly, and adapted DiffuserCam algorithms for structured erasures. Our 2×2 sensor prototype recovers wide-field images with only 8.6% of the pixels of a conventional lensed system.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">We augment mask-based camera reconstruction volumes using multi-sensor arrays. I derived the guiding mathematical model, designed the relay-lens/mirror optical assembly, and adapted DiffuserCam algorithms for structured erasures. Our 2x2 sensor prototype recovers wide-field images with only 8.6% of the pixels of a conventional lensed system.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -449,7 +346,7 @@
               <a class="card-ext" href="Assets/PDFs/JACS-High-throughput density measurement using magnetic levitation.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> JACS</a>
               <h3 class="card-title">MagLev Density Measurement</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">A cost-effective anti-Helmholtz MagLev instrument for high-throughput density measurement compatible with 96-well plates and consumer flatbed scanners. I designed the relay-lens and mirror optical assembly in SolidWorks and wrote MATLAB image-processing pipelines to extract sample densities from levitation data.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">A cost-effective anti-Helmholtz MagLev instrument for high-throughput density measurement compatible with 96-well plates and consumer flatbed scanners. I designed the relay-lens and mirror optical assembly in SolidWorks and wrote MATLAB pipelines to extract sample densities from levitation data.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -458,15 +355,15 @@
               <a class="card-ext" href="Assets/PDFs/ASME - Aeromechanics of Long Jumps in Spider Crickets-Insights from Experiments and Modeling.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> ASME</a>
               <h3 class="card-title">Aeromechanics of Jumping Crickets</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Using 3D videogrammetry we tracked spider cricket CoM and limb trajectories throughout a jump. Drag force and net torque analysis revealed the cricket's aerial posture passively generates stabilizing restoring torques — a mechanism vital for biologically inspired robotic locomotion.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Using 3D videogrammetry we tracked spider cricket CoM and limb trajectories throughout a jump. Drag force and net torque analysis revealed the cricket's aerial posture passively generates stabilizing restoring torques.</div></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PERSONAL TAB -->
+      <!-- PERSONAL -->
       <div class="tab-panel" id="tab-personal">
-        <p class="tab-intro">Programs and algorithms built in free time — spanning computational graphics, fluid dynamics, aircraft design, and signal processing.</p>
+        <p class="tab-intro">Programs and algorithms built in free time spanning computational graphics, fluid dynamics, aircraft design, and signal processing.</p>
         <div class="cards stagger">
           <div class="card" onclick="toggleCard(this)">
             <img class="card-img" src="Assets/Videos/Boidified.gif" alt="Boids Algorithm">
@@ -474,7 +371,7 @@
               <a class="card-ext" href="https://www.shadertoy.com/view/3dBfRh" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
               <h3 class="card-title">Boids Algorithm</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">A minimal flocking model based on three per-timestep updates: cohesion (join the flock), alignment (match neighbors' velocity), and collision avoidance. Tuning the relative weights produces dramatically different collective behaviors — from tight murmurations to loose swarms.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">A minimal flocking model based on three per-timestep updates: cohesion, alignment, and collision avoidance. Tuning the relative weights produces dramatically different collective behaviors from tight murmurations to loose swarms.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -483,7 +380,7 @@
               <a class="card-ext" href="https://www.shadertoy.com/view/ttsBRj" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
               <h3 class="card-title">2D N-Body Gravity Simulator</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">A Forward-Euler N-body integrator in 2D. In two dimensions, gravity adopts a 1/r law rather than 1/r². A remarkable consequence: escape velocity is impossible — no projectile can permanently leave the gravitational influence of a 2D massive body.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">A Forward-Euler N-body integrator in 2D. In two dimensions, gravity adopts a 1/r law rather than 1/r^2. A remarkable consequence: escape velocity is impossible in this regime.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -492,7 +389,7 @@
               <a class="card-ext" href="https://www.shadertoy.com/view/tsdcDB" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
               <h3 class="card-title">Voronoi Tessellation</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Dynamic Voronoi tessellation: populate a plane with colored seeds, then color every other point the same color as its nearest seed. The resulting polygonal cell structure beautifully models cellular patterns found throughout nature.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Dynamic Voronoi tessellation: populate a plane with colored seeds, then color every point by its nearest seed. The resulting polygonal cell structure is a beautiful model for cellular patterns found throughout nature.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -500,7 +397,7 @@
             <div class="card-body">
               <h3 class="card-title">HIO Phase Retrieval</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Implementation of the <a href="https://www.osapublishing.org/ol/abstract.cfm?uri=ol-3-1-27" target="_blank">Hybrid Input-Output algorithm</a> for solving the Phase Problem — recovering a scene's Fourier transform from modulus measurements alone. Convergence in a few hundred iterations, up to a global translation or reflection.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Implementation of the Hybrid Input-Output algorithm for the Phase Problem: recovering a scene's Fourier transform from modulus measurements alone. Convergence in a few hundred iterations, up to a global translation or reflection.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -509,7 +406,7 @@
               <a class="card-ext" href="Assets/PDFs/PAVRenderMontage.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Design Report</a>
               <h3 class="card-title">E-VTOL Aircraft Design</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Boeing PAV competition submission. The aircraft achieves VTOL capability by rotating a twin-propeller wing and redirecting an exhaust nozzle downward. CFD simulations characterized pressure profiles over the airframe in both vertical and horizontal flight configurations.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Boeing PAV competition submission. The aircraft achieves VTOL capability by rotating a twin-propeller wing and redirecting an exhaust nozzle downward. CFD simulations characterized pressure profiles in both vertical and horizontal flight configurations.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -518,7 +415,7 @@
               <a class="card-ext" href="https://www.shadertoy.com/view/st3yDn" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> ShaderToy</a>
               <h3 class="card-title">Mandelbrot Set Explorer</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">A point c belongs to the Mandelbrot set if it remains bounded under z → z² + c. Black regions are stable; surrounding regions are colored by divergence rate. Astounding fractal structure from a two-line recurrence relation.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">A point c belongs to the Mandelbrot set if it remains bounded under z to z^2 + c. Black regions are stable; surrounding regions are colored by divergence rate. Astounding fractal structure from a two-line recurrence relation.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -526,7 +423,7 @@
             <div class="card-body">
               <h3 class="card-title">Background-Oriented Schlieren</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Two BOS algorithms applied to NASA video of supersonic T-38 Talons. The first uses adjacent-frame cross-correlations to track pixel displacements; the second applies optical flow under intensity conservation. Both reveal the pressure-induced refractive index changes around supersonic shockwaves.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Two BOS algorithms applied to NASA video of supersonic T-38 Talons. Cross-correlation and optical flow methods both reveal the pressure-induced refractive index changes around supersonic shockwaves.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -535,7 +432,7 @@
               <a class="card-ext" href="Assets/PDFs/Boyd Intepretation for Higher-Order HG Modes.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
               <h3 class="card-title">Gouy Phase for HG Modes</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Numerical study of whether Boyd's geometric derivation of the Gouy phase extends to higher-order Hermite-Gauss modes. Result: the Boyd interpretation correctly predicts the net far-field Gouy phase for all modes, but fails at intermediate distances from the focus.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Numerical study testing whether Boyd's geometric derivation of the Gouy phase extends to higher-order Hermite-Gauss modes. Result: the Boyd interpretation correctly predicts the net far-field Gouy phase for all modes, but fails at intermediate distances from the focus.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -544,13 +441,13 @@
               <a class="card-ext" href="Assets/PDFs/Physics Extended Essay Final - Investigating the Effects of Wingtip Feathers on Induced Drag Reduction and Wing Efficiency.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Essay</a>
               <h3 class="card-title">Bio-Inspired Wing Design</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Measuring how primary feathers influence wingtip vorticity and induced drag using a home-built wind tunnel. Aerodynamic lift/drag measured across feather profiles and angles-of-attack, with XFLR5 flow simulations providing theoretical baselines. Results reveal the aerodynamic benefits of bird-inspired wingtip geometries.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Measuring how primary feathers influence wingtip vorticity and induced drag using a home-built wind tunnel. XFLR5 flow simulations provided theoretical baselines for the aerodynamic efficiency measurements.</div></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- COURSEWORK TAB -->
+      <!-- COURSEWORK -->
       <div class="tab-panel" id="tab-coursework">
         <p class="tab-intro">Final projects from graduate and undergraduate courses spanning physics, computer science, and optical sciences.</p>
         <div class="cards stagger">
@@ -569,7 +466,7 @@
               <a class="card-ext" href="Assets/PDFs/Physics_111A_Final_Project_2019.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
               <h3 class="card-title">Cymatics and Waves</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">A new method for measuring wave propagation speed in soap membranes using a speaker, LED, and photodiode. At resonant frequencies, stroboscopic illumination renders the mode profile stationary and the photodiode reads constant — enabling a frequency sweep to identify resonances and extract wave speed.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">A new method for measuring wave propagation speed in soap membranes using a speaker, LED, and photodiode. At resonant frequencies, stroboscopic illumination renders the mode profile stationary, enabling identification of resonances and extraction of wave speed.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -578,7 +475,7 @@
               <a class="card-ext" href="https://nicodeshler.github.io/CS184-sp20-p4-clothsim/" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> Project Page</a>
               <h3 class="card-title">Cloth Simulator</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Perceptually realistic cloth simulation via a 2D point-mass / Hooke's-law spring lattice integrated with Verlet methods. Handles scene and self-collisions with GPU shaders for near-real-time rendering.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Perceptually realistic cloth simulation via a 2D point-mass / spring lattice integrated with Verlet methods. Handles scene and self-collisions with GPU shaders for near-real-time rendering.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -587,16 +484,16 @@
               <a class="card-ext" href="Assets/PDFs/Physics_111B_Helmholtz_Resonator.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
               <h3 class="card-title">Helmholtz Resonator</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Power-law fits of resonance frequency vs. cavity volume and neck length, with spectral analysis of audio signals and Q-factor characterization. Theoretical predictions compare well against cavity-volume data.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Power-law fits of resonance frequency vs. cavity volume and neck length with Q-factor characterization. Theoretical predictions compare well against cavity-volume data.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
             <img class="card-img" src="Assets/Images/PNJ_BifurcZoom.png" alt="Nonlinear Dynamics">
             <div class="card-body">
               <a class="card-ext" href="Assets/PDFs/Physics_111B_Non_Linear_Dynamics_and_Chaos_Write_Up.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
-              <h3 class="card-title">Nonlinear Dynamics &amp; Chaos</h3>
+              <h3 class="card-title">Nonlinear Dynamics and Chaos</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Exploration of a PN-junction driven oscillatory circuit. Bifurcation diagrams reveal sequential period doubling; we identify a strange attractor, explore 2D/3D delay-time embeddings, and compute the largest Lyapunov exponent across the chaotic parameter range.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Exploration of a PN-junction driven oscillatory circuit. Bifurcation diagrams reveal sequential period doubling; we identify a strange attractor and compute the largest Lyapunov exponent across the chaotic parameter range.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -614,7 +511,7 @@
               <a class="card-ext" href="Assets/PDFs/Super-Resolution_2pt_src.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
               <h3 class="card-title">Quantum Super-Resolution</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Expectation Maximization applied to incident photons to resolve two sub-Rayleigh point sources — a walkthrough of the two-point source problem in quantum super-resolution imaging.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Expectation Maximization applied to incident photons to resolve two sub-Rayleigh point sources.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -623,13 +520,13 @@
               <a class="card-ext" href="Assets/PDFs/ONN_Classification.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Report</a>
               <h3 class="card-title">Diffractive Neural Networks</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Sub-Rayleigh image classification using diffractive optical neural networks, benchmarked against digital classifiers trained on spatial mode sorting measurements and direct detection measurements.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Sub-Rayleigh image classification using diffractive optical neural networks, benchmarked against digital classifiers trained on spatial mode sorting and direct detection measurements.</div></div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- PATENTS TAB -->
+      <!-- PATENTS -->
       <div class="tab-panel" id="tab-patents">
         <p class="tab-intro">Patented inventions spanning optical metrology, photonic integrated circuits, and UV decontamination systems.</p>
         <div class="cards stagger">
@@ -648,7 +545,7 @@
               <a class="card-ext" href="Assets/PDFs/N-Arm Interferometer Patent.pdf" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-file-pdf"></i> Patent</a>
               <h3 class="card-title">PIC-Based Interferometric Transceiver</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">Unlike prior pairwise beam-combination PIC architectures, this design interferes multiple beams simultaneously. For a non-redundant aperture baseline, it samples N× more spatial frequencies than conventional designs for the same number of input apertures.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">Unlike prior pairwise beam-combination PIC architectures, this design interferes multiple beams simultaneously. For a non-redundant aperture baseline, it samples Nx more spatial frequencies than conventional designs for the same number of input apertures.</div></div>
             </div>
           </div>
           <div class="card" onclick="toggleCard(this)">
@@ -657,7 +554,7 @@
               <a class="card-ext" href="https://ppubs.uspto.gov/dirsearch-public/print/downloadPdf/11896726" target="_blank" onclick="event.stopPropagation()"><i class="fa fa-arrow-up-right-from-square"></i> USPTO</a>
               <h3 class="card-title">Interactive UV Decontamination System</h3>
               <div class="card-toggle-row"><span class="toggle-label">Read more</span><div class="toggle-icon"><i class="fa fa-plus"></i></div></div>
-              <div class="card-desc"><div class="card-desc-inner">A UV wand with a 3D computer vision system that computes delivered UV dosage per surface region in real time, providing quantitative decontamination guarantees displayed as a live colormap to the user.</div></div>
+              <div class="card-desc"><div class="card-desc-inner">A UV wand with a 3D computer vision system that computes delivered UV dosage per surface region in real time, providing quantitative decontamination guarantees displayed as a live colormap.</div></div>
             </div>
           </div>
         </div>
@@ -687,11 +584,11 @@
         </div>
         <form class="contact-form reveal" action="mailto:ndeshler@arizona.edu" method="post" enctype="text/plain">
           <div class="form-row">
-            <div class="fg"><label for="name">Name</label><input type="text" id="name" name="Name" placeholder="Your name" required></div>
-            <div class="fg"><label for="email">Email</label><input type="email" id="email" name="Email" placeholder="your@email.com" required></div>
+            <div class="fg"><label for="nm">Name</label><input type="text" id="nm" name="Name" placeholder="Your name" required></div>
+            <div class="fg"><label for="em">Email</label><input type="email" id="em" name="Email" placeholder="your@email.com" required></div>
           </div>
-          <div class="fg"><label for="subject">Subject</label><input type="text" id="subject" name="Subject" placeholder="What's this about?"></div>
-          <div class="fg"><label for="message">Message</label><textarea id="message" name="Message" placeholder="Your message..." required></textarea></div>
+          <div class="fg"><label for="sub">Subject</label><input type="text" id="sub" name="Subject" placeholder="What is this about?"></div>
+          <div class="fg"><label for="msg">Message</label><textarea id="msg" name="Message" placeholder="Your message..." required></textarea></div>
           <button type="submit" class="btn btn-primary" style="align-self:flex-end"><i class="fa fa-paper-plane"></i> Send Message</button>
         </form>
       </div>
@@ -701,24 +598,24 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-name">N<span>.</span>Deshler</div>
-    <div class="footer-note">PhD Student · College of Optical Sciences · University of Arizona</div>
+    <div class="footer-note">PhD Student &middot; College of Optical Sciences &middot; University of Arizona</div>
     <a href="#home" class="footer-up"><i class="fa fa-arrow-up"></i> Back to top</a>
   </footer>
 
   <script>
     // Navbar scroll
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+    window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 60); });
 
     // Mobile menu
     function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
 
     // Tabs
-    document.getElementById('portTabs').addEventListener('click', e => {
-      const btn = e.target.closest('.tab-btn');
+    document.getElementById('portTabs').addEventListener('click', function(e) {
+      var btn = e.target.closest('.tab-btn');
       if (!btn) return;
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
       btn.classList.add('active');
       document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
       setTimeout(runReveal, 30);
@@ -726,35 +623,87 @@
 
     // Card expand/collapse
     function toggleCard(card) {
-      const opening = !card.classList.contains('open');
+      var opening = !card.classList.contains('open');
       card.classList.toggle('open', opening);
-      const lbl = card.querySelector('.toggle-label');
+      var lbl = card.querySelector('.toggle-label');
       if (lbl) lbl.textContent = opening ? 'Read less' : 'Read more';
     }
 
-    // Scroll reveal — observer + guaranteed fallback for iframe/preview contexts
+    // Scroll reveal
     function runReveal() {
-      const els = document.querySelectorAll('.reveal:not(.in), .stagger:not(.in)');
+      var els = document.querySelectorAll('.reveal:not(.in), .stagger:not(.in)');
       if (!els.length) return;
-
       if ('IntersectionObserver' in window) {
-        const obs = new IntersectionObserver((entries, o) => {
-          entries.forEach(entry => {
+        var obs = new IntersectionObserver(function(entries, o) {
+          entries.forEach(function(entry) {
             if (entry.isIntersecting) { entry.target.classList.add('in'); o.unobserve(entry.target); }
           });
         }, { threshold: 0, rootMargin: '0px 0px 60px 0px' });
-        els.forEach(el => obs.observe(el));
+        els.forEach(function(el){ obs.observe(el); });
       } else {
-        els.forEach(el => el.classList.add('in'));
+        els.forEach(function(el){ el.classList.add('in'); });
       }
-
-      // Hard fallback: anything not yet visible after 600ms gets shown regardless
-      setTimeout(() => {
-        document.querySelectorAll('.reveal:not(.in), .stagger:not(.in)').forEach(el => el.classList.add('in'));
+      setTimeout(function() {
+        document.querySelectorAll('.reveal:not(.in), .stagger:not(.in)').forEach(function(el){ el.classList.add('in'); });
       }, 600);
     }
-
     runReveal();
+
+    // Huygens wavelet light animation next to logo
+    (function() {
+      var canvas = document.getElementById('lightCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var W = canvas.width, H = canvas.height;
+
+      // Three point sources arranged like a mini aperture array
+      var sources = [
+        { x: W * 0.28, y: H * 0.62 },
+        { x: W * 0.50, y: H * 0.30 },
+        { x: W * 0.72, y: H * 0.62 }
+      ];
+
+      var t = 0;
+      var SPEED = 0.5;
+      var RING_SPACING = 8;
+      var NUM_RINGS = 5;
+      var MAX_R = 22;
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        sources.forEach(function(src, si) {
+          var phOff = si * (Math.PI * 2 / 3);
+
+          for (var ring = 0; ring < NUM_RINGS; ring++) {
+            var r = ((t * SPEED + ring * RING_SPACING + phOff * 2.5) % (MAX_R + 4));
+            if (r < 0.5) continue;
+            var alpha = Math.max(0, 0.55 * (1 - r / MAX_R));
+            var lineW = 0.6 + 0.4 * (1 - r / MAX_R);
+            ctx.beginPath();
+            ctx.arc(src.x, src.y, r, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(168,207,224,' + alpha.toFixed(3) + ')';
+            ctx.lineWidth = lineW;
+            ctx.stroke();
+          }
+
+          // Pulsing core dot
+          var pulse = 0.35 + 0.2 * Math.sin(t * 0.06 + phOff);
+          var grad = ctx.createRadialGradient(src.x, src.y, 0, src.x, src.y, 3);
+          grad.addColorStop(0, 'rgba(210,232,242,' + pulse.toFixed(3) + ')');
+          grad.addColorStop(1, 'rgba(168,207,224,0)');
+          ctx.beginPath();
+          ctx.arc(src.x, src.y, 3, 0, Math.PI * 2);
+          ctx.fillStyle = grad;
+          ctx.fill();
+        });
+
+        t += 1;
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    })();
   </script>
 </body>
 </html>
